@@ -56,15 +56,14 @@ namespace BanHang
                 string TenHangHoa = e.NewValues["TenHangHoa"].ToString();
                 string IDDonViTinh = e.NewValues["IDDonViTinh"].ToString();
                 float GiaMua = float.Parse(e.NewValues["GiaMua"].ToString());
-                float GiaSi = float.Parse(e.NewValues["GiaSi"].ToString());
-                float GiaLe = float.Parse(e.NewValues["GiaLe"].ToString());
+                float GiaBan = float.Parse(e.NewValues["GiaBan"].ToString());
+                float DoDay = float.Parse(e.NewValues["DoDay"].ToString());
+                float ChieuDai = float.Parse(e.NewValues["ChieuDai"].ToString());
                 string GhiChu = e.NewValues["GhiChu"] != null ? e.NewValues["GhiChu"].ToString() : "";
-                e.NewValues["HinhAnh"] = Session["UploadImages"];
-                string HinhAnh = e.NewValues["HinhAnh"] != null ? e.NewValues["HinhAnh"].ToString() : "";
-                object IDHangHoa = data.ThemHangHoa(IDNhomHang, MaHang, TenHangHoa, IDDonViTinh, GiaMua, GiaSi, GhiChu, HinhAnh, GiaLe);
+                object IDHangHoa = data.ThemHangHoa(IDNhomHang, MaHang, TenHangHoa, IDDonViTinh, GiaMua, GiaBan, GhiChu, DoDay.ToString(), ChieuDai.ToString());
                 if (IDHangHoa != null)
                 {
-                    //thêm tồn kho
+                    //thêm vào tồn kho
                     DataTable dta = data.LayDanhSachCuaHang();
                     for (int i = 0; i < dta.Rows.Count; i++)
                     {
@@ -72,6 +71,17 @@ namespace BanHang
                         int IDKho = Int32.Parse(dr["ID"].ToString());
                         data.ThemHangVaoTonKho(IDKho, (int)IDHangHoa, 0);
                     }
+
+                    //thêm vào all bảng giá
+                    dtBangGia bg = new dtBangGia();
+                    DataTable dbt = bg.DanhSach();
+                    foreach (DataRow dr in dbt.Rows)
+                    {
+                        string IDBangGia = dr["ID"].ToString();
+                        bg.ThemIDHangHoaVaoChiTietGia(IDHangHoa, IDBangGia, GiaBan.ToString());
+                    }
+
+                   
                 }
                 e.Cancel = true;
                 gridHangHoa.CancelEdit();
@@ -83,27 +93,26 @@ namespace BanHang
 
         protected void gridHangHoa_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
-            data = new dataHangHoa();
+
+            string ID = e.Keys[0].ToString();
             string MaHang = e.NewValues["MaHang"].ToString();
             string IDNhomHang = e.NewValues["IDNhomHang"].ToString();
             string TenHangHoa = e.NewValues["TenHangHoa"].ToString();
             string IDDonViTinh = e.NewValues["IDDonViTinh"].ToString();
             float GiaMua = float.Parse(e.NewValues["GiaMua"].ToString());
-            float GiaSi = float.Parse(e.NewValues["GiaSi"].ToString());
-            float GiaLe = float.Parse(e.NewValues["GiaLe"].ToString());
+            float GiaBan = float.Parse(e.NewValues["GiaBan"].ToString());
+            float DoDay = float.Parse(e.NewValues["DoDay"].ToString());
+            float ChieuDai = float.Parse(e.NewValues["ChieuDai"].ToString());
             string GhiChu = e.NewValues["GhiChu"] != null ? e.NewValues["GhiChu"].ToString() : "";
-            e.NewValues["HinhAnh"] = Session["UploadImages"];
-            string HinhAnh = e.NewValues["HinhAnh"] != null ? e.NewValues["HinhAnh"].ToString() : "";
-            string ID = e.Keys[0].ToString();
-            if (HinhAnh != "")
+            data = new dataHangHoa();
+            float GiaCu = data.LaySoTienCu(ID);
+            if (GiaCu != GiaBan)
             {
-                Session["UploadImages"] = "";
-                data.SuaThongTinHangHoa(ID, IDNhomHang, MaHang, TenHangHoa, IDDonViTinh, GiaMua, GiaSi, GhiChu, HinhAnh, GiaLe);
+                dtThayDoiGia.ThemLichSu(MaHang, ID, IDDonViTinh, GiaCu.ToString(), GiaBan.ToString(), Session["IDNhanVien"].ToString(), "Thay đổi giá");
+                dtBangGia bg = new dtBangGia();
+                bg.CapNhatGiaCuTrongChiTietBangGia(ID, GiaBan.ToString());
             }
-            else
-            {
-                data.SuaThongTinHangHoaKHinh(ID, IDNhomHang, MaHang, TenHangHoa, IDDonViTinh, GiaMua, GiaSi, GhiChu, GiaLe);
-            }
+            data.SuaThongTinHangHoaNew(ID, IDNhomHang, MaHang, TenHangHoa, IDDonViTinh, GiaMua, GiaBan, GhiChu, DoDay.ToString(), ChieuDai.ToString());
             e.Cancel = true;
             gridHangHoa.CancelEdit();
             LoadGrid(cmbSoLuongXem.Value.ToString());
@@ -113,16 +122,14 @@ namespace BanHang
         {
             e.NewValues["MaHang"] = dataHangHoa.Dem_Max();
             e.NewValues["GiaMua"] = "0";
-            e.NewValues["GiaSi"] = "0";
-            e.NewValues["GiaLe"] = "0";
+            e.NewValues["GiaBan"] = "0";
+            e.NewValues["DoDay"] = "0";
+            e.NewValues["ChieuDai"] = "0";
             //e.NewValues["IDDonViTinh"] = "BAO";
         }
         protected void UploadImages_FileUploadComplete(object sender, FileUploadCompleteEventArgs e)
         {
-            string name = DateTime.Now.ToString("ddMMyyyy_hhmmss_tt_") + e.UploadedFile.FileName;
-            string path = Page.MapPath("~/UploadImages/") + name;
-            e.UploadedFile.SaveAs(path);
-            Session["UploadImages"] = name;
+           
         }
         protected void cmbSoLuongXem_SelectedIndexChanged(object sender, EventArgs e)
         {

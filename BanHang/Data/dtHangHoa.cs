@@ -9,7 +9,25 @@ namespace BanHang.Data
 {
     public class dtHangHoa
     {
-        
+        /// <summary>
+        /// lấy danh sách hàng hóa để thêm vào bảng giá
+        /// </summary>
+        /// <returns></returns>
+        public DataTable LayDanhSachHangHoa()
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT [GPM_HangHoa].* FROM [GPM_HangHoa] WHERE GPM_HangHoa.[DAXOA] = 0 AND [MaHang] is not null AND [TenHangHoa] is not null";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    return tb;
+                }
+            }
+        }
         public static bool KiemTraMaHang(string MaHang)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))

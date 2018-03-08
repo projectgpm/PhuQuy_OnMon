@@ -10,6 +10,32 @@ namespace BanHang.Data
 {
     public class dataHangHoa
     {
+        /// <summary>
+        /// lấy giá củ
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        public float LaySoTienCu(string ID)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = " SELECT GiaBan FROM [GPM_HangHoa] WHERE ID = '" + ID + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["GiaBan"].ToString());
+                    return 0;
+                }
+            }
+        }
+        /// <summary>
+        /// lấy mã hàng mới
+        /// </summary>
+        /// <returns></returns>
         public static string Dem_Max()
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
@@ -150,24 +176,25 @@ namespace BanHang.Data
                 }
             }
         }
-        public void SuaThongTinHangHoaKHinh(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, float GiaMua, float GiaSi, string GhiChu, float GiaLe)
+        public void SuaThongTinHangHoaNew(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, float GiaMua, float GiaBan, string GhiChu, string DoDay, string ChieuDai)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string strSQL = "UPDATE [GPM_HANGHOA] SET [GiaLe] = @GiaLe,[IDNhomHang] = @IDNhomHang, [MaHang] = @MaHang, [TenHangHoa] = @TenHangHoa, [IDDonViTinh] = @IDDonViTinh, [GiaMua] = @GiaMua, [GiaSi] = @GiaSi, [GhiChu] = @GhiChu, [NgayCapNhat] = getdate() WHERE [ID] = @ID";
+                    string strSQL = "UPDATE [GPM_HANGHOA] SET [ChieuDai] = @ChieuDai,[GiaBan] = @GiaBan,[IDNhomHang] = @IDNhomHang, [MaHang] = @MaHang, [TenHangHoa] = @TenHangHoa, [IDDonViTinh] = @IDDonViTinh, [GiaMua] = @GiaMua, [DoDay] = @DoDay, [GhiChu] = @GhiChu, [NgayCapNhat] = getdate() WHERE [ID] = @ID";
                     using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@ID", ID);
-                        myCommand.Parameters.AddWithValue("@GiaLe", GiaLe);
+                        myCommand.Parameters.AddWithValue("@GiaBan", GiaBan);
                         myCommand.Parameters.AddWithValue("@IDNhomHang", IDNhomHang);
                         myCommand.Parameters.AddWithValue("@MaHang", MaHang);
                         myCommand.Parameters.AddWithValue("@TenHangHoa", TenHangHoa);
                         myCommand.Parameters.AddWithValue("@IDDonViTinh", IDDonViTinh);
                         myCommand.Parameters.AddWithValue("@GiaMua", GiaMua);
-                        myCommand.Parameters.AddWithValue("@GiaSi", GiaSi);
+                        myCommand.Parameters.AddWithValue("@DoDay", DoDay);
+                        myCommand.Parameters.AddWithValue("@ChieuDai", ChieuDai);
                         myCommand.Parameters.AddWithValue("@GhiChu", GhiChu);
                         myCommand.ExecuteNonQuery();
                     }
@@ -204,7 +231,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public object ThemHangHoa(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, float GiaMua, float GiaSi, string GhiChu, string HinhAnh, float GiaLe)
+        public object ThemHangHoa(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, float GiaMua, float GiaBan, string GhiChu, string DoDay, string ChieuDai)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -212,20 +239,20 @@ namespace BanHang.Data
                 {
                     object IDHangHoa = null;
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [GPM_HANGHOA] ([IDNhomHang], [MaHang], [TenHangHoa], [IDDonViTinh], [GiaMua], [GiaSi], [GhiChu], [HinhAnh], [NgayCapNhat],[GiaLe])" +
+                    string cmdText = "INSERT INTO [GPM_HANGHOA] ([IDNhomHang], [MaHang], [TenHangHoa], [IDDonViTinh], [GiaMua], [GiaBan], [GhiChu], [DoDay], [NgayCapNhat],[ChieuDai])" +
                                      " OUTPUT INSERTED.ID" +
-                                                       " VALUES (@IDNhomHang, @MaHang, @TenHangHoa, @IDDonViTinh, @GiaMua, @GiaSi, @GhiChu, @HinhAnh, getdate(),@GiaLe)";
+                                                       " VALUES (@IDNhomHang, @MaHang, @TenHangHoa, @IDDonViTinh, @GiaMua, @GiaBan, @GhiChu, @DoDay, getdate(),@ChieuDai)";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@IDNhomHang", IDNhomHang);
-                        myCommand.Parameters.AddWithValue("@GiaLe", GiaLe);
+                        myCommand.Parameters.AddWithValue("@ChieuDai", ChieuDai);
                         myCommand.Parameters.AddWithValue("@MaHang", MaHang);
                         myCommand.Parameters.AddWithValue("@TenHangHoa", TenHangHoa);
                         myCommand.Parameters.AddWithValue("@IDDonViTinh", IDDonViTinh);
                         myCommand.Parameters.AddWithValue("@GiaMua", GiaMua);
-                        myCommand.Parameters.AddWithValue("@GiaSi", GiaSi);
+                        myCommand.Parameters.AddWithValue("@GiaBan", GiaBan);
                         myCommand.Parameters.AddWithValue("@GhiChu", GhiChu);
-                        myCommand.Parameters.AddWithValue("@HinhAnh", HinhAnh);
+                        myCommand.Parameters.AddWithValue("@DoDay", DoDay);
                         IDHangHoa = myCommand.ExecuteScalar();
                     }
                     myConnection.Close();
@@ -275,7 +302,13 @@ namespace BanHang.Data
                         myCommand.Parameters.AddWithValue("@ID", ID);
                         myCommand.ExecuteNonQuery();
                     }
-                    strSQL = "UPDATE [GPM_HangHoa_Barcode] SET [DAXOA] = 1 WHERE [IDHangHoa] = @ID";
+                    //strSQL = "UPDATE [GPM_HangHoa_Barcode] SET [DAXOA] = 1 WHERE [IDHangHoa] = @ID";
+                    //using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
+                    //{
+                    //    myCommand.Parameters.AddWithValue("@ID", ID);
+                    //    myCommand.ExecuteNonQuery();
+                    //}
+                    strSQL = "UPDATE [GPM_ChiTietBangGia] SET [DAXOA] = 1 WHERE [IDHangHoa] = @ID";
                     using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@ID", ID);

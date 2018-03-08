@@ -96,6 +96,7 @@
     <Content Include="App_Data\MenuAdmin.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="BangGia.aspx" />
     <Content Include="BangKeBanHang.aspx" />
     <Content Include="BangKeBanHang_In.aspx" />
     <Content Include="BangKeKhachHangTraHang.aspx" />
@@ -114,6 +115,7 @@
     <Content Include="bin\BanHang.pdb" />
     <Content Include="ChietKhau.aspx" />
     <Content Include="ChiNhanhDatHang.aspx" />
+    <Content Include="ChiTietBangGia.aspx" />
     <Content Include="ChiTietCongNo.aspx" />
     <Content Include="ChiTietCongNoKhachHang.aspx" />
     <Content Include="ChiTietDonHang.aspx" />
@@ -279,6 +281,13 @@
     <Compile Include="Account\RegisterSuccess.aspx.designer.cs">
       <DependentUpon>RegisterSuccess.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BangGia.aspx.cs">
+      <DependentUpon>BangGia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BangGia.aspx.designer.cs">
+      <DependentUpon>BangGia.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BangKeBanHang.aspx.cs">
       <DependentUpon>BangKeBanHang.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -390,6 +399,13 @@
     </Compile>
     <Compile Include="ChiNhanhDatHang.aspx.designer.cs">
       <DependentUpon>ChiNhanhDatHang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ChiTietBangGia.aspx.cs">
+      <DependentUpon>ChiTietBangGia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ChiTietBangGia.aspx.designer.cs">
+      <DependentUpon>ChiTietBangGia.aspx</DependentUpon>
     </Compile>
     <Compile Include="ChiTietCongNo.aspx.cs">
       <DependentUpon>ChiTietCongNo.aspx</DependentUpon>
@@ -541,6 +557,7 @@
     <Compile Include="Data\dataBCTongHop.cs" />
     <Compile Include="Data\dataHangHoa.cs" />
     <Compile Include="Data\dataNhomHang.cs" />
+    <Compile Include="Data\dtBangGia.cs" />
     <Compile Include="Data\dtBanHangLe.cs" />
     <Compile Include="Data\dtCapNhatPhieuNhapHang.cs" />
     <Compile Include="Data\dtCapNhatTonKho.cs" />

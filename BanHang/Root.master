@@ -75,6 +75,8 @@
                                                             </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="danh-sach-hang-hoa" NavigateUrl="DanhSachHangHoa.aspx" Text="Hàng Hóa">
                                                             </dx:RibbonDropDownButtonItem>
+                                                            <dx:RibbonDropDownButtonItem Name="Bảng Giá" NavigateUrl="BangGia.aspx" Text="Bảng Giá">
+                                                            </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="loaichiphi" NavigateUrl="QLChiPhi.aspx" Text="Loại Thu Chi">
                                                             </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="Chi Phí" NavigateUrl="DanhSachChiPhi.aspx" Text="Thu - Chi">
