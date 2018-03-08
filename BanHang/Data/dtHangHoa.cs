@@ -9,6 +9,60 @@ namespace BanHang.Data
 {
     public class dtHangHoa
     {
+        public float LaySoTienCu_ChiTietGia_GiaBanLe(string ID)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = " SELECT GiaBanLe FROM [GPM_ChiTietBangGia] WHERE ID = '" + ID + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["GiaBanLe"].ToString());
+                    return 0;
+                }
+            }
+        }
+        public float LaySoTienCu_ChiTietGia_GiaBanSi(string ID)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = " SELECT GiaBanSi FROM [GPM_ChiTietBangGia] WHERE ID = '" + ID + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["GiaBanSi"].ToString());
+                    return 0;
+                }
+            }
+        }
+        /// <summary>
+        /// lấy thông tin hàng hóa theo mã hàng
+        /// </summary>
+        /// <param name="MaHang"></param>
+        /// <returns>DataTable</returns>
+        public DataTable LayDanhSachHangHoa_MaHang(string MaHang)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT * FROM [GPM_HangHoa] WHERE MaHang = '" + MaHang + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    return tb;
+                }
+            }
+        }
         /// <summary>
         /// lấy danh sách hàng hóa để thêm vào bảng giá
         /// </summary>

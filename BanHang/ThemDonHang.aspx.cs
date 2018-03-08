@@ -179,38 +179,38 @@ namespace BanHang
         protected void btnThemTam_Click(object sender, EventArgs e)
         {
             dtBanHangLe dt = new dtBanHangLe();
-            DataTable tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString());
-            if (tbThongTin.Rows.Count > 0)
-            {
-                string IDKho = Session["IDKho"].ToString();
-                string IDDonHang = IDThuMuaDatHang_Temp.Value.ToString();
-                string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
-                string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
-                string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
-                string HinhAnh = tbThongTin.Rows[0]["HinhAnh"].ToString();
-                int SoLuong = Int32.Parse(txtSoLuong.Text.ToString());
-                double DonGia = double.Parse(tbThongTin.Rows[0]["GiaMua"].ToString());
-                DataTable db = dtThemDonHangKho.KTChiTietDonHang_Temp(IDHangHoa, IDDonHang);// kiểm tra hàng hóa
-                if (db.Rows.Count == 0)
-                {
-                    data.ThemChiTietDonHang_Temp(IDDonHang, IDHangHoa, MaHangHoa, IDDonViTinh, SoLuong, DonGia, HinhAnh);
-                    txtTongTien.Text = TinhTongTien().ToString();
-                }
-                else
-                {
-                    data.CapNhatChiTietDonHang_temp(IDDonHang, IDHangHoa, SoLuong, DonGia);
-                    txtTongTien.Text = TinhTongTien().ToString();
-                }
-                LoadGrid(IDDonHang);
-                txtBarcode.Text = "";
-                txtBarcode.Focus();
-                txtBarcode.Value = "";
-            }
-            else
-            {
-                txtBarcode.Focus();
-                Response.Write("<script language='JavaScript'> alert('Mã hàng không tồn tại !!!'); </script>");
-            }
+            //DataTable tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString());
+            //if (tbThongTin.Rows.Count > 0)
+            //{
+            //    string IDKho = Session["IDKho"].ToString();
+            //    string IDDonHang = IDThuMuaDatHang_Temp.Value.ToString();
+            //    string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
+            //    string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
+            //    string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
+            //    string HinhAnh = tbThongTin.Rows[0]["HinhAnh"].ToString();
+            //    int SoLuong = Int32.Parse(txtSoLuong.Text.ToString());
+            //    double DonGia = double.Parse(tbThongTin.Rows[0]["GiaMua"].ToString());
+            //    DataTable db = dtThemDonHangKho.KTChiTietDonHang_Temp(IDHangHoa, IDDonHang);// kiểm tra hàng hóa
+            //    if (db.Rows.Count == 0)
+            //    {
+            //        data.ThemChiTietDonHang_Temp(IDDonHang, IDHangHoa, MaHangHoa, IDDonViTinh, SoLuong, DonGia, HinhAnh);
+            //        txtTongTien.Text = TinhTongTien().ToString();
+            //    }
+            //    else
+            //    {
+            //        data.CapNhatChiTietDonHang_temp(IDDonHang, IDHangHoa, SoLuong, DonGia);
+            //        txtTongTien.Text = TinhTongTien().ToString();
+            //    }
+            //    LoadGrid(IDDonHang);
+            //    txtBarcode.Text = "";
+            //    txtBarcode.Focus();
+            //    txtBarcode.Value = "";
+            //}
+            //else
+            //{
+            //    txtBarcode.Focus();
+            //    Response.Write("<script language='JavaScript'> alert('Mã hàng không tồn tại !!!'); </script>");
+            //}
         }
     }
 }

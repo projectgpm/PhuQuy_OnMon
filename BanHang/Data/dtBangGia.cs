@@ -9,19 +9,19 @@ namespace BanHang.Data
 {
     public class dtBangGia
     {
-        public void CapNhatGiaChiTiet(string ID, string GiaMoi)
+        public void CapNhatGiaChiTiet(string ID, string GiaBanLe, string GiaBanSi)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "UPDATE [GPM_ChiTietBangGia] SET [GiaMoi] = @GiaMoi WHERE [ID] = @ID";
+                    string cmdText = "UPDATE [GPM_ChiTietBangGia] SET [GiaBanLe] = @GiaBanLe,[GiaBanSi] = @GiaBanSi WHERE [ID] = @ID";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@ID", ID);
-                        myCommand.Parameters.AddWithValue("@GiaMoi", GiaMoi);
-
+                        myCommand.Parameters.AddWithValue("@GiaBanLe", GiaBanLe);
+                        myCommand.Parameters.AddWithValue("@GiaBanSi", GiaBanSi);
                         myCommand.ExecuteNonQuery();
                     }
                     myConnection.Close();
@@ -37,7 +37,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT [GPM_ChiTietBangGia].ID, [GPM_ChiTietBangGia].GiaCu,[GPM_ChiTietBangGia].GiaMoi,[C_HangHoa].MaHangHoa,[CF_HangHoa].TenHangHoa,[CF_DonViTinh].TenDonViTinh FROM [CF_ChiTietBangGia],[CF_HangHoa],[CF_DonViTinh] WHERE CF_ChiTietBangGia.IDBangGia = '" + IDBangGia + "' AND CF_ChiTietBangGia.DaXoa = 0 AND [CF_ChiTietBangGia].IDHangHoa = [CF_HangHoa].ID AND [CF_DonViTinh].ID = [CF_HangHoa].IDDonViTinh";
+                string cmdText = "SELECT [GPM_ChiTietBangGia].ID, [GPM_ChiTietBangGia].GiaHeThong,[GPM_ChiTietBangGia].GiaBanLe,[GPM_ChiTietBangGia].GiaBanSi,[GPM_HangHoa].MaHang,[GPM_HangHoa].TenHangHoa,[GPM_DonViTinh].TenDonViTinh FROM [GPM_ChiTietBangGia],[GPM_HangHoa],[GPM_DonViTinh] WHERE GPM_ChiTietBangGia.IDBangGia = '" + IDBangGia + "' AND GPM_ChiTietBangGia.DaXoa = 0 AND [GPM_ChiTietBangGia].IDHangHoa = [GPM_HangHoa].ID AND [GPM_DonViTinh].ID = [GPM_HangHoa].IDDonViTinh";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

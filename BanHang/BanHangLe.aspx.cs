@@ -109,32 +109,33 @@ namespace BanHang
                 BindGridChiTietHoaDon();
             }
         }
-        public void ThemHangVaoChiTietHoaDon(DataTable tbThongTin)
+        public void ThemHangVaoChiTietHoaDon(DataTable tbThongTin, int TrangThaiGiaSiHayLe)
         {
             txtKhachThanhToan.Text = "0";
             string MaHang = tbThongTin.Rows[0]["MaHang"].ToString();
             int IDHangHoa = Int32.Parse(tbThongTin.Rows[0]["ID"].ToString());
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
-            var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.IDHangHoa == IDHangHoa && item.TrangThaiGia == Int32.Parse(cmbChonGia.Value.ToString()));
+            var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.IDHangHoa == IDHangHoa && item.TrangThaiGiaSiHayLe == TrangThaiGiaSiHayLe );
             if (exitHang != null)
             {
                 // kiểm tra đơn giá 
                 int SoLuong = exitHang.SoLuong + int.Parse(txtSoLuong.Text);
                 double ThanhTienOld = exitHang.ThanhTien;
                 exitHang.SoLuong = SoLuong;
-                exitHang.HinhAnh = tbThongTin.Rows[0]["HinhAnh"].ToString();
-                if (cmbChonGia.Value.ToString() == "0")
+
+                if (TrangThaiGiaSiHayLe == 1)
                 {
                     // giá lẻ
-                    exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaLe"].ToString());
-                    exitHang.TrangThaiGia = 0;
+                    exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanLe"].ToString());
+                    exitHang.TrangThaiGiaSiHayLe = 1;
                 }
                 else
                 {
                     // giá sỉ
-                    exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaSi"].ToString());
-                    exitHang.TrangThaiGia = 1;
+                    exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanSi"].ToString());
+                    exitHang.TrangThaiGiaSiHayLe = 0;
                 }
+                exitHang.DoDay = tbThongTin.Rows[0]["DoDay"].ToString();
                 exitHang.TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa.ToString(), Session["IDKho"].ToString());
                 exitHang.ThanhTien = SoLuong * exitHang.DonGia;
                 DanhSachHoaDon[MaHoaDon].TongTien += SoLuong * exitHang.DonGia - ThanhTienOld;
@@ -150,21 +151,21 @@ namespace BanHang
                 cthd.TenHang = tbThongTin.Rows[0]["TenHangHoa"].ToString();
                 cthd.SoLuong = int.Parse(txtSoLuong.Text);
                 cthd.DonViTinh = tbThongTin.Rows[0]["TenDonViTinh"].ToString();
-                if (cmbChonGia.Value.ToString() == "0")
+                if (TrangThaiGiaSiHayLe == 1)
                 {
                     // giá lẻ
-                    cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaLe"].ToString());
-                    cthd.TrangThaiGia = 0;
+                    cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanLe"].ToString());
+                    cthd.TrangThaiGiaSiHayLe = 1;
                 }
                 else
                 {
                     // giá sỉ
-                    cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaSi"].ToString());
-                    cthd.TrangThaiGia = 1;
+                    cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanSi"].ToString());
+                    cthd.TrangThaiGiaSiHayLe = 0;
                 }
-                cthd.GiaMua = double.Parse(tbThongTin.Rows[0]["GiaMua"].ToString());
-                cthd.HinhAnh = tbThongTin.Rows[0]["HinhAnh"].ToString();
+               
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
+                cthd.DoDay = tbThongTin.Rows[0]["DoDay"].ToString();
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
                 DanhSachHoaDon[MaHoaDon].TongTien += cthd.ThanhTien;
@@ -175,31 +176,29 @@ namespace BanHang
         {
             try
             {
+                string IDBangGia = cmbChonGia.Value.ToString();
                 dtBanHangLe dt = new dtBanHangLe();
-                if (txtBarcode.Text.Trim() != "")
+                if (txtBarcode.Value.ToString() != "")
                 {
-                    DataTable tbThongTin;
-                    if (txtBarcode.Value == null)
-                    {
-                        tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Text.ToString());
-                    }
-                    else
-                    {
-                        tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString());
-                    }
-
+                    DataTable tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString(),IDBangGia);
                     if (tbThongTin.Rows.Count > 0)
                     {
-                        ThemHangVaoChiTietHoaDon(tbThongTin);
+                        int TrangThaiGia = 0;
+                        if(ckBanLe.Checked == true)
+                            TrangThaiGia =1;
+                        ThemHangVaoChiTietHoaDon(tbThongTin, TrangThaiGia);
                         BindGridChiTietHoaDon();
                     }
                     else
-                        HienThiThongBao("Mã hàng không tồn tại!!");
+                        HienThiThongBao("Mã hàng không tồn tại !!!");
                 }
+               // HienThiThongBao("Mã hàng không tồn tại!!");
                 txtBarcode.Focus();
                 txtBarcode.Text = "";
                 txtBarcode.Value = "";
                 txtSoLuong.Text = "1";
+                ckBanLe.Checked = false;
+                cmbChonGia.Value = IDBangGia;
             }
             catch (Exception ex)
             {
@@ -435,12 +434,17 @@ namespace BanHang
             ccbKhachHang.DataBind();
         }
 
+        /// <summary>
+        /// xong
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         protected void txtBarcode_ItemsRequestedByFilterCondition(object source, ListEditItemsRequestedByFilterConditionEventArgs e)
         {
             ASPxComboBox comboBox = (ASPxComboBox)source;
-            dsHangHoa.SelectCommand = @"SELECT [ID], [MaHang], [TenHangHoa], [GiaSi], [GiaLe] , [TenDonViTinh],[HinhAnh]
+            dsHangHoa.SelectCommand = @"SELECT [ID], [MaHang], [TenHangHoa], [TenDonViTinh]
                                         FROM (
-	                                        select GPM_HangHoa.ID, GPM_HangHoa.MaHang,GPM_HangHoa.HinhAnh, GPM_HangHoa.TenHangHoa, GPM_HangHoa.GiaSi,GPM_HangHoa.GiaLe, GPM_DonViTinh.TenDonViTinh, 
+	                                        select GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa, GPM_DonViTinh.TenDonViTinh, 
 	                                        row_number()over(order by GPM_HangHoa.MaHang) as [rn] 
 	                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh 
                                                                INNER JOIN GPM_HangHoaTonKho ON GPM_HangHoaTonKho.IDHangHoa = GPM_HangHoa.ID
@@ -457,15 +461,20 @@ namespace BanHang
             comboBox.DataBind();
         }
 
+        /// <summary>
+        /// xong
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         protected void txtBarcode_ItemRequestedByValue(object source, ListEditItemRequestedByValueEventArgs e)
         {
             long value = 0;
             if (e.Value == null || !Int64.TryParse(e.Value.ToString(), out value))
                 return;
             ASPxComboBox comboBox = (ASPxComboBox)source;
-            dsHangHoa.SelectCommand = @"SELECT GPM_HangHoa.ID, GPM_HangHoa.MaHang,GPM_HangHoa.HinhAnh, GPM_HangHoa.TenHangHoa, GPM_HangHoa.GiaSi ,GPM_HangHoa.GiaLe, GPM_DonViTinh.TenDonViTinh 
+            dsHangHoa.SelectCommand = @"SELECT GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa, GPM_DonViTinh.TenDonViTinh 
                                         FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh 
-                                                           INNER JOIN GPM_HangHoaTonKho ON GPM_HangHoaTonKho.IDHangHoa = GPM_HangHoa.ID 
+                                                           INNER JOIN GPM_HangHoaTonKho ON GPM_HangHoaTonKho.IDHangHoa = GPM_HangHoa.ID
                                         WHERE (GPM_HangHoa.ID = @ID) ORDER BY TenHangHoa ASC";
             dsHangHoa.SelectParameters.Clear();
             dsHangHoa.SelectParameters.Add("ID", TypeCode.Int64, e.Value.ToString());
@@ -570,18 +579,17 @@ namespace BanHang
         public string MaHang { get; set; }
         public int IDHangHoa { get; set; }
         public string TenHang { get; set; }
+        public string DoDay { get; set; }
         public int MaDonViTinh { get; set; }
         public int TonKho { get; set; }
         public string DonViTinh { get; set; }
         public int SoLuong { get; set; }
         public double DonGia { get; set; }
-        public double GiaMua { get; set; }
         public double ThanhTien { get; set; }
-        public int TrangThaiGia { get; set; }
-        public string HinhAnh { get; set; }
+        public int TrangThaiGiaSiHayLe{get; set;}
         public ChiTietHoaDon()
         {
-            TrangThaiGia = 0;
+            TrangThaiGiaSiHayLe = 0; // 0 là giá sỉ, 1 là giá lẻ
             TonKho = 0;
             SoLuong = 0;
             DonGia = 0;

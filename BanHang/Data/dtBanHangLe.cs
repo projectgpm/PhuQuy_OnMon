@@ -173,21 +173,23 @@ namespace BanHang.Data
                 }
             }
         }
-        public DataTable LayThongTinHangHoa(string Barcode)
+        public DataTable LayThongTinHangHoa(string IDHangHoa, string IDBangGia)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
                 string cmdText = "";
-                cmdText = "SELECT HH.ID, HH.TenHangHoa,HH.MaHang, Dvi.TenDonViTinh, HH.GiaMua, HH.GiaSi, HH.GiaLe, HH.HinhAnh " +
+                cmdText = "SELECT HH.ID, HH.TenHangHoa,HH.MaHang,HH.DoDay ,Dvi.TenDonViTinh, BG.GiaBanLe, BG.GiaBanSi " +
                                  "FROM GPM_HangHoa AS HH " +
                                  "INNER JOIN GPM_HangHoaTonKho AS HHTK ON HH.ID = HHTK.IDHangHoa " +
                                  "INNER JOIN GPM_DonViTinh as DVi ON HH.IDDonViTinh = DVi.ID " +
-                                 "LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa " +
-                                 "WHERE (HHTK.IDHangHoa = @Barcode) AND HHTK.DaXoa = 0";
+                                 "INNER JOIN GPM_ChiTietBangGia AS BG ON HH.ID = BG.IDHangHoa " +
+                                 //"LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa" +
+                                 "WHERE (HH.ID = @IDHangHoa) AND (BG.IDBangGia = @IDBangGia) AND HH.DaXoa = 0 AND HHTK.DaXoa = 0";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 {
-                    command.Parameters.AddWithValue("@Barcode", Barcode);
+                    command.Parameters.AddWithValue("@IDHangHoa", IDHangHoa);
+                    command.Parameters.AddWithValue("@IDBangGia", IDBangGia);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         DataTable tb = new DataTable();
@@ -311,13 +313,13 @@ namespace BanHang.Data
                                     //thêm chi tiết hóa đơn
                                     cmd.Parameters.AddWithValue("@IDHoaDon", IDHoaDon);
                                     cmd.Parameters.AddWithValue("@IDHangHoa", cthd.IDHangHoa);
-                                    cmd.Parameters.AddWithValue("@GiaMua", cthd.GiaMua);
+                                    //cmd.Parameters.AddWithValue("@GiaMua", cthd.GiaMua);
                                     cmd.Parameters.AddWithValue("@GiaBan", cthd.DonGia);
                                     cmd.Parameters.AddWithValue("@SoLuong", cthd.SoLuong);
                                     cmd.Parameters.AddWithValue("@ChietKhau", 0.0);
                                     cmd.Parameters.AddWithValue("@ThanhTien", cthd.ThanhTien);
                                     cmd.Parameters.AddWithValue("@IDKho", IDKho);
-                                    cmd.Parameters.AddWithValue("@TrangThaiGia", cthd.TrangThaiGia);
+                                   // cmd.Parameters.AddWithValue("@TrangThaiGia", cthd.TrangThaiGia);
                                     cmd.ExecuteNonQuery();
                                 }
                                 string UpdateLichSuBanHang = "DECLARE @SoLuongCu INT = 0 " +
