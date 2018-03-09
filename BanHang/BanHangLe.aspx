@@ -199,7 +199,7 @@
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="TK" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="5" Width="40px">
-                                <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" Width="50px">
+                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" Width="50px">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="7" FieldName="DonGia" Width="120px" Name="dongia1">
@@ -213,7 +213,7 @@
                                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="90px">
+                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px">
                             </dx:GridViewDataTextColumn>
                         </columns>                                                  
                         <settingspager pagesize="50" numericbuttoncount="6" Mode="ShowAllRecords" />

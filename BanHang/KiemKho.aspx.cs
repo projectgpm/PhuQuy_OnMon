@@ -55,23 +55,23 @@ namespace BanHang
         }
         protected void gridDanhSachHangHoa_Temp_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
-            string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
-            string ID = e.Keys[0].ToString();
-            int ThucTe = Int32.Parse(e.NewValues["ThucTe"].ToString());
-            if (ThucTe >= 0)
-            {
-                string IDHangHoa = e.NewValues["IDHangHoa"].ToString();
-                int TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa,Session["IDKho"].ToString());
-                data = new dtKiemKho();
-                data.CapNhatPhieuKiemKho_Temp(ID, ThucTe, ThucTe - TonKho);
-                e.Cancel = true;
-                gridDanhSachHangHoa_Temp.CancelEdit();
-                LoadGrid(IDPhieuKiemKho);
-            }
-            else
-            {
-                throw new Exception("Lỗi: Số lượng thực tế phải  >= 0");
-            }
+            //string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
+            //string ID = e.Keys[0].ToString();
+            //int ThucTe = Int32.Parse(e.NewValues["ThucTe"].ToString());
+            //if (ThucTe >= 0)
+            //{
+            //    string IDHangHoa = e.NewValues["IDHangHoa"].ToString();
+            //    flo TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa,Session["IDKho"].ToString());
+            //    data = new dtKiemKho();
+            //    data.CapNhatPhieuKiemKho_Temp(ID, ThucTe, ThucTe - TonKho);
+            //    e.Cancel = true;
+            //    gridDanhSachHangHoa_Temp.CancelEdit();
+            //    LoadGrid(IDPhieuKiemKho);
+            //}
+            //else
+            //{
+            //    throw new Exception("Lỗi: Số lượng thực tế phải  >= 0");
+            //}
         }
         protected void txtNgayLapPhieu_Init(object sender, EventArgs e)
         {

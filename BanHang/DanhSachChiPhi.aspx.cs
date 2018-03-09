@@ -25,9 +25,9 @@ namespace BanHang
 
         protected void gridDanhSach_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e)
         {
-            e.NewValues["NgayChi"] = DateTime.Today.ToString("dd/MM/yyyy");
-            e.NewValues["TongChi"] = "0";
-            e.NewValues["DaChi"] = "0";
+            //e.NewValues["NgayChi"] = DateTime.Today.ToString("dd/MM/yyyy");
+            //e.NewValues["TongChi"] = "0";
+            //e.NewValues["DaChi"] = "0";
         }
 
         protected void gridDanhSach_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)

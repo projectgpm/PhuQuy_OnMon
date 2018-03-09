@@ -201,9 +201,20 @@ namespace BanHang
             {
                 string IDBangGia = cmbChonGia.Value.ToString();
                 dtBanHangLe dt = new dtBanHangLe();
-                if (txtBarcode.Value.ToString() != "")
+                if (txtBarcode.Text.Trim() != "")
                 {
-                    DataTable tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString(),IDBangGia);
+                    DataTable tbThongTin;
+
+                    if (txtBarcode.Value == null)
+                    {
+                        tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Text.ToString(), IDBangGia);
+                    }
+                    else
+                    {
+                        tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString(), IDBangGia);
+                    }
+
+                  
                     if (tbThongTin.Rows.Count > 0)
                     {
                         int TrangThaiGia = 0;
@@ -607,7 +618,7 @@ namespace BanHang
         public string TenHang { get; set; }
         public string DoDay { get; set; }
         public int MaDonViTinh { get; set; }
-        public int TonKho { get; set; }
+        public float TonKho { get; set; }
         public string DonViTinh { get; set; }
         public float SoLuong { get; set; }
         public double DonGia { get; set; }

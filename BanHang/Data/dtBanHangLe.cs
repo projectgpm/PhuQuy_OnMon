@@ -185,8 +185,8 @@ namespace BanHang.Data
                                  "INNER JOIN GPM_DonViTinh as DViLe ON HH.IDDonViTinhLe = DViLe.ID " +
                                  "INNER JOIN GPM_DonViTinh as DViSi ON HH.IDDonViTinhSi = DViSi.ID " +
                                  "INNER JOIN GPM_ChiTietBangGia AS BG ON HH.ID = BG.IDHangHoa " +
-                                 //"LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa" +
-                                 "WHERE (HH.ID = @IDHangHoa) AND (BG.IDBangGia = @IDBangGia) AND HH.DaXoa = 0 AND HHTK.DaXoa = 0";
+                                 "LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa " +
+                                 "WHERE (BC.Barcode = @IDHangHoa OR CONVERT(NVARCHAR(250), HHTK.IDHangHoa) = @IDHangHoa) AND (BG.IDBangGia = @IDBangGia) AND HH.DaXoa = 0 AND HHTK.DaXoa = 0";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 {
                     command.Parameters.AddWithValue("@IDHangHoa", IDHangHoa);

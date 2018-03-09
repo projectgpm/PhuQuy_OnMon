@@ -79,7 +79,7 @@ namespace BanHang.Data
             }
         }
 
-        public static int SoLuong_TonKho(string IDHangHoa, string IDKho)
+        public static float SoLuong_TonKho(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -93,7 +93,7 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return Int32.Parse(dr["SoLuongCon"].ToString());
+                        return float.Parse(dr["SoLuongCon"].ToString());
                     }
                     else return -1;
                 }
