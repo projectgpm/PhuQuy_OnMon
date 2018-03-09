@@ -68,17 +68,15 @@
             </Items>
         </EditFormLayoutProperties>
 <Columns>
-    <dx:GridViewCommandColumn ShowClearFilterButton="True" VisibleIndex="0">
-    </dx:GridViewCommandColumn>
     <dx:GridViewDataTextColumn Caption="Tên Hàng Hóa" VisibleIndex="2" ReadOnly="true" Name="TenHangHoa" FieldName="TenHangHoa">
     </dx:GridViewDataTextColumn>
     <dx:GridViewDataTextColumn Caption="Mã Hàng" VisibleIndex="1" ReadOnly="True" FieldName="MaHang">
     </dx:GridViewDataTextColumn>
     
-    <dx:GridViewDataTextColumn Caption="Đơn Vị Tính" VisibleIndex="3" ReadOnly="true" Name="TenDonViTinh" FieldName="TenDonViTinh">
+    <dx:GridViewDataTextColumn Caption="ĐVT Sỉ" VisibleIndex="3" ReadOnly="true" FieldName="TenDonViTinhSi">
     </dx:GridViewDataTextColumn>
     
-    <dx:GridViewDataSpinEditColumn Caption="Giáp Bán Sỉ" VisibleIndex="5" FieldName="GiaBanSi">
+    <dx:GridViewDataSpinEditColumn Caption="Giáp Bán Sỉ" VisibleIndex="6" FieldName="GiaBanSi">
         <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
             <ValidationSettings SetFocusOnError="True">
                 <RequiredField IsRequired="True" />
@@ -86,18 +84,21 @@
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     
-    <dx:GridViewDataSpinEditColumn Caption="Giá Hệ Thống" ReadOnly="True" VisibleIndex="4" FieldName="GiaHeThong">
+    <dx:GridViewDataSpinEditColumn Caption="Giá Hệ Thống" ReadOnly="True" VisibleIndex="5" FieldName="GiaHeThong">
         <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     
-    <dx:GridViewDataSpinEditColumn Caption="Giá Bán Lẻ" FieldName="GiaBanLe" VisibleIndex="6">
+    <dx:GridViewDataSpinEditColumn Caption="Giá Bán Lẻ" FieldName="GiaBanLe" VisibleIndex="7">
         <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
             <ValidationSettings SetFocusOnError="True">
                 <RequiredField IsRequired="True" />
             </ValidationSettings>
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
+    
+    <dx:GridViewDataTextColumn Caption="ĐVT Lẻ" FieldName="TenDonViTinhLe" ReadOnly="True" VisibleIndex="4">
+    </dx:GridViewDataTextColumn>
     
 </Columns>
 

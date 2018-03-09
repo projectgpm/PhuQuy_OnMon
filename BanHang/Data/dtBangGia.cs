@@ -37,7 +37,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT [GPM_ChiTietBangGia].ID, [GPM_ChiTietBangGia].GiaHeThong,[GPM_ChiTietBangGia].GiaBanLe,[GPM_ChiTietBangGia].GiaBanSi,[GPM_HangHoa].MaHang,[GPM_HangHoa].TenHangHoa,[GPM_DonViTinh].TenDonViTinh FROM [GPM_ChiTietBangGia],[GPM_HangHoa],[GPM_DonViTinh] WHERE GPM_ChiTietBangGia.IDBangGia = '" + IDBangGia + "' AND GPM_ChiTietBangGia.DaXoa = 0 AND [GPM_ChiTietBangGia].IDHangHoa = [GPM_HangHoa].ID AND [GPM_DonViTinh].ID = [GPM_HangHoa].IDDonViTinh";
+                string cmdText = "SELECT [GPM_ChiTietBangGia].ID, [GPM_ChiTietBangGia].GiaHeThong, [GPM_ChiTietBangGia].GiaBanLe,[GPM_ChiTietBangGia].GiaBanSi, [GPM_HangHoa].MaHang,[GPM_HangHoa].TenHangHoa, DVTLe.TenDonViTinh as TenDonViTinhLe, DVTSi.TenDonViTinh as TenDonViTinhSi FROM [GPM_ChiTietBangGia],[GPM_HangHoa],[GPM_DonViTinh] as DVTLe,[GPM_DonViTinh] as DVTSi WHERE GPM_ChiTietBangGia.IDBangGia = '" + IDBangGia + "' AND GPM_ChiTietBangGia.DaXoa = 0 AND [GPM_ChiTietBangGia].IDHangHoa = [GPM_HangHoa].ID  AND DVTLe.ID = [GPM_HangHoa].IDDonViTinhLe AND DVTSi.ID = [GPM_HangHoa].IDDonViTinhSi ";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {

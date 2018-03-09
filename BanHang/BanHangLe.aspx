@@ -63,7 +63,7 @@
                                      
                         <table width="95%">
                             <tr>
-                                <td width="65%">
+                                <td width="55%">
                                     <asp:Button ID="btnInsertHang" runat="server" OnClick="btnInsertHang_Click" Style="display: none"/>                                                                     
                                     <dx:ASPxComboBox ID="txtBarcode" runat="server" ValueType="System.String" 
                                         DropDownWidth="600" DropDownStyle="DropDown" 
@@ -84,6 +84,8 @@
                                     
                                     <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" >                                       
                                     </asp:SqlDataSource>
+                                    &nbsp; &nbsp
+                                     &nbsp; &nbsp
                                 </td>
                                 <td  width="10%">
                                     &nbsp; &nbsp
@@ -99,10 +101,8 @@
                                 </td>
                                 <td  width="15%">
                                     &nbsp; &nbsp
-
                                     <dx:ASPxCheckBox ID="ckBanLe" runat="server" Font-Bold="True" Text="Bán lẻ"></dx:ASPxCheckBox>
-                                   
-                                    &nbsp;&nbsp;
+                                    &nbsp;
                                 </td>
                                 <td width="10%">                            
                                     <dx:ASPxSpinEdit ID="txtSoLuong" ClientInstanceName="txtSoLuong" runat="server" Caption="Số lượng" TabIndex="0"

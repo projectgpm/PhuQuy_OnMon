@@ -41,10 +41,9 @@ namespace BanHang
                 float GiaBanSiCu = dt.LaySoTienCu_ChiTietGia_GiaBanSi(ID);
                 float GiaBanLeCu = dt.LaySoTienCu_ChiTietGia_GiaBanLe(ID);
                 if (float.Parse(GiaBanLe) != GiaBanLeCu)
-                    //dtThayDoiGia.ThemLichSu(Session["IDNhanVien"].ToString(), dr["MaHang"].ToString(), dr["TenHangHoa"].ToString(), dr["IDDonViTinh"].ToString(), GiaCu + "", GiaMoi);
-                    dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(),dr["TenHangHoa"].ToString(),dr["IDDonViTinh"].ToString(),GiaBanLeCu.ToString(),GiaBanLe,Session["IDNhanVien"].ToString(),"Thay đổi giá bán lẻ trong bảng giá");
+                    dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(),dr["TenHangHoa"].ToString(),dr["IDDonViTinhSi"].ToString(),GiaBanLeCu.ToString(),GiaBanLe,Session["IDNhanVien"].ToString(),"Thay đổi giá bán lẻ trong bảng giá");
                 if (float.Parse(GiaBanSi) != GiaBanSiCu)
-                    dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(), dr["TenHangHoa"].ToString(), dr["IDDonViTinh"].ToString(), GiaBanSiCu.ToString(), GiaBanSi, Session["IDNhanVien"].ToString(), "Thay đổi giá bán sỉ trong bảng giá");
+                    dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(), dr["TenHangHoa"].ToString(), dr["IDDonViTinhSi"].ToString(), GiaBanSiCu.ToString(), GiaBanSi, Session["IDNhanVien"].ToString(), "Thay đổi giá bán sỉ trong bảng giá");
             }
 
             data.CapNhatGiaChiTiet(ID, GiaBanLe, GiaBanSi);
