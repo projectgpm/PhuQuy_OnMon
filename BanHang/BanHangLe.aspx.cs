@@ -119,7 +119,7 @@ namespace BanHang
             if (exitHang != null)
             {
                 // kiểm tra đơn giá 
-                int SoLuong = exitHang.SoLuong + int.Parse(txtSoLuong.Text);
+                float SoLuong = exitHang.SoLuong + float.Parse(txtSoLuong.Text);
                 double ThanhTienOld = exitHang.ThanhTien;
                 exitHang.SoLuong = SoLuong;
 
@@ -240,11 +240,11 @@ namespace BanHang
                 {
                     int STT = Convert.ToInt32(gridChiTietHoaDon.GetRowValues(i, "STT"));
                     var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.STT == STT);
-                    int SoLuongOld = exitHang.SoLuong;
+                    //float SoLuongOld = exitHang.SoLuong;
                     double ThanhTienOld = exitHang.ThanhTien;
-                    exitHang.SoLuong = Convert.ToInt32(SoLuongMoi);
+                    exitHang.SoLuong = float.Parse(SoLuongMoi.ToString());
                     exitHang.DonGia = double.Parse(GiaMoi.ToString());
-                    exitHang.ThanhTien = Convert.ToInt32(SoLuongMoi) * exitHang.DonGia;
+                    exitHang.ThanhTien = float.Parse(SoLuongMoi.ToString()) * exitHang.DonGia;
                     DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
                     DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
                 }
@@ -583,7 +583,7 @@ namespace BanHang
         public int MaDonViTinh { get; set; }
         public int TonKho { get; set; }
         public string DonViTinh { get; set; }
-        public int SoLuong { get; set; }
+        public float SoLuong { get; set; }
         public double DonGia { get; set; }
         public double ThanhTien { get; set; }
         public int TrangThaiGiaSiHayLe{get; set;}
