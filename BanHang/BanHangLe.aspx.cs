@@ -150,18 +150,20 @@ namespace BanHang
                 cthd.TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa.ToString(), Session["IDKho"].ToString());
                 cthd.TenHang = tbThongTin.Rows[0]["TenHangHoa"].ToString();
                 cthd.SoLuong = int.Parse(txtSoLuong.Text);
-                cthd.DonViTinh = tbThongTin.Rows[0]["TenDonViTinh"].ToString();
+               
                 if (TrangThaiGiaSiHayLe == 1)
                 {
                     // giá lẻ
                     cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanLe"].ToString());
                     cthd.TrangThaiGiaSiHayLe = 1;
+                    cthd.DonViTinh = tbThongTin.Rows[0]["TenDonViTinhLe"].ToString();
                 }
                 else
                 {
                     // giá sỉ
                     cthd.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanSi"].ToString());
                     cthd.TrangThaiGiaSiHayLe = 0;
+                    cthd.DonViTinh = tbThongTin.Rows[0]["TenDonViTinhSi"].ToString();
                 }
                
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
@@ -446,7 +448,7 @@ namespace BanHang
                                         FROM (
 	                                        select GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa, GPM_DonViTinh.TenDonViTinh, 
 	                                        row_number()over(order by GPM_HangHoa.MaHang) as [rn] 
-	                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh 
+	                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinhSi 
                                                                INNER JOIN GPM_HangHoaTonKho ON GPM_HangHoaTonKho.IDHangHoa = GPM_HangHoa.ID
 	                                        WHERE ((GPM_HangHoa.MaHang LIKE @MaHang) OR GPM_HangHoa.TenHangHoa LIKE @TenHang)  AND (GPM_HangHoaTonKho.IDKho = @IDKho) AND (GPM_HangHoaTonKho.DaXoa = 0)	
 	                                        ) as st 
@@ -473,7 +475,7 @@ namespace BanHang
                 return;
             ASPxComboBox comboBox = (ASPxComboBox)source;
             dsHangHoa.SelectCommand = @"SELECT GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa, GPM_DonViTinh.TenDonViTinh 
-                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh 
+                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinhSi 
                                                            INNER JOIN GPM_HangHoaTonKho ON GPM_HangHoaTonKho.IDHangHoa = GPM_HangHoa.ID
                                         WHERE (GPM_HangHoa.ID = @ID) ORDER BY TenHangHoa ASC";
             dsHangHoa.SelectParameters.Clear();

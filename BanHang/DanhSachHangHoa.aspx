@@ -95,7 +95,9 @@
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Tên Hàng Hóa">
                 </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Đơn Vị Tính">
+                <dx:GridViewColumnLayoutItem ColumnName="ĐVT Lẻ">
+                </dx:GridViewColumnLayoutItem>
+                <dx:GridViewColumnLayoutItem ColumnName="ĐVT Sỉ">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Nhóm Hàng">
                 </dx:GridViewColumnLayoutItem>
@@ -119,7 +121,7 @@
                     </ValidationSettings>
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataComboBoxColumn Caption="Đơn Vị Tính" FieldName="IDDonViTinh" VisibleIndex="3">
+            <dx:GridViewDataComboBoxColumn Caption="ĐVT Lẻ" FieldName="IDDonViTinhLe" VisibleIndex="3">
                 <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
                     <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
@@ -130,7 +132,7 @@
             </dx:GridViewDataTextColumn>
             <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="12">
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataSpinEditColumn Caption="Giá Mua" FieldName="GiaMua" VisibleIndex="4">
+            <dx:GridViewDataSpinEditColumn Caption="Giá Mua" FieldName="GiaMua" VisibleIndex="5">
                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" DisplayFormatInEditMode="True">
                     <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
@@ -172,6 +174,13 @@
                     </ValidationSettings>
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
+            <dx:GridViewDataComboBoxColumn Caption="ĐVT Sỉ" FieldName="IDDonViTinhSi" VisibleIndex="4">
+                <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
         </Columns>
         <Styles>
             <Header Font-Bold="True" HorizontalAlign="Center">

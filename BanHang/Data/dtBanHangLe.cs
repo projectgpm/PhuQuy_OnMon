@@ -179,10 +179,11 @@ namespace BanHang.Data
             {
                 con.Open();
                 string cmdText = "";
-                cmdText = "SELECT HH.ID, HH.TenHangHoa,HH.MaHang,HH.DoDay ,Dvi.TenDonViTinh, BG.GiaBanLe, BG.GiaBanSi " +
+                cmdText = "SELECT HH.ID, HH.TenHangHoa,HH.MaHang,HH.DoDay ,DViLe.TenDonViTinh as TenDonViTinhLe,DViSi.TenDonViTinh as TenDonViTinhSi , BG.GiaBanLe, BG.GiaBanSi " +
                                  "FROM GPM_HangHoa AS HH " +
                                  "INNER JOIN GPM_HangHoaTonKho AS HHTK ON HH.ID = HHTK.IDHangHoa " +
-                                 "INNER JOIN GPM_DonViTinh as DVi ON HH.IDDonViTinh = DVi.ID " +
+                                 "INNER JOIN GPM_DonViTinh as DViLe ON HH.IDDonViTinhLe = DViLe.ID " +
+                                 "INNER JOIN GPM_DonViTinh as DViSi ON HH.IDDonViTinhSi = DViSi.ID " +
                                  "INNER JOIN GPM_ChiTietBangGia AS BG ON HH.ID = BG.IDHangHoa " +
                                  //"LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa" +
                                  "WHERE (HH.ID = @IDHangHoa) AND (BG.IDBangGia = @IDBangGia) AND HH.DaXoa = 0 AND HHTK.DaXoa = 0";
