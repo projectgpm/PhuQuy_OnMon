@@ -175,7 +175,7 @@
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" VisibleIndex="6" Width="80px">
-                            <PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+                            <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
                                     <dx:ASPxSpinEdit ID="txtSoLuongChange" runat="server" Width="100%" 
                                         NumberType="Integer" Value='<%# Eval("SoLuong") %>' />
@@ -205,12 +205,12 @@
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="7" FieldName="DonGia" Width="120px" Name="dongia1">
 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
-                                    <dx:ASPxSpinEdit ID="txtDonGia" runat="server" Width="100%"  DisplayFormatString="N0"
+                                    <dx:ASPxSpinEdit ID="txtDonGia" runat="server" Width="100%"  DisplayFormatString="g"
                                         NumberType="Integer" Value='<%# Eval("DonGia") %>' />
                                 </DataItemTemplate>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" FieldName="DonGia" Name="dongia2" ShowInCustomizationForm="True" VisibleIndex="8" Width="120px">
-                                <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
+                                <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="90px">
