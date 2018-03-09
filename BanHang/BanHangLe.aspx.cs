@@ -75,6 +75,9 @@ namespace BanHang
             cmbChonGia.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// thêm mới hóa đơn
+        /// </summary>
         public void ThemHoaDonMoi()
         {
              dtKhachHang dtkh = new dtKhachHang();
@@ -91,6 +94,9 @@ namespace BanHang
             BindGridChiTietHoaDon();
             txtTienThua.Value = 0;
         }
+        /// <summary>
+        /// hủy hóa đơn
+        /// </summary>
         public void HuyHoaDon()
         {
             int indexTabActive = tabControlSoHoaDon.ActiveTabIndex;
@@ -109,6 +115,12 @@ namespace BanHang
                 BindGridChiTietHoaDon();
             }
         }
+
+        /// <summary>
+        /// Thêm mới và cập nhật hàng hóa trong hóa đơn
+        /// </summary>
+        /// <param name="tbThongTin"></param>
+        /// <param name="TrangThaiGiaSiHayLe"></param>
         public void ThemHangVaoChiTietHoaDon(DataTable tbThongTin, int TrangThaiGiaSiHayLe)
         {
             txtKhachThanhToan.Text = "0";
@@ -140,6 +152,7 @@ namespace BanHang
                 exitHang.ThanhTien = SoLuong * exitHang.DonGia;
                 DanhSachHoaDon[MaHoaDon].TongTien += SoLuong * exitHang.DonGia - ThanhTienOld;
                 DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
 
             }
             else
@@ -168,12 +181,20 @@ namespace BanHang
                
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
                 cthd.DoDay = tbThongTin.Rows[0]["DoDay"].ToString();
+                cthd.HeSo = Int32.Parse(tbThongTin.Rows[0]["HeSo"].ToString());
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
                 DanhSachHoaDon[MaHoaDon].TongTien += cthd.ThanhTien;
                 DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
             }
         }
+
+        /// <summary>
+        /// inser hàng hóa vào hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnInsertHang_Click(object sender, EventArgs e)
         {
             try
@@ -204,7 +225,7 @@ namespace BanHang
             }
             catch (Exception ex)
             {
-                HienThiThongBao("Error: " + ex);
+                txtBarcode.Focus();
             }
         }
         public void HienThiThongBao(string thongbao)
@@ -216,6 +237,9 @@ namespace BanHang
             BatchUpdate();
             BindGridChiTietHoaDon();
         }
+        /// <summary>
+        /// cập nhật số lượng hay giá tiền
+        /// </summary>
         private void BatchUpdate()
         {
             txtKhachThanhToan.Text = "0";
@@ -249,6 +273,7 @@ namespace BanHang
                     exitHang.ThanhTien = float.Parse(SoLuongMoi.ToString()) * exitHang.DonGia;
                     DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
                     DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                    DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
                 }
             }
         }
@@ -315,6 +340,12 @@ namespace BanHang
             BindGridChiTietHoaDon();
         }
 
+
+        /// <summary>
+        /// thanh toán hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnThanhToan_Click(object sender, EventArgs e)
         {
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
@@ -351,13 +382,6 @@ namespace BanHang
                 }
                 else// khách sỉ
                 {
-                    //if (TienKhachThanhToan < DanhSachHoaDon[MaHoaDon].KhachCanTra)
-                    //{
-                    //    txtKhachThanhToan.Text = "";
-                    //    txtKhachThanhToan.Focus();
-                    //    HienThiThongBao("Thanh toán chưa đủ số tiền !!"); return;
-                    //}
-
                     double CongNoCu = dtKhachHang.LayCongNoCuKhachHang(IDKhachHang.ToString());
                     double TongTienKhachHang = double.Parse(txtKhachCanTra.Text.ToString()) - double.Parse(txtKhachThanhToan.Text.ToString());//
                     double CongNoMoi = CongNoCu;
@@ -589,8 +613,10 @@ namespace BanHang
         public double DonGia { get; set; }
         public double ThanhTien { get; set; }
         public int TrangThaiGiaSiHayLe{get; set;}
+        public int HeSo { get; set; }
         public ChiTietHoaDon()
         {
+            HeSo = 0;
             TrangThaiGiaSiHayLe = 0; // 0 là giá sỉ, 1 là giá lẻ
             TonKho = 0;
             SoLuong = 0;

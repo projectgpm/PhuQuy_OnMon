@@ -99,6 +99,8 @@
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="ĐVT Sỉ">
                 </dx:GridViewColumnLayoutItem>
+                <dx:GridViewColumnLayoutItem ColumnName="Hệ Số">
+                </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Nhóm Hàng">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Giá Mua" Name="GiaMua">
@@ -106,8 +108,6 @@
                 <dx:GridViewColumnLayoutItem ColumnName="Giá Bán">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Độ Dầy">
-                </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Trọng Lượng/Chiều Dài">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Ghi Chú" Name="GhiChu">
                 </dx:GridViewColumnLayoutItem>
@@ -167,7 +167,7 @@
                     </ValidationSettings>
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
-            <dx:GridViewDataSpinEditColumn Caption="Trọng Lượng/Chiều Dài" FieldName="ChieuDai" VisibleIndex="9">
+            <dx:GridViewDataSpinEditColumn Caption="Hệ Số" FieldName="ChieuDai" VisibleIndex="9">
                 <PropertiesSpinEdit DisplayFormatString="g">
                     <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
