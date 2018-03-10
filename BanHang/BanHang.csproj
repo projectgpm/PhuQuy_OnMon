@@ -108,6 +108,7 @@
     <Content Include="BaoCaoBanHang_In.aspx" />
     <Content Include="BaoCaoNhapHang.aspx" />
     <Content Include="BaoCaoNhapHang_In.aspx" />
+    <Content Include="BaoCaoThuChi.aspx" />
     <Content Include="BaoCaoTongHop.aspx" />
     <Content Include="BaoCaoTonKho.aspx" />
     <Content Include="BaoCaoTonKho_In.aspx" />
@@ -365,6 +366,13 @@
     <Compile Include="BaoCaoNhapHang_In.aspx.designer.cs">
       <DependentUpon>BaoCaoNhapHang_In.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BaoCaoThuChi.aspx.cs">
+      <DependentUpon>BaoCaoThuChi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaoCaoThuChi.aspx.designer.cs">
+      <DependentUpon>BaoCaoThuChi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BaoCaoTongHop.aspx.cs">
       <DependentUpon>BaoCaoTongHop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -559,6 +567,7 @@
     <Compile Include="Data\dataNhomHang.cs" />
     <Compile Include="Data\dtBangGia.cs" />
     <Compile Include="Data\dtBanHangLe.cs" />
+    <Compile Include="Data\dtBaoCaoThuChi.cs" />
     <Compile Include="Data\dtCapNhatPhieuNhapHang.cs" />
     <Compile Include="Data\dtCapNhatTonKho.cs" />
     <Compile Include="Data\dtCheckDangNhap.cs" />
