@@ -69,10 +69,8 @@
                                     <dx:ASPxComboBox ID="cmbHangHoa" runat="server" ValueType="System.String" 
                             DropDownWidth="600" DropDownStyle="DropDownList"   AutoPostBack="True"
                             ValueField="ID"
-                            NullText="Nhập mã hàng.." Width="100%" TextFormatString="{0} - {1}"
-                            EnableCallbackMode="true" CallbackPageSize="10"  OnSelectedIndexChanged="cmbHangHoa_SelectedIndexChanged" OnItemRequestedByValue="cmbHangHoa_ItemRequestedByValue" OnItemsRequestedByFilterCondition="cmbHangHoa_ItemsRequestedByFilterCondition" 
-                                    
-                                        
+                            NullText="Nhập mã hàng.." Width="100%" TextFormatString="{1}"
+                            EnableCallbackMode="true" CallbackPageSize="10"  OnSelectedIndexChanged="cmbHangHoa_SelectedIndexChanged" OnItemRequestedByValue="cmbHangHoa_ItemRequestedByValue" OnItemsRequestedByFilterCondition="cmbHangHoa_ItemsRequestedByFilterCondition"           
                             >                                    
                             <Columns>
                                 <dx:ListBoxColumn FieldName="MaHang" Width="80px" Caption="Mã Hàng" />
@@ -92,7 +90,7 @@
                         <dx:LayoutItem Caption="Tồn Kho">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer7" runat="server">
-                                    <dx:ASPxSpinEdit ID="txtTonKho" runat="server" Enabled="False" Width="100%">
+                                    <dx:ASPxSpinEdit ID="txtTonKho" runat="server" Enabled="False" Width="100%" DisplayFormatString="N1">
                                     </dx:ASPxSpinEdit>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
@@ -152,7 +150,7 @@
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer14" runat="server">
                                                 
-                                    <dx:ASPxGridView ID="gridDanhSachHangHoa_Temp" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" OnRowDeleting="gridDanhSachHangHoa_Temp_RowDeleting" Width="100%" OnHtmlRowPrepared="gridDanhSachHangHoa_Temp_HtmlRowPrepared">
+                                    <dx:ASPxGridView ID="gridDanhSachHangHoa_Temp" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" OnRowDeleting="gridDanhSachHangHoa_Temp_RowDeleting" Width="100%">
                                         <SettingsPager Mode="ShowAllRecords">
                                         </SettingsPager>
                                         <Settings ShowFooter="True" />
@@ -162,7 +160,7 @@
                                             </ShowAdaptiveDetailButton>
                                             <HideAdaptiveDetailButton ButtonType="Image">
                                             </HideAdaptiveDetailButton>
-                                            <DeleteButton>
+                                            <DeleteButton ButtonType="Image" RenderMode="Image">
                                                 <Image IconID="actions_cancel_16x16" ToolTip="Xóa">
                                                 </Image>
                                             </DeleteButton>
@@ -176,7 +174,7 @@
                                             <dx:GridViewCommandColumn ShowDeleteButton="True" ShowInCustomizationForm="True" VisibleIndex="8">
                                             </dx:GridViewCommandColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" ShowInCustomizationForm="True" VisibleIndex="4">
-                                                <PropertiesSpinEdit DisplayFormatString="g" >
+                                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" >
                                                 </PropertiesSpinEdit>
                                             </dx:GridViewDataSpinEditColumn>
                                             <dx:GridViewDataComboBoxColumn Caption="ĐVT" FieldName="IDDonViTinh" ShowInCustomizationForm="True" VisibleIndex="2">
@@ -188,7 +186,7 @@
                                             <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" ShowInCustomizationForm="True" VisibleIndex="7">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="3">
-                                                <PropertiesSpinEdit DisplayFormatString="g">
+                                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
                                                 </PropertiesSpinEdit>
                                             </dx:GridViewDataSpinEditColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Thành Tiền" FieldName="ThanhTien" ShowInCustomizationForm="True" VisibleIndex="6">

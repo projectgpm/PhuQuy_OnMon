@@ -11,358 +11,367 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="Account/ChangePassword.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Account/ChangePasswordSuccess.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Account/Login.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Account/Register.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Account/RegisterSuccess.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Account/Web.config">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="App_Data/main.xml">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="App_Data/MenuAdmin.xml">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
+    </File>
+    <File Include="BangGia.aspx">
+      <publishTime>03/08/2018 11:23:43</publishTime>
     </File>
     <File Include="BangKeBanHang.aspx">
-      <publishTime>12/07/2017 17:31:12</publishTime>
+      <publishTime>03/10/2018 20:46:11</publishTime>
     </File>
     <File Include="BangKeBanHang_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BangKeKhachHangTraHang.aspx">
-      <publishTime>12/07/2017 17:30:32</publishTime>
+      <publishTime>03/10/2018 20:46:44</publishTime>
     </File>
     <File Include="BangKeKhachHangTraHang_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BangKePhieuXuatKhac.aspx">
-      <publishTime>12/07/2017 17:30:38</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BangKePhieuXuatKhac_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BanHangLe.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/09/2018 16:24:53</publishTime>
     </File>
     <File Include="BaoCaoBanHang.aspx">
-      <publishTime>12/07/2017 17:30:46</publishTime>
+      <publishTime>03/10/2018 20:47:24</publishTime>
     </File>
     <File Include="BaoCaoBanHang_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BaoCaoNhapHang.aspx">
-      <publishTime>12/07/2017 17:30:52</publishTime>
+      <publishTime>03/10/2018 20:47:57</publishTime>
     </File>
     <File Include="BaoCaoNhapHang_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
+    </File>
+    <File Include="BaoCaoThuChi.aspx">
+      <publishTime>03/10/2018 21:19:34</publishTime>
     </File>
     <File Include="BaoCaoTongHop.aspx">
-      <publishTime>12/07/2017 17:30:59</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BaoCaoTonKho.aspx">
-      <publishTime>12/07/2017 17:31:08</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BaoCaoTonKho_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="bin/BanHang.dll">
-      <publishTime>12/24/2017 12:59:10</publishTime>
+      <publishTime>03/10/2018 21:27:08</publishTime>
     </File>
     <File Include="ChietKhau.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiNhanhDatHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
+    </File>
+    <File Include="ChiTietBangGia.aspx">
+      <publishTime>03/09/2018 10:03:28</publishTime>
     </File>
     <File Include="ChiTietCongNo.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiTietCongNoKhachHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiTietDonHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 08:57:48</publishTime>
     </File>
     <File Include="ChiTietHangHoaTrongKe.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiTietHoaDonDaIn.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiTietKhachHangTraHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 10:46:17</publishTime>
     </File>
     <File Include="ChiTietPhieuKiemKho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 10:06:58</publishTime>
     </File>
     <File Include="ChiTietPhieuXuatKhac.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 09:33:36</publishTime>
     </File>
     <File Include="ChiTietPhieuXuatTra.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 09:32:34</publishTime>
     </File>
     <File Include="ChiTietThanhToanChietKhau.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="CongNoKyThuat.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Images/AquaHeader.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Images/BlackGlassHeader.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Images/GlassHeader.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Images/PlasticBlueHeader.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Images/RedWineHeader.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="css/index.js">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="css/style.css">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DangNhap.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DangXuat.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachChiPhi.aspx">
-      <publishTime>12/08/2017 13:05:59</publishTime>
+      <publishTime>03/10/2018 08:46:47</publishTime>
     </File>
     <File Include="DanhSachHangHoa.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/09/2018 13:25:17</publishTime>
     </File>
     <File Include="DanhSachKe.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachKhachHangTraHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachKiemKho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachPhieuDatHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachPhieuXuatKhac.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DanhSachPhieuXuatTra.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Default.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DonDoiHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DonViTinh.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="DuLieu.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="HinhThucThanhToan.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/1000167.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/Avosoft-Warm-Toolbar-Print.ico">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/banhang.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/bao-cao-thong-ke.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/baocao.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/baohanh.jpg">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/chungtu.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/danhmuc.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/danhsach.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/download.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/hethong.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/hotro.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/logo.jpg">
-      <publishTime>12/08/2017 12:10:27</publishTime>
+      <publishTime>03/09/2018 14:54:35</publishTime>
     </File>
     <File Include="image/nhapxuat.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/suachua.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/taikhoan.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/thuho.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="image/trangchu.png">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InBaoCaoTongHop.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuChi.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuGiaoHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuThanhToan.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuThanhToan1.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuThanhToan2.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="InPhieuThanhToan3.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="KeepAlive.ashx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="keyCode.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="KhachHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Kho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="KiemKho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 10:04:46</publishTime>
     </File>
     <File Include="LichSuKho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="LichSuThayDoiGia.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="LichSuTruyCap.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Light.master">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="Main.master">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="NhaCungCap.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="NhanVienKyThuat.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="NhomHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="NhomKhachHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="NhomNguoiDung.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="PhanQuyen.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="PhieuKhachHangTraHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 10:46:29</publishTime>
     </File>
     <File Include="PhieuNhapHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="PhieuXuatKhac.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 09:50:22</publishTime>
     </File>
     <File Include="PhieuXuatTra.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 09:31:55</publishTime>
     </File>
     <File Include="QLChiPhi.aspx">
-      <publishTime>12/08/2017 13:11:39</publishTime>
+      <publishTime>03/08/2018 10:14:59</publishTime>
     </File>
     <File Include="QuanTriNguoiDung.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 08:50:21</publishTime>
     </File>
     <File Include="Root.master">
-      <publishTime>12/08/2017 13:08:40</publishTime>
+      <publishTime>03/10/2018 12:41:10</publishTime>
     </File>
     <File Include="ThanhToanChietKhau.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ThayDoiMatKhau.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="TheKho.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="TheKho_In.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ThemDonHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 09:11:34</publishTime>
     </File>
     <File Include="ThemHangHoaCombo.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ThemHangHoaTrongKe.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ThemQuyen.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="TonKhoBanDau.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>03/10/2018 21:05:52</publishTime>
     </File>
     <File Include="TraCuuMaHang.aspx">
-      <publishTime>12/07/2017 14:43:27</publishTime>
+      <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="UploadImages/10102017_023250_PM_vibox-v2-pro-800x01.jpg">
       <publishTime>12/07/2017 14:43:27</publishTime>
@@ -389,7 +398,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2017 14:43:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/24/2017 12:59:10</publishTime>
+      <publishTime>03/10/2018 21:27:09</publishTime>
     </File>
   </ItemGroup>
 </Project>

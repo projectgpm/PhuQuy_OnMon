@@ -224,14 +224,6 @@
     <Content Include="ThemQuyen.aspx" />
     <Content Include="TonKhoBanDau.aspx" />
     <Content Include="TraCuuMaHang.aspx" />
-    <Content Include="UploadImages\10102017_023250_PM_vibox-v2-pro-800x01.jpg" />
-    <Content Include="UploadImages\10102017_024652_PM_vibox-v2-pro-800x01.jpg" />
-    <Content Include="UploadImages\10102017_025558_PM_gallery2.jpg" />
-    <Content Include="UploadImages\10102017_025609_PM_gallery4.jpg" />
-    <Content Include="UploadImages\10102017_025619_PM_gallery7.jpg" />
-    <Content Include="UploadImages\10102017_025628_PM_testimonial3.jpg" />
-    <Content Include="UploadImages\10102017_030101_PM_signup-bg.png" />
-    <Content Include="UploadImages\10102017_030136_PM_blog-post1.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

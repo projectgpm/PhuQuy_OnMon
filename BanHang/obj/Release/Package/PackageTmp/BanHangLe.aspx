@@ -63,12 +63,12 @@
                                      
                         <table width="95%">
                             <tr>
-                                <td width="75%">
+                                <td width="55%">
                                     <asp:Button ID="btnInsertHang" runat="server" OnClick="btnInsertHang_Click" Style="display: none"/>                                                                     
                                     <dx:ASPxComboBox ID="txtBarcode" runat="server" ValueType="System.String" 
                                         DropDownWidth="600" DropDownStyle="DropDown" 
                                         ValueField="ID" 
-                                        NullText="Nhập Barcode hoặc mã hàng ......." Width="100%" TextFormatString="{0}"
+                                        NullText="Nhập mã hàng hoặc tên hàng hóa......." Width="100%" TextFormatString="{1}"
                                         EnableCallbackMode="true" CallbackPageSize="10" 
                                         OnItemsRequestedByFilterCondition="txtBarcode_ItemsRequestedByFilterCondition"
                                         OnItemRequestedByValue="txtBarcode_ItemRequestedByValue" 
@@ -84,19 +84,27 @@
                                     
                                     <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" >                                       
                                     </asp:SqlDataSource>
+                                    &nbsp; &nbsp
+                                     &nbsp; &nbsp
                                 </td>
                                 <td  width="10%">
                                     &nbsp; &nbsp
-
-                                    <dx:ASPxComboBox ID="cmbChonGia" runat="server" Font-Bold="True" Caption="Chọn giá " ValueType="System.String" SelectedIndex="0">
-                                        <Items>
-                                            <dx:ListEditItem Selected="True" Text="Giá Bán Lẻ" Value="0" />
-                                            <dx:ListEditItem Text="Giá Bán Sỉ" Value="1" />
-                                        </Items>
+                                     &nbsp; &nbsp
+                                    <dx:ASPxComboBox ID="cmbChonGia" runat="server" Font-Bold="True" Caption="Bảng giá " ValueType="System.String" DataSourceID="SqlBangGia" SelectedIndex="1" TextField="TenBangGia" ValueField="ID">
                                     </dx:ASPxComboBox>
+                                    <asp:SqlDataSource ID="SqlBangGia" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenBangGia] FROM [GPM_BangGia] WHERE ([DaXoa] = @DaXoa)">
+                                        <SelectParameters>
+                                            <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
+                                        </SelectParameters>
+                                    </asp:SqlDataSource>
                                     &nbsp;&nbsp;
                                 </td>
-                                <td width="15%">                            
+                                <td  width="15%">
+                                    &nbsp; &nbsp
+                                    <dx:ASPxCheckBox ID="ckBanLe" runat="server" Font-Bold="True" Text="Bán lẻ"></dx:ASPxCheckBox>
+                                    &nbsp;
+                                </td>
+                                <td width="10%">                            
                                     <dx:ASPxSpinEdit ID="txtSoLuong" ClientInstanceName="txtSoLuong" runat="server" Caption="Số lượng" TabIndex="0"
                                         Font-Bold="True" Number="1" Width="100px" NumberType="Integer">                                    
                                     </dx:ASPxSpinEdit>
@@ -157,20 +165,20 @@
                             <dx:GridViewDataTextColumn Caption="STT" FieldName="STT" VisibleIndex="0" 
                                 AdaptivePriority="1" Name="STT" Width="50px" >                                    
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn Caption="Mã hàng"  FieldName="MaHang" VisibleIndex="2" AdaptivePriority="1" Width="120px" Visible="False">                                    
+                            <dx:GridViewDataTextColumn Caption="Mã hàng"  FieldName="MaHang" VisibleIndex="1" AdaptivePriority="1" Width="120px" Visible="False">                                    
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn Caption="Tên hàng" FieldName="TenHang" VisibleIndex="3" Width="150px">                                    
+                            <dx:GridViewDataTextColumn Caption="Tên hàng" FieldName="TenHang" VisibleIndex="2" Width="150px">                                    
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataTextColumn Caption="ĐVT" FieldName="DonViTinh" VisibleIndex="4" 
+                            <dx:GridViewDataTextColumn Caption="ĐVT" FieldName="DonViTinh" VisibleIndex="3" 
                                 AdaptivePriority="1" Width="60px">                                    
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" VisibleIndex="6" Width="80px">
-                            <PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+                            <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
                                     <dx:ASPxSpinEdit ID="txtSoLuongChange" runat="server" Width="100%" 
-                                        NumberType="Integer" Value='<%# Eval("SoLuong") %>' />
+                                        NumberType="float" Value='<%# Eval("SoLuong") %>' />
                                 </DataItemTemplate>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataButtonEditColumn Caption="Xóa" ShowInCustomizationForm="True" Width="50px" 
@@ -191,7 +199,7 @@
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="TK" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="5" Width="40px">
-                                <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" Width="50px">
+                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" Width="50px">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="7" FieldName="DonGia" Width="120px" Name="dongia1">
@@ -201,14 +209,12 @@
                                         NumberType="Integer" Value='<%# Eval("DonGia") %>' />
                                 </DataItemTemplate>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataImageColumn Caption="Hình Ảnh" FieldName="HinhAnh" ShowInCustomizationForm="True" VisibleIndex="1" Width="90px">
-                                <PropertiesImage ImageAlign="Middle" ImageUrlFormatString="~/UploadImages/{0}" ImageWidth="60px">
-                                </PropertiesImage>
-                            </dx:GridViewDataImageColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" FieldName="DonGia" Name="dongia2" ShowInCustomizationForm="True" VisibleIndex="8" Width="120px">
                                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
+                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px">
+                            </dx:GridViewDataTextColumn>
                         </columns>                                                  
                         <settingspager pagesize="50" numericbuttoncount="6" Mode="ShowAllRecords" />
                         <TotalSummary>

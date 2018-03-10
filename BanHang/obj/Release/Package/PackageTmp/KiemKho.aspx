@@ -57,7 +57,7 @@
                                         <DropDownButton Visible="False">
                                         </DropDownButton>
                                     </dx:ASPxComboBox>
-                                    <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [GPM_HangHoa].[ID], [GPM_HangHoa].[MaHang], [GPM_HangHoa].[TenHangHoa], [GPM_HangHoa].[IDDonViTinh],[GPM_DonViTinh].TenDonViTinh FROM [GPM_HangHoa],[GPM_DonViTinh] WHERE ([GPM_HangHoa].[DaXoa] = @DaXoa AND [GPM_HangHoa].IDDonViTinh = [GPM_DonViTinh].ID)" >                                       
+                                    <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [GPM_HangHoa].[ID], [GPM_HangHoa].[MaHang], [GPM_HangHoa].[TenHangHoa], [GPM_HangHoa].[IDDonViTinhSi],[GPM_DonViTinh].TenDonViTinh FROM [GPM_HangHoa],[GPM_DonViTinh] WHERE ([GPM_HangHoa].[DaXoa] = @DaXoa AND [GPM_HangHoa].IDDonViTinhSi = [GPM_DonViTinh].ID)" >                                       
                                         <SelectParameters>
                                             <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
                                         </SelectParameters>
@@ -94,7 +94,7 @@
                                         </ShowAdaptiveDetailButton>
                                         <HideAdaptiveDetailButton ButtonType="Image">
                                         </HideAdaptiveDetailButton>
-                                        <DeleteButton>
+                                        <DeleteButton ButtonType="Image" RenderMode="Image">
                                             <Image IconID="actions_cancel_16x16" ToolTip="Xóa">
                                             </Image>
                                         </DeleteButton>
@@ -108,13 +108,13 @@
                                         <dx:GridViewCommandColumn ShowDeleteButton="True" ShowInCustomizationForm="True" VisibleIndex="6">
                                         </dx:GridViewCommandColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="3" ReadOnly="True">
-<PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Chênh Lệch" FieldName="ChenhLech" ShowInCustomizationForm="True" VisibleIndex="5" ReadOnly="True">
-<PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Thực Tế" FieldName="ThucTe" ShowInCustomizationForm="True" VisibleIndex="4">
-<PropertiesSpinEdit DisplayFormatString="g" MinValue="0"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N1" MinValue="0" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0">
                                         </dx:GridViewDataTextColumn>

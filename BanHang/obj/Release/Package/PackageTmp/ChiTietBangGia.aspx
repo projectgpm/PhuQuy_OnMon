@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChiTietPhieuKiemKho.aspx.cs" Inherits="BanHang.ChiTietPhieuKiemKho" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChiTietBangGia.aspx.cs" Inherits="BanHang.ChiTietBangGia" %>
 
 <!DOCTYPE html>
 
@@ -9,10 +9,12 @@
 <body>
     <form id="form1" runat="server">
     <div>
-             <dx:ASPxGridView runat="server" AutoGenerateColumns="False" Width="100%" ID="gridChiTietPhieuKiemKho" KeyFieldName="ID" OnRowDeleting="gridChiTietPhieuKiemKho_RowDeleting" OnRowUpdating="gridChiTietPhieuKiemKho_RowUpdating">
-        <SettingsEditing Mode="PopupEditForm">
+             <dx:ASPxGridView runat="server" AutoGenerateColumns="False" Width="100%" ID="gridChiTietPhieuKiemKho" KeyFieldName="ID" OnRowUpdating="gridChiTietPhieuKiemKho_RowUpdating">
+                 <SettingsPager Mode="ShowAllRecords">
+                 </SettingsPager>
+        <SettingsEditing Mode="Batch">
         </SettingsEditing>
-<Settings ShowTitlePanel="True" ShowFooter="True"></Settings>
+<Settings ShowTitlePanel="True" ShowFilterRow="True"></Settings>
 
         <SettingsBehavior ConfirmDelete="True" />
 
@@ -46,7 +48,9 @@
             <EditForm HorizontalAlign="WindowCenter" Modal="True" VerticalAlign="WindowCenter" />
         </SettingsPopup>
 
-<SettingsText Title="THÔNG TIN CHI TIẾT" CommandDelete="Xóa" ConfirmDelete="Bạn chắc chắn muốn xóa?" CommandEdit="Sửa"></SettingsText>
+                 <SettingsSearchPanel Visible="True" />
+
+<SettingsText Title="THÔNG TIN CHI TIẾT BẢNG GIÁ" CommandDelete="Xóa" ConfirmDelete="Bạn chắc chắn muốn xóa?" CommandEdit="Sửa" SearchPanelEditorNullText="Nhập thông tin cần tìm..."></SettingsText>
         <EditFormLayoutProperties ColCount="2">
             <Items>
                 <dx:GridViewColumnLayoutItem ColumnName="Mã Hàng">
@@ -64,36 +68,39 @@
             </Items>
         </EditFormLayoutProperties>
 <Columns>
-    <dx:GridViewDataComboBoxColumn FieldName="IDHangHoa" Caption="H&#224;ng H&#243;a" VisibleIndex="1" ReadOnly="True">
-    <PropertiesComboBox DataSourceID="sqlHangHoa" TextField="TenHangHoa" ValueField="ID"></PropertiesComboBox >
-    </dx:GridViewDataComboBoxColumn>
-    
-    <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" VisibleIndex="0" ReadOnly="true">
+    <dx:GridViewDataTextColumn Caption="Tên Hàng Hóa" VisibleIndex="2" ReadOnly="true" Name="TenHangHoa" FieldName="TenHangHoa">
     </dx:GridViewDataTextColumn>
-    <dx:GridViewDataComboBoxColumn Caption="ĐVT" FieldName="IDDonViTinh" VisibleIndex="2" ReadOnly="true">
-        <PropertiesComboBox DataSourceID="SqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
-        </PropertiesComboBox>
-    </dx:GridViewDataComboBoxColumn>
+    <dx:GridViewDataTextColumn Caption="Mã Hàng" VisibleIndex="1" ReadOnly="True" FieldName="MaHang">
+    </dx:GridViewDataTextColumn>
     
-    <dx:GridViewDataSpinEditColumn Caption="Thực Tế" FieldName="ThucTe" VisibleIndex="4">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+    <dx:GridViewDataTextColumn Caption="ĐVT Sỉ" VisibleIndex="3" ReadOnly="true" FieldName="TenDonViTinhSi">
+    </dx:GridViewDataTextColumn>
+    
+    <dx:GridViewDataSpinEditColumn Caption="Giáp Bán Sỉ" VisibleIndex="6" FieldName="GiaBanSi">
+        <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
+            <ValidationSettings SetFocusOnError="True">
+                <RequiredField IsRequired="True" />
+            </ValidationSettings>
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     
-    <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ReadOnly="True" VisibleIndex="3">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+    <dx:GridViewDataSpinEditColumn Caption="Giá Hệ Thống" ReadOnly="True" VisibleIndex="5" FieldName="GiaHeThong">
+        <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
-    <dx:GridViewDataSpinEditColumn Caption="Chênh Lệch" FieldName="ChenhLech" VisibleIndex="5">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+    
+    <dx:GridViewDataSpinEditColumn Caption="Giá Bán Lẻ" FieldName="GiaBanLe" VisibleIndex="7">
+        <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
+            <ValidationSettings SetFocusOnError="True">
+                <RequiredField IsRequired="True" />
+            </ValidationSettings>
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
+    
+    <dx:GridViewDataTextColumn Caption="ĐVT Lẻ" FieldName="TenDonViTinhLe" ReadOnly="True" VisibleIndex="4">
+    </dx:GridViewDataTextColumn>
     
 </Columns>
-
-                 <TotalSummary>
-                     <dx:ASPxSummaryItem DisplayFormat="Tổng mặt hàng : {0}" FieldName="MaHang" ShowInColumn="Hàng Hóa" SummaryType="Count" />
-                 </TotalSummary>
 
 <Styles>
 <Header HorizontalAlign="Center" Font-Bold="True"></Header>
@@ -104,16 +111,6 @@
 </Styles>
   
 </dx:ASPxGridView>
-             <asp:SqlDataSource ID="SqlDonViTinh" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT DISTINCT [ID], [TenDonViTinh] FROM [GPM_DonViTinh] WHERE ([DaXoa] = @DaXoa)">
-                 <SelectParameters>
-                     <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
-                 </SelectParameters>
-             </asp:SqlDataSource>
-        <asp:SqlDataSource ID="sqlHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenHangHoa] FROM [GPM_HangHoa] WHERE ([DaXoa] = @DaXoa)">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
     </div>
     </form>
 </body>

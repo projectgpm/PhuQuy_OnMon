@@ -103,13 +103,8 @@
                     <dx:LayoutItem Caption="ĐVT">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer14" runat="server">
-                                <dx:ASPxComboBox ID="cmbDonViTinh" runat="server" Width="100%" DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID" ReadOnly="True" Enabled="False">
-                                </dx:ASPxComboBox>
-                                <asp:SqlDataSource ID="sqlDonViTinh" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenDonViTinh] FROM [GPM_DonViTinh] WHERE ([DaXoa] = @DaXoa)">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
+                                <dx:ASPxTextBox ID="txtDVT" runat="server" Enabled="False" Width="100%">
+                                </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -191,10 +186,6 @@
                                             <PropertiesComboBox DataSourceID="sqlHangHoa" TextField="TenHangHoa" ValueField="ID">
                                             </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
-                                        <dx:GridViewDataComboBoxColumn Caption="Đơn vị tính" FieldName="IDDonViTinh" ShowInCustomizationForm="True" VisibleIndex="2">
-                                            <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
-                                            </PropertiesComboBox>
-                                        </dx:GridViewDataComboBoxColumn>
                                         <dx:GridViewDataButtonEditColumn Caption="Xóa" ShowInCustomizationForm="True" Width="50px" 
                                         VisibleIndex="8">
                                         <DataItemTemplate>
@@ -208,6 +199,8 @@
                                         <CellStyle HorizontalAlign="Center">
                                         </CellStyle>
                                     </dx:GridViewDataButtonEditColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị tính" FieldName="TenDonViTinh" ShowInCustomizationForm="True" VisibleIndex="2">
+                                        </dx:GridViewDataTextColumn>
                                     </Columns>
                                     <TotalSummary>
                                         <dx:ASPxSummaryItem DisplayFormat="Tổng tiền: {0:N0}" FieldName="ThanhTien" ShowInColumn="Thành tiền" SummaryType="Sum" />

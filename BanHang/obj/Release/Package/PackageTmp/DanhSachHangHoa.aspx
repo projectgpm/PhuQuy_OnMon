@@ -95,59 +95,44 @@
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Tên Hàng Hóa">
                 </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Đơn Vị Tính">
+                <dx:GridViewColumnLayoutItem ColumnName="ĐVT Lẻ">
+                </dx:GridViewColumnLayoutItem>
+                <dx:GridViewColumnLayoutItem ColumnName="ĐVT Sỉ">
+                </dx:GridViewColumnLayoutItem>
+                <dx:GridViewColumnLayoutItem ColumnName="Hệ Số">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Nhóm Hàng">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Giá Mua" Name="GiaMua">
                 </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem Caption="Giá Sỉ" ColumnName="Giá Sỉ" Name="GiaBan1">
+                <dx:GridViewColumnLayoutItem ColumnName="Giá Bán">
                 </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Giá Lẻ">
+                <dx:GridViewColumnLayoutItem ColumnName="Độ Dầy">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Ghi Chú" Name="GhiChu">
-                </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Hình Ảnh">
-                    <Template>
-                        <dx:ASPxUploadControl ID="UploadImages" runat="server" AutoStartUpload="True" OnFileUploadComplete="UploadImages_FileUploadComplete" ShowProgressPanel="True" UploadMode="Auto" Width="100%">
-                            <ValidationSettings AllowedFileExtensions=".jpge, .jpg, .png">
-                            </ValidationSettings>
-                            <BrowseButton Text="Chọn file ảnh...">
-                            </BrowseButton>
-                            <AdvancedModeSettings EnableDragAndDrop="True" EnableMultiSelect="True">
-                            </AdvancedModeSettings>
-                        </dx:ASPxUploadControl>
-                    </Template>
                 </dx:GridViewColumnLayoutItem>
             </Items>
         </EditFormLayoutProperties>
         <Columns>
             <dx:GridViewDataTextColumn Caption="Tên Hàng Hóa" FieldName="TenHangHoa" VisibleIndex="2">
                 <PropertiesTextEdit>
-                    <ValidationSettings>
+                    <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
                     </ValidationSettings>
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataComboBoxColumn Caption="Đơn Vị Tính" FieldName="IDDonViTinh" VisibleIndex="4">
+            <dx:GridViewDataComboBoxColumn Caption="ĐVT Lẻ" FieldName="IDDonViTinhLe" VisibleIndex="3">
                 <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
-                    <ValidationSettings>
+                    <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
                     </ValidationSettings>
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
-            <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" VisibleIndex="13">
+            <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" VisibleIndex="11">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="14">
+            <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="12">
             </dx:GridViewCommandColumn>
             <dx:GridViewDataSpinEditColumn Caption="Giá Mua" FieldName="GiaMua" VisibleIndex="5">
-                <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" DisplayFormatInEditMode="True">
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesSpinEdit>
-            </dx:GridViewDataSpinEditColumn>
-            <dx:GridViewDataSpinEditColumn Caption="Giá Sỉ" FieldName="GiaSi" VisibleIndex="6">
                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" DisplayFormatInEditMode="True">
                     <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
@@ -163,22 +148,39 @@
             </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" VisibleIndex="1" ReadOnly="True">
                 <PropertiesTextEdit>
-                    <ValidationSettings>
+                    <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
                     </ValidationSettings>
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataImageColumn Caption="Hình Ảnh" FieldName="HinhAnh" VisibleIndex="12">
-                <PropertiesImage ImageUrlFormatString="~/UploadImages/{0}" ImageAlign="Middle" ImageHeight="100px" ImageWidth="100px">
-                </PropertiesImage>
-            </dx:GridViewDataImageColumn>
-            <dx:GridViewDataSpinEditColumn Caption="Giá Lẻ" FieldName="GiaLe" VisibleIndex="11">
+            <dx:GridViewDataSpinEditColumn Caption="Giá Bán" FieldName="GiaBan" VisibleIndex="7">
                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" DisplayFormatInEditMode="True">
                     <ValidationSettings SetFocusOnError="True">
                         <RequiredField IsRequired="True" />
                     </ValidationSettings>
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
+            <dx:GridViewDataSpinEditColumn Caption="Độ Dầy" FieldName="DoDay" VisibleIndex="10">
+                <PropertiesSpinEdit DisplayFormatString="g">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesSpinEdit>
+            </dx:GridViewDataSpinEditColumn>
+            <dx:GridViewDataSpinEditColumn Caption="Hệ Số" FieldName="ChieuDai" VisibleIndex="9">
+                <PropertiesSpinEdit DisplayFormatString="g">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesSpinEdit>
+            </dx:GridViewDataSpinEditColumn>
+            <dx:GridViewDataComboBoxColumn Caption="ĐVT Sỉ" FieldName="IDDonViTinhSi" VisibleIndex="4">
+                <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
         </Columns>
         <Styles>
             <Header Font-Bold="True" HorizontalAlign="Center">
