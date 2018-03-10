@@ -248,7 +248,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT IDDonViTinh FROM [GPM_HangHoa] WHERE [ID] = " + IDHangHoa;
+                string cmdText = "SELECT IDDonViTinhSi FROM [GPM_HangHoa] WHERE [ID] = " + IDHangHoa;
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -257,7 +257,7 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        string ID = dr["IDDonViTinh"].ToString().Trim();
+                        string ID = dr["IDDonViTinhSi"].ToString().Trim();
                         return ID;
                     }
                     return null;

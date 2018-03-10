@@ -29,7 +29,7 @@
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>
-                <dx:LayoutItem Caption="Nhà Cung Cấp">
+                <dx:LayoutItem Caption="Nhà Cung Cấp" ColSpan="2">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer2" runat="server">
                             <dx:ASPxComboBox ID="cmbNhaCungCap" runat="server" DataSourceID="SqlNhaCungCap" TextField="TenNhaCungCap" ValueField="ID" Width="100%">
@@ -39,14 +39,6 @@
                                     <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
                                 </SelectParameters>
                             </asp:SqlDataSource>
-                        </dx:LayoutItemNestedControlContainer>
-                    </LayoutItemNestedControlCollection>
-                </dx:LayoutItem>
-                <dx:LayoutItem Caption="Tổng Tiền">
-                    <LayoutItemNestedControlCollection>
-                        <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer8" runat="server">
-                            <dx:ASPxSpinEdit ID="txtTongTien" runat="server" DisplayFormatString="N0" Enabled="False" OnInit="txtTongTien_Init" Width="100%">
-                            </dx:ASPxSpinEdit>
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
                 </dx:LayoutItem>
@@ -88,7 +80,7 @@
                                         </DropDownButton>
                                     </dx:ASPxComboBox>
                                     
-                                    <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [GPM_HangHoa].[ID], [GPM_HangHoa].[MaHang], [GPM_HangHoa].[TenHangHoa], [GPM_HangHoa].[IDDonViTinh],[GPM_DonViTinh].TenDonViTinh FROM [GPM_HangHoa],[GPM_DonViTinh] WHERE ([GPM_HangHoa].[DaXoa] = @DaXoa AND [GPM_HangHoa].IDDonViTinh = [GPM_DonViTinh].ID)" >                                       
+                                    <asp:SqlDataSource ID="dsHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [GPM_HangHoa].[ID], [GPM_HangHoa].[MaHang], [GPM_HangHoa].[TenHangHoa], [GPM_HangHoa].[IDDonViTinhSi],[GPM_DonViTinh].TenDonViTinh FROM [GPM_HangHoa],[GPM_DonViTinh] WHERE ([GPM_HangHoa].[DaXoa] = @DaXoa AND [GPM_HangHoa].IDDonViTinhSi = [GPM_DonViTinh].ID)" >                                       
                                         <SelectParameters>
                                             <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
                                         </SelectParameters>
@@ -198,11 +190,6 @@
                                         <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                         </PropertiesSpinEdit>
                                     </dx:GridViewDataSpinEditColumn>
-
-                                    <dx:GridViewDataImageColumn Caption="Hình Ảnh" FieldName="HinhAnh" ShowInCustomizationForm="True" VisibleIndex="3" Width="90px" ReadOnly="True">
-                                        <PropertiesImage ImageUrlFormatString="~/UploadImages/{0}" ImageWidth="90px">
-                                        </PropertiesImage>
-                                    </dx:GridViewDataImageColumn>
 
                                 </Columns>
                                  <TotalSummary>

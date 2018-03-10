@@ -173,6 +173,30 @@ namespace BanHang.Data
                 }
             }
         }
+        public DataTable LayThongTinHangHoa_ThemDonHang(string IDHangHoa)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "";
+                cmdText = "SELECT HH.ID, HH.TenHangHoa,HH.MaHang,HH.DoDay,HH.GiaMua,DViSi.TenDonViTinh " +
+                                 "FROM GPM_HangHoa AS HH " +
+                                 "INNER JOIN GPM_HangHoaTonKho AS HHTK ON HH.ID = HHTK.IDHangHoa " +
+                                 "INNER JOIN GPM_DonViTinh as DViSi ON HH.IDDonViTinhSi = DViSi.ID " +
+                                 "LEFT OUTER JOIN GPM_HangHoa_Barcode AS BC ON HHTK.IDHangHoa = BC.IDHangHoa " +
+                                 "WHERE (BC.Barcode = @IDHangHoa OR CONVERT(NVARCHAR(250), HHTK.IDHangHoa) = @IDHangHoa) AND HH.DaXoa = 0 AND HHTK.DaXoa = 0";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                {
+                    command.Parameters.AddWithValue("@IDHangHoa", IDHangHoa);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        DataTable tb = new DataTable();
+                        tb.Load(reader);
+                        return tb;
+                    }
+                }
+            }
+        }
         public DataTable LayThongTinHangHoa(string IDHangHoa, string IDBangGia)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
