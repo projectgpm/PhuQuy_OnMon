@@ -51,26 +51,30 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemMoi(string TenKhachHang, DateTime NgayChi, double TongChi, double DaChi, double ConLai, string GhiChu, string TrangThai)
+        public object ThemMoi(DateTime NgayLap, string IDNguoiLap, string NguoiNop, string NoiDung, string DuDau, string SoTien, string DuCuoi, string IDLoaiThuChi, string TenPhieu)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [GPM_ChiPhi] ([TenKhachHang],[NgayChi],[NgayCapNhat],[TongChi],[GhiChu],[TrangThai],[DaChi],[ConLai]) VALUES (@TenKhachHang,@NgayChi, getdate(),@TongChi,@GhiChu,@TrangThai,@DaChi,@ConLai)";
+                    object ID = null;
+                    string cmdText = "INSERT INTO [GPM_ChiPhi] ([NgayLap],[IDNguoiLap],[NgayLuu],[NguoiNop],[NoiDung],[DuDau],[SoTien],[DuCuoi],[IDLoaiThuChi],[TenPhieu]) OUTPUT INSERTED.ID VALUES (@NgayLap,@IDNguoiLap, getdate(),@NguoiNop,@NoiDung,@DuDau,@SoTien,@DuCuoi,@IDLoaiThuChi,@TenPhieu)";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
-                        myCommand.Parameters.AddWithValue("@TenKhachHang", TenKhachHang);
-                        myCommand.Parameters.AddWithValue("@NgayChi", NgayChi);
-                        myCommand.Parameters.AddWithValue("@TongChi", TongChi);
-                        myCommand.Parameters.AddWithValue("@GhiChu", GhiChu);
-                        myCommand.Parameters.AddWithValue("@TrangThai", TrangThai);
-                        myCommand.Parameters.AddWithValue("@DaChi", DaChi);
-                        myCommand.Parameters.AddWithValue("@ConLai", ConLai);
-                        myCommand.ExecuteNonQuery();
+                        myCommand.Parameters.AddWithValue("@NgayLap", NgayLap);
+                        myCommand.Parameters.AddWithValue("@IDNguoiLap", IDNguoiLap);
+                        myCommand.Parameters.AddWithValue("@NguoiNop", NguoiNop);
+                        myCommand.Parameters.AddWithValue("@NoiDung", NoiDung);
+                        myCommand.Parameters.AddWithValue("@DuDau", DuDau);
+                        myCommand.Parameters.AddWithValue("@SoTien", SoTien);
+                        myCommand.Parameters.AddWithValue("@DuCuoi", DuCuoi);
+                        myCommand.Parameters.AddWithValue("@IDLoaiThuChi", IDLoaiThuChi);
+                        myCommand.Parameters.AddWithValue("@TenPhieu", TenPhieu);
+                        ID = myCommand.ExecuteScalar();
                     }
                     myConnection.Close();
+                    return ID;
                 }
                 catch
                 {
@@ -89,6 +93,55 @@ namespace BanHang.Data
                     using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@ID", ID);
+                        myCommand.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Lỗi: Quá trình Xóa dữ liệu gặp lỗi, hãy tải lại trang");
+                }
+            }
+        }
+
+        /// <summary>
+        /// cập nhật lại số quỹ thu
+        /// </summary>
+        /// <param name="ID"></param>
+        public void CapNhatQuiThu(string SoTien)
+        {
+            using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
+            {
+                try
+                {
+                    myConnection.Open();
+                    string strSQL = "UPDATE [Setting] SET [SoQuyThuChi] = [SoQuyThuChi] +  @SoTien WHERE [ID] = 1";
+                    using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
+                    {
+                        myCommand.Parameters.AddWithValue("@SoTien", SoTien);
+                        myCommand.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception("Lỗi: Quá trình Xóa dữ liệu gặp lỗi, hãy tải lại trang");
+                }
+            }
+        }
+        /// <summary>
+        /// cập nhật lại số quỹ chi
+        /// </summary>
+        /// <param name="ID"></param>
+        public void CapNhatQuiChi(string SoTien)
+        {
+            using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
+            {
+                try
+                {
+                    myConnection.Open();
+                    string strSQL = "UPDATE [Setting] SET [SoQuyThuChi] = [SoQuyThuChi] -  @SoTien WHERE [ID] = 1";
+                    using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
+                    {
+                        myCommand.Parameters.AddWithValue("@SoTien", SoTien);
                         myCommand.ExecuteNonQuery();
                     }
                 }

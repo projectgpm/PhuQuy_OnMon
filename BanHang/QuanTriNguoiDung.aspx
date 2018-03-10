@@ -41,8 +41,6 @@
             <Items>
                 <dx:GridViewColumnLayoutItem ColumnName="Nhóm" Name="IDNhomNguoiDung">
                 </dx:GridViewColumnLayoutItem>
-                <dx:GridViewColumnLayoutItem ColumnName="Chi Nhánh">
-                </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Họ &amp; Tên" Name="TenNguoiDung">
                 </dx:GridViewColumnLayoutItem>
                 <dx:GridViewColumnLayoutItem ColumnName="Số điện thoại" Name="SDT">
@@ -99,13 +97,6 @@
                     </ValidationSettings>
                 </PropertiesTextEdit>
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataComboBoxColumn Caption="Chi Nhánh" FieldName="IDKho" VisibleIndex="3">
-                <PropertiesComboBox DataSourceID="SqlKho" TextField="TenCuaHang" ValueField="ID">
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesComboBox>
-            </dx:GridViewDataComboBoxColumn>
         </Columns>
         <Styles>
             <Header Font-Bold="True" HorizontalAlign="Center">

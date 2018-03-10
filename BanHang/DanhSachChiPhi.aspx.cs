@@ -13,7 +13,14 @@ namespace BanHang
         dtChiPhi data = new dtChiPhi();
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadGrid();
+            if (Session["KTDangNhap"] != "GPM")
+            {
+                Response.Redirect("DangNhap.aspx");
+            }
+            else
+            {
+                LoadGrid();
+            }
         }
 
         private void LoadGrid()
@@ -25,49 +32,46 @@ namespace BanHang
 
         protected void gridDanhSach_InitNewRow(object sender, DevExpress.Web.Data.ASPxDataInitNewRowEventArgs e)
         {
-            //e.NewValues["NgayChi"] = DateTime.Today.ToString("dd/MM/yyyy");
-            //e.NewValues["TongChi"] = "0";
-            //e.NewValues["DaChi"] = "0";
+            e.NewValues["NgayLap"] = DateTime.Today.ToString("dd/MM/yyyy");
+            e.NewValues["SoTien"] = "0";
         }
-
-        protected void gridDanhSach_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
-        {
-            string ID = e.Keys[0].ToString();
-            data = new dtChiPhi();
-            data.Xoa(ID);
-            e.Cancel = true;
-            gridDanhSach.CancelEdit();
-            LoadGrid();
-        }
-
         protected void gridDanhSach_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
-            string TenKhachHang = e.NewValues["TenKhachHang"].ToString();
-            DateTime NgayChi = DateTime.Parse(e.NewValues["NgayChi"].ToString());
-            double TongChi = double.Parse(e.NewValues["TongChi"].ToString());
-            double DaChi = TongChi;
-            double ConLai = TongChi - DaChi;
-            string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
-            string TrangThai = e.NewValues["TrangThai"].ToString();
+            
+            DateTime NgayLap = DateTime.Parse(e.NewValues["NgayLap"].ToString());
+            string IDNguoiLap = Session["IDNhanVien"].ToString();
+            string NguoiNop = e.NewValues["NguoiNop"] == null ? "" : e.NewValues["NguoiNop"].ToString();
+            string NoiDung = e.NewValues["NoiDung"] == null ? "" : e.NewValues["NoiDung"].ToString();
+            string TenPhieu = e.NewValues["TenPhieu"].ToString();
+            double DuDau = dtSetting.SoQuyThuChi();
+            double SoTien = double.Parse(e.NewValues["SoTien"].ToString());
+            double DuCuoi = 0;
+            if (TenPhieu == "0")
+            {
+                //phiếu thu
+                DuCuoi = DuDau + SoTien;
+            }
+            else
+            {
+                //phiếu chi
+                DuCuoi = DuDau - SoTien;
+            }
+            string IDLoaiThuChi = e.NewValues["IDLoaiThuChi"].ToString();
             data = new dtChiPhi();
-            data.ThemMoi(TenKhachHang, NgayChi, TongChi, DaChi, ConLai, GhiChu, TrangThai);
-            e.Cancel = true;
-            gridDanhSach.CancelEdit();
-            LoadGrid();
-        }
-
-        protected void gridDanhSach_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
-        {
-            string ID = e.Keys[0].ToString();
-            string TenKhachHang = e.NewValues["TenKhachHang"].ToString();
-            DateTime NgayChi = DateTime.Parse(e.NewValues["NgayChi"].ToString());
-            double TongChi = double.Parse(e.NewValues["TongChi"].ToString());
-            double DaChi = TongChi;
-            double ConLai = TongChi - DaChi;
-            string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
-            string TrangThai = e.NewValues["TrangThai"].ToString();
-            data = new dtChiPhi();
-            data.CapNhatThongTin(ID, TenKhachHang, NgayChi, TongChi, DaChi, ConLai, GhiChu, TrangThai);
+            object ID = data.ThemMoi(NgayLap, IDNguoiLap, NguoiNop, NoiDung, DuDau.ToString(), SoTien.ToString(), DuCuoi.ToString(), IDLoaiThuChi, TenPhieu);
+            if (ID != null)
+            {
+                if (TenPhieu == "0")
+                {
+                    //phiếu thu
+                    data.CapNhatQuiThu(SoTien.ToString());
+                }
+                else
+                {
+                    //phiếu chi
+                    data.CapNhatQuiChi(SoTien.ToString());
+                }
+            }
             e.Cancel = true;
             gridDanhSach.CancelEdit();
             LoadGrid();

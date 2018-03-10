@@ -143,6 +143,30 @@ namespace BanHang.Data
                 }
             }
         }
+        /// <summary>
+        /// lấy số quỹ thu chi
+        /// </summary>
+        /// <returns></returns>
+        public static double SoQuyThuChi()
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT SoQuyThuChi FROM [Setting]";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                    {
+                        DataRow dr = tb.Rows[0];
+                        return double.Parse(dr["SoQuyThuChi"].ToString());
+                    }
+                    else return 0;
+                }
+            }
+        }
         public static int KT_ChuyenAm()
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))

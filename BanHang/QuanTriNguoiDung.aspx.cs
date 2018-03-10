@@ -20,10 +20,7 @@ namespace BanHang
             }
             else
             {
-               
-                   
-                    LoadGrid();
-                
+                 LoadGrid();
             }
         }
         public void LoadGrid()
@@ -50,7 +47,7 @@ namespace BanHang
             data = new dtQuanTriNguoiDung();
             string TenNguoiDung = e.NewValues["TenNguoiDung"].ToString();
             int IDNhomNguoiDung = Int32.Parse(e.NewValues["IDNhomNguoiDung"].ToString());
-            string IDKho = e.NewValues["IDKho"].ToString();
+            string IDKho = "1";
             string SDT = e.NewValues["SDT"].ToString();
             string MatKhau = e.NewValues["MatKhau"].ToString();
             MatKhau = dtSetting.GetSHA1HashData(MatKhau);
@@ -75,7 +72,7 @@ namespace BanHang
             string ID = e.Keys["ID"].ToString();
             string TenNguoiDung = e.NewValues["TenNguoiDung"].ToString();
             int IDNhomNguoiDung = Int32.Parse(e.NewValues["IDNhomNguoiDung"].ToString());
-            string IDKho = e.NewValues["IDKho"].ToString();
+            string IDKho = "1";
             string SDT = e.NewValues["SDT"].ToString();
             string MatKhau = e.NewValues["MatKhau"].ToString();
             MatKhau = dtSetting.GetSHA1HashData(MatKhau);

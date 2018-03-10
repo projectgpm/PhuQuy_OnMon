@@ -8,7 +8,7 @@
              // alert(key);
          }
     </script>  
-    <dx:ASPxGridView ID="gridDanhSach" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnRowDeleting="gridDanhSach_RowDeleting" OnRowInserting="gridDanhSach_RowInserting" OnRowUpdating="gridDanhSach_RowUpdating" OnInitNewRow="gridDanhSach_InitNewRow">
+    <dx:ASPxGridView ID="gridDanhSach" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnRowInserting="gridDanhSach_RowInserting" OnInitNewRow="gridDanhSach_InitNewRow">
         <SettingsPager PageSize="50">
         </SettingsPager>
         <SettingsEditing Mode="PopupEditForm">
@@ -65,22 +65,36 @@
             </Items>
         </EditFormLayoutProperties>
         <Columns>
-            <dx:GridViewCommandColumn ShowClearFilterButton="True" ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="9" Name="chucnang">
+            <dx:GridViewCommandColumn ShowClearFilterButton="True" ShowNewButtonInHeader="True" VisibleIndex="9" Name="chucnang">
             </dx:GridViewCommandColumn>
-            <dx:GridViewDataButtonEditColumn Caption="Chức Năng" VisibleIndex="8">
+            <dx:GridViewDataButtonEditColumn Caption="In Phiếu" VisibleIndex="8" Visible="False">
                 <DataItemTemplate>
-                    <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">In phiếu </a>
+                    <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">In</a>
                 </DataItemTemplate>
             </dx:GridViewDataButtonEditColumn>
-            <dx:GridViewDataTextColumn Caption="Nội Dung" FieldName="NoiDung" VisibleIndex="5">
+            <dx:GridViewDataTextColumn Caption="Nội Dung" FieldName="NoiDung" VisibleIndex="3">
             </dx:GridViewDataTextColumn>
-            <dx:GridViewDataTextColumn Caption="Tên Người Nộp/Nhận" FieldName="NguoiNop" VisibleIndex="6">
+            <dx:GridViewDataTextColumn Caption="Tên Người Nộp/Nhận" FieldName="NguoiNop" VisibleIndex="4">
             </dx:GridViewDataTextColumn>
             <dx:GridViewDataComboBoxColumn Caption="Người Lập" FieldName="IDNguoiLap" VisibleIndex="0">
                 <PropertiesComboBox DataSourceID="SqlNguoiLap" TextField="TenNguoiDung" ValueField="ID">
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
-            <dx:GridViewDataComboBoxColumn Caption="Loại Phiếu" VisibleIndex="2">
+            <dx:GridViewDataComboBoxColumn Caption="Loại Thu Chi" FieldName="IDLoaiThuChi" VisibleIndex="1">
+                <PropertiesComboBox DataSourceID="sqlTrangThaiChiPhi" TextField="TrangThai" ValueField="ID">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesComboBox>
+            </dx:GridViewDataComboBoxColumn>
+            <dx:GridViewDataSpinEditColumn Caption="Số Tiền" FieldName="SoTien" VisibleIndex="2">
+                <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom" DisplayFormatInEditMode="True">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesSpinEdit>
+            </dx:GridViewDataSpinEditColumn>
+            <dx:GridViewDataComboBoxColumn Caption="Loại Phiếu" FieldName="TenPhieu" VisibleIndex="5">
                 <PropertiesComboBox>
                     <Items>
                         <dx:ListEditItem Text="Phiếu thu" Value="0" />
@@ -91,22 +105,12 @@
                     </ValidationSettings>
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
-            <dx:GridViewDataComboBoxColumn Caption="Loại Thu Chi" FieldName="IDLoaiThuChi" VisibleIndex="3">
-                <PropertiesComboBox DataSourceID="sqlTrangThaiChiPhi">
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesComboBox>
-            </dx:GridViewDataComboBoxColumn>
-            <dx:GridViewDataSpinEditColumn Caption="Số Tiền" FieldName="SoTien" VisibleIndex="4">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
-                    <ValidationSettings SetFocusOnError="True">
-                        <RequiredField IsRequired="True" />
-                    </ValidationSettings>
-                </PropertiesSpinEdit>
-            </dx:GridViewDataSpinEditColumn>
             <dx:GridViewDataDateColumn Caption="Ngày Lập" FieldName="NgayLap" VisibleIndex="7">
-                <propertiesdateedit displayformatstring="dd/MM/yyyy" EditFormat="Custom" EditFormatString="dd/MM/yyyy" DisplayFormatInEditMode="True"></propertiesdateedit>
+                <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy" EditFormat="Custom" EditFormatString="dd/MM/yyyy" DisplayFormatInEditMode="True">
+                    <ValidationSettings SetFocusOnError="True">
+                        <RequiredField IsRequired="True" />
+                    </ValidationSettings>
+                </PropertiesDateEdit>
             </dx:GridViewDataDateColumn>
         </Columns>
         <Styles>
@@ -118,7 +122,11 @@
             </TitlePanel>
         </Styles>
     </dx:ASPxGridView>
-    <asp:SqlDataSource ID="SqlNguoiLap" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenNguoiDung] FROM [GPM_NguoiDung]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlNguoiLap" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenNguoiDung] FROM [GPM_NguoiDung] WHERE ([ID] &lt;&gt; @ID)">
+        <SelectParameters>
+            <asp:Parameter DefaultValue="1" Name="ID" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
     <asp:SqlDataSource ID="sqlTrangThaiChiPhi" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT * FROM [GPM_TrangThaiChi]"></asp:SqlDataSource>
     <dx:ASPxPopupControl ID="popup" runat="server" AllowDragging="True" AllowResize="True" 
          PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"  Width="1100px"
