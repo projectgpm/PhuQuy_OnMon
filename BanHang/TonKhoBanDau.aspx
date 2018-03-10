@@ -1,5 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="TonKhoBanDau.aspx.cs" Inherits="BanHang.TonKhoBanDau" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
+    <dx:ASPxButton ID="btnXuatFile" runat="server" Text="Xuất file excel" OnClick="btnXuatFile_Click">
+        <Image IconID="export_exporttoxlsx_32x32">
+        </Image>
+        <Paddings PaddingLeft="20px" />
+    </dx:ASPxButton>
     <dx:ASPxGridView ID="gridTonKhoBanDau" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnHtmlRowPrepared="gridTonKhoBanDau_HtmlRowPrepared" >
         <SettingsPager NumericButtonCount="50">
         </SettingsPager>
@@ -59,6 +64,7 @@
             </TitlePanel>
         </Styles>
     </dx:ASPxGridView>
+    <dx:ASPxGridViewExporter ID="printf" runat="server"></dx:ASPxGridViewExporter>
     <asp:SqlDataSource ID="SqlDonViTinh" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenDonViTinh] FROM [GPM_DonViTinh] WHERE ([DaXoa] = @DaXoa)">
         <SelectParameters>
             <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />

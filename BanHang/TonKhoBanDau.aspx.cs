@@ -40,5 +40,10 @@ namespace BanHang
             if (TonKhoTong < 2)
                 e.Row.BackColor = color;
         }
+
+        protected void btnXuatFile_Click(object sender, EventArgs e)
+        {
+            printf.WriteXlsToResponse();
+        }
     }
 }

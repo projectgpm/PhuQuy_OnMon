@@ -13,6 +13,15 @@ namespace BanHang {
     public partial class TonKhoBanDau {
         
         /// <summary>
+        /// btnXuatFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnXuatFile;
+        
+        /// <summary>
         /// gridTonKhoBanDau control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace BanHang {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxGridView gridTonKhoBanDau;
+        
+        /// <summary>
+        /// printf control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridViewExporter printf;
         
         /// <summary>
         /// SqlDonViTinh control.
