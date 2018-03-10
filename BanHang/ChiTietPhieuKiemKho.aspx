@@ -67,10 +67,6 @@
     <dx:GridViewDataComboBoxColumn FieldName="IDHangHoa" Caption="H&#224;ng H&#243;a" VisibleIndex="1" ReadOnly="True">
     <PropertiesComboBox DataSourceID="sqlHangHoa" TextField="TenHangHoa" ValueField="ID"></PropertiesComboBox >
     </dx:GridViewDataComboBoxColumn>
-    <dx:GridViewDataTextColumn Caption="Tồn Kho" FieldName="TonKho" VisibleIndex="3" ReadOnly="true">
-    </dx:GridViewDataTextColumn>
-    <dx:GridViewDataTextColumn Caption="Chênh Lệch" FieldName="ChenhLech" VisibleIndex="5">
-    </dx:GridViewDataTextColumn>
     
     <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" VisibleIndex="0" ReadOnly="true">
     </dx:GridViewDataTextColumn>
@@ -80,7 +76,16 @@
     </dx:GridViewDataComboBoxColumn>
     
     <dx:GridViewDataSpinEditColumn Caption="Thực Tế" FieldName="ThucTe" VisibleIndex="4">
-        <PropertiesSpinEdit DisplayFormatString="g">
+        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+        </PropertiesSpinEdit>
+    </dx:GridViewDataSpinEditColumn>
+    
+    <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ReadOnly="True" VisibleIndex="3">
+        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+        </PropertiesSpinEdit>
+    </dx:GridViewDataSpinEditColumn>
+    <dx:GridViewDataSpinEditColumn Caption="Chênh Lệch" FieldName="ChenhLech" VisibleIndex="5">
+        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     

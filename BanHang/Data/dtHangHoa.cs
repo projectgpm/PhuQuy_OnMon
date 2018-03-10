@@ -257,8 +257,7 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        string ID = dr["IDDonViTinhSi"].ToString().Trim();
-                        return ID;
+                        return  dr["IDDonViTinhSi"].ToString().Trim();
                     }
                     return null;
                 }

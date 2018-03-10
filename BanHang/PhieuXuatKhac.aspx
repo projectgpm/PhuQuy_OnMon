@@ -165,12 +165,10 @@
                                         </dx:GridViewDataComboBoxColumn>
                                         <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" ShowInCustomizationForm="True" VisibleIndex="6">
                                         </dx:GridViewDataTextColumn>
-                                        <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="4">
-                                            <PropertiesSpinEdit DisplayFormatString="N1">
-                                            </PropertiesSpinEdit>
-                                            <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
-                                            </PropertiesSpinEdit>
-                                        </dx:GridViewDataSpinEditColumn>
+                                        <dx:GridViewDataTextColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="4">
+                                            <PropertiesTextEdit DisplayFormatString="N1">
+                                            </PropertiesTextEdit>
+                                        </dx:GridViewDataTextColumn>
                                     </Columns>
                                     <Styles>
                                         <Header Font-Bold="True" HorizontalAlign="Center">

@@ -55,23 +55,23 @@ namespace BanHang
         }
         protected void gridDanhSachHangHoa_Temp_RowUpdating(object sender, DevExpress.Web.Data.ASPxDataUpdatingEventArgs e)
         {
-            //string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
-            //string ID = e.Keys[0].ToString();
-            //int ThucTe = Int32.Parse(e.NewValues["ThucTe"].ToString());
-            //if (ThucTe >= 0)
-            //{
-            //    string IDHangHoa = e.NewValues["IDHangHoa"].ToString();
-            //    flo TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa,Session["IDKho"].ToString());
-            //    data = new dtKiemKho();
-            //    data.CapNhatPhieuKiemKho_Temp(ID, ThucTe, ThucTe - TonKho);
-            //    e.Cancel = true;
-            //    gridDanhSachHangHoa_Temp.CancelEdit();
-            //    LoadGrid(IDPhieuKiemKho);
-            //}
-            //else
-            //{
-            //    throw new Exception("Lỗi: Số lượng thực tế phải  >= 0");
-            //}
+            string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
+            string ID = e.Keys[0].ToString();
+            float ThucTe = Int32.Parse(e.NewValues["ThucTe"].ToString());
+            if (ThucTe >= 0)
+            {
+                string IDHangHoa = e.NewValues["IDHangHoa"].ToString();
+                float TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
+                data = new dtKiemKho();
+                data.CapNhatPhieuKiemKho_Temp(ID, ThucTe, ThucTe - TonKho);
+                e.Cancel = true;
+                gridDanhSachHangHoa_Temp.CancelEdit();
+                LoadGrid(IDPhieuKiemKho);
+            }
+            else
+            {
+                throw new Exception("Lỗi: Số lượng thực tế phải  >= 0");
+            }
         }
         protected void txtNgayLapPhieu_Init(object sender, EventArgs e)
         {
@@ -101,7 +101,7 @@ namespace BanHang
                         string ThucTe = dr["ThucTe"].ToString();
                         string MaHang = dr["MaHang"].ToString();
                         string IDDonViTinh = dr["IDDonViTinh"].ToString();
-                        string IDKe = dr["IDKe"].ToString();
+                        string IDKe = "";
                         data = new dtKiemKho();
                         data.ThemPhieuKiemKho(ID1, IDHangHoa, TonKho, ChenhLech, ThucTe, MaHang, IDDonViTinh, IDKe);
                         if (Int32.Parse(ChenhLech) > 0)
@@ -140,30 +140,30 @@ namespace BanHang
 
         protected void btnThemTemp_Click(object sender, EventArgs e)
         {
-            //if (txtBarcode.Text != "")
-            //{
-            //    string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
-            //    dtBanHangLe dt = new dtBanHangLe();
-            //    DataTable tbThongTin = dt.LayThongTinHangHoa(txtBarcode.Value.ToString());
-            //    if (tbThongTin.Rows.Count > 0)
-            //    {
-            //        string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
-            //        string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
-            //        string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
-            //        int TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
-            //        int ChechLech = -TonKho;
-            //        DataTable dt1 = data.KTChiTietPhieuKiemKho_Temp(IDHangHoa, IDPhieuKiemKho);
-            //        if (dt1.Rows.Count == 0)
-            //        {
-            //            data = new dtKiemKho();
-            //            data.ThemPhieuKiemKho_Temp(IDPhieuKiemKho, IDHangHoa, TonKho, ChechLech, MaHangHoa, IDDonViTinh);
-            //        }
-            //        LoadGrid(IDPhieuKiemKho);
-            //    }
-            //    txtBarcode.Text = "";
-            //    txtBarcode.Value = "";
-            //    txtBarcode.Focus();
-            //}
+            if (txtBarcode.Text != "")
+            {
+                string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
+                dtBanHangLe dt = new dtBanHangLe();
+                DataTable tbThongTin = dt.LayThongTinHangHoa_ThemDonHang(txtBarcode.Value.ToString());
+                if (tbThongTin.Rows.Count > 0)
+                {
+                    string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
+                    string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
+                    string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
+                    float TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
+                    float ChechLech = -TonKho;
+                    DataTable dt1 = data.KTChiTietPhieuKiemKho_Temp(IDHangHoa, IDPhieuKiemKho);
+                    if (dt1.Rows.Count == 0)
+                    {
+                        data = new dtKiemKho();
+                        data.ThemPhieuKiemKho_Temp(IDPhieuKiemKho, IDHangHoa, TonKho, ChechLech, MaHangHoa, IDDonViTinh);
+                    }
+                    LoadGrid(IDPhieuKiemKho);
+                }
+                txtBarcode.Text = "";
+                txtBarcode.Value = "";
+                txtBarcode.Focus();
+            }
         }
     }
 }
