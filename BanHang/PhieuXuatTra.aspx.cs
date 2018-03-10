@@ -57,7 +57,7 @@ namespace BanHang
                 int SoLuong = Int32.Parse(txtSoLuong.Value.ToString());
                 if (SoLuong > 0)
                 {
-                    int SLTon = Int32.Parse(txtTonKho.Text);
+                    float SLTon = float.Parse(txtTonKho.Text);
                     string IDHangHoa = cmbHangHoa.Value.ToString();
                     string IDPhieuXuatTra = IDPhieuXuatTra_Temp.Value.ToString();
                     string GhiChu = txtGhiChuHH.Text == null ? "" : txtGhiChuHH.Text.ToString();
@@ -269,13 +269,6 @@ namespace BanHang
             txtNgayXuat.Date = DateTime.Now;
         }
 
-        protected void gridDanhSachHangHoa_Temp_HtmlRowPrepared(object sender, ASPxGridViewTableRowEventArgs e)
-        {
-            Color color = (Color)ColorTranslator.FromHtml("#FF9797");
-            int TonKho = Convert.ToInt32(e.GetValue("TonKho"));
-            int SoLuong = Convert.ToInt32(e.GetValue("SoLuong"));
-            if (TonKho < SoLuong)
-                e.Row.BackColor = color;
-        }
+        
     }
 }

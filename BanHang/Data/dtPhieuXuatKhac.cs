@@ -166,7 +166,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void UpdatePhieuXuatKhac_temp(string IDPhieuXuatKhac, string IDHangHoa, int SoLuongXuat)
+        public void UpdatePhieuXuatKhac_temp(string IDPhieuXuatKhac, string IDHangHoa, float SoLuongXuat)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

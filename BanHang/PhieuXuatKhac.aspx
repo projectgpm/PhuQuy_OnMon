@@ -60,7 +60,7 @@
                                 <dx:ASPxComboBox ID="cmbHangHoa" runat="server" ValueType="System.String" 
                         DropDownWidth="600" DropDownStyle="DropDownList"   AutoPostBack="True"
                         ValueField="ID"
-                        NullText="Nhập mã hàng.." Width="100%" TextFormatString="{0} - {1}"
+                        NullText="Nhập mã hàng.." Width="100%" TextFormatString="{1}"
                         EnableCallbackMode="true" CallbackPageSize="10"  OnSelectedIndexChanged="cmbHangHoa_SelectedIndexChanged" OnItemRequestedByValue="cmbHangHoa_ItemRequestedByValue" OnItemsRequestedByFilterCondition="cmbHangHoa_ItemsRequestedByFilterCondition"               
                         >                                    
                         <Columns>
@@ -80,7 +80,7 @@
                     <dx:LayoutItem Caption="Tồn Kho">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer runat="server">
-                                <dx:ASPxSpinEdit ID="txtTonKho"  Width="100%" runat="server" Enabled="False">
+                                <dx:ASPxSpinEdit ID="txtTonKho"  Width="100%" runat="server" Enabled="False" DisplayFormatString="N1">
                                 </dx:ASPxSpinEdit>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
@@ -133,13 +133,15 @@
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer14" runat="server">
                                                 
                                 <dx:ASPxGridView ID="gridDanhSachHangHoa_Temp" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" OnRowDeleting="gridDanhSachHangHoa_Temp_RowDeleting" Width="100%">
+                                    <SettingsPager Mode="ShowAllRecords">
+                                    </SettingsPager>
                                     <SettingsBehavior ProcessSelectionChangedOnServer="True" ConfirmDelete="True" />
                                     <SettingsCommandButton>
                                         <ShowAdaptiveDetailButton ButtonType="Image">
                                         </ShowAdaptiveDetailButton>
                                         <HideAdaptiveDetailButton ButtonType="Image">
                                         </HideAdaptiveDetailButton>
-                                        <DeleteButton>
+                                        <DeleteButton ButtonType="Image" RenderMode="Image">
                                             <Image IconID="actions_cancel_16x16" ToolTip="Xóa">
                                             </Image>
                                         </DeleteButton>
@@ -153,7 +155,7 @@
                                         <dx:GridViewCommandColumn ShowDeleteButton="True" ShowInCustomizationForm="True" VisibleIndex="7">
                                         </dx:GridViewCommandColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Số Lượng Xuất" FieldName="SoLuongXuat" ShowInCustomizationForm="True" VisibleIndex="5">
-<PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" ShowInCustomizationForm="True" VisibleIndex="0">
                                         </dx:GridViewDataTextColumn>
@@ -164,7 +166,7 @@
                                         <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" ShowInCustomizationForm="True" VisibleIndex="6">
                                         </dx:GridViewDataTextColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="4">
-                                            <PropertiesSpinEdit DisplayFormatString="g">
+                                            <PropertiesSpinEdit DisplayFormatString="N1">
                                             </PropertiesSpinEdit>
                                             <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                             </PropertiesSpinEdit>
