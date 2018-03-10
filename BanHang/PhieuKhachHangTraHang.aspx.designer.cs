@@ -193,22 +193,13 @@ namespace BanHang {
         protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer14;
         
         /// <summary>
-        /// cmbDonViTinh control.
+        /// txtDVT control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbDonViTinh;
-        
-        /// <summary>
-        /// sqlDonViTinh control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlDonViTinh;
+        protected global::DevExpress.Web.ASPxTextBox txtDVT;
         
         /// <summary>
         /// LayoutItemNestedControlContainer15 control.

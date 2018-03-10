@@ -243,6 +243,31 @@ namespace BanHang.Data
                 }
             }
         }
+        public static string LayTenDonViTinh(string IDHangHoa)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT GPM_DonViTinh.TenDonViTinh FROM [GPM_HangHoa],[GPM_DonViTinh] WHERE GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinhSi AND [ID] = " + IDHangHoa;
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                    {
+                        DataRow dr = tb.Rows[0];
+                        return dr["TenDonViTinh"].ToString().Trim();
+                    }
+                    return null;
+                }
+            }
+        }
+        /// <summary>
+        /// lấy tên đvt
+        /// </summary>
+        /// <param name="IDHangHoa"></param>
+        /// <returns></returns>
         public static string LayIDDonViTinh(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
@@ -257,12 +282,17 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return  dr["IDDonViTinhSi"].ToString().Trim();
+                        return dr["IDDonViTinhSi"].ToString().Trim();
                     }
                     return null;
                 }
             }
         }
+        /// <summary>
+        /// lấy trọng lượng
+        /// </summary>
+        /// <param name="IDHangHoa"></param>
+        /// <returns></returns>
         public static float LayTrongLuong(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))

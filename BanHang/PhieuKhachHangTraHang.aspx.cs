@@ -43,7 +43,7 @@ namespace BanHang
             if (cmbHangHoa.Value != null && cmbLyDoTra.Value != null)
             {
                 data = new dtPhieuKhachHangTraHang();
-                int SoLuong = Int32.Parse(txtSoLuong.Text.ToString());
+                float SoLuong = float.Parse(txtSoLuong.Text.ToString());
                 if (SoLuong > 0)
                 {
                     string IDHangHoa = cmbHangHoa.Value.ToString();
@@ -79,7 +79,7 @@ namespace BanHang
         {
             cmbHangHoa.Text = "";
             txtSoLuong.Text = "0";
-            cmbDonViTinh.Text = "";
+            txtDVT.Text = "";
             txtGiaBan.Text = "";
             cmbLyDoTra.Text = "";
         }
@@ -99,7 +99,7 @@ namespace BanHang
                 if (dta.Rows.Count != 0)
                 {
                     DataRow dr = dta.Rows[0];
-                    cmbDonViTinh.Value = dr["IDDonViTinh"].ToString();
+                    txtDVT.Text = dr["TenDonViTinh"].ToString();
                     txtGiaBan.Value = dr["GiaBan"].ToString();
                     txtSoLuong.Value = dr["SoLuong"].ToString();
                 }
@@ -110,7 +110,7 @@ namespace BanHang
             {
                 txtSoLuong.Text = "0";
                 txtGiaBan.Enabled = true;
-                cmbDonViTinh.Value = dtHangHoa.LayIDDonViTinh(cmbHangHoa.Value.ToString());
+                txtDVT.Text = dtHangHoa.LayTenDonViTinh(cmbHangHoa.Value.ToString());
                 txtGiaBan.Text = dtCapNhatTonKho.GiaBan(cmbHangHoa.Value.ToString())+"";
             }
         }
@@ -124,12 +124,12 @@ namespace BanHang
                 cmbHangHoa.DataSource = data.DanhSachHangHoa_HoaDon(IDHoaDon);
                 cmbHangHoa.DataBind();
 
-                int SoLuongDoi = Int32.Parse(txtSoLuong.Value.ToString());
+                float SoLuongDoi = float.Parse(txtSoLuong.Value.ToString());
                 string IDHangHoa = cmbHangHoa.Value.ToString();
                 
                 data = new dtPhieuKhachHangTraHang();
                 DataTable dta = data.DanhSachChiTietHoaDon(IDHangHoa, IDHoaDon);
-                int soLuong2 = 0;
+                float soLuong2 = 0;
                 float giaBan = 0;
                 if (dta.Rows.Count != 0)
                 {

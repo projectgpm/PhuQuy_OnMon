@@ -45,7 +45,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT GPM_HangHoa.MaHang,GPM_HangHoa.IDDonViTinh,GPM_PhieuKhachHangTraHang_ChiTiet_Temp.* FROM GPM_PhieuKhachHangTraHang_ChiTiet_Temp, GPM_HangHoa WHERE GPM_HangHoa.ID = GPM_PhieuKhachHangTraHang_ChiTiet_Temp.IDHangHoa AND GPM_PhieuKhachHangTraHang_ChiTiet_Temp.IDPhieuKhachHangTraHang = '" + IDPhhieuTraHang + "'";
+                string cmdText = "SELECT GPM_HangHoa.MaHang,GPM_HangHoa.IDDonViTinhSi,GPM_PhieuKhachHangTraHang_ChiTiet_Temp.* FROM GPM_PhieuKhachHangTraHang_ChiTiet_Temp, GPM_HangHoa WHERE GPM_HangHoa.ID = GPM_PhieuKhachHangTraHang_ChiTiet_Temp.IDHangHoa AND GPM_PhieuKhachHangTraHang_ChiTiet_Temp.IDPhieuKhachHangTraHang = '" + IDPhhieuTraHang + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -93,7 +93,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "select GPM_HangHoa.TenHangHoa, GPM_HangHoa.MaHang, GPM_DonViTinh.TenDonViTinh, GPM_ChiTietHoaDon.* from GPM_DonViTinh,GPM_HangHoa,GPM_ChiTietHoaDon where GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh and GPM_ChiTietHoaDon.IDHangHoa = GPM_HangHoa.ID and GPM_ChiTietHoaDon.IDHoaDon = '" + IDHoaDon + "'";
+                string cmdText = "select GPM_HangHoa.TenHangHoa, GPM_HangHoa.MaHang, GPM_ChiTietHoaDon.* from GPM_HangHoa,GPM_ChiTietHoaDon where  GPM_ChiTietHoaDon.IDHangHoa = GPM_HangHoa.ID and GPM_ChiTietHoaDon.IDHoaDon = '" + IDHoaDon + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -178,7 +178,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "select GPM_HangHoa.IDDonViTinh, GPM_ChiTietHoaDon.* from GPM_HangHoa,GPM_ChiTietHoaDon where GPM_ChiTietHoaDon.IDHangHoa = GPM_HangHoa.ID and GPM_ChiTietHoaDon.IDHangHoa = '" + ID + "'";
+                string cmdText = "select GPM_ChiTietHoaDon.* from GPM_ChiTietHoaDon where GPM_ChiTietHoaDon.IDHangHoa = '" + ID + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -193,7 +193,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "select GPM_HangHoa.IDDonViTinh, GPM_ChiTietHoaDon.* from GPM_HangHoa,GPM_ChiTietHoaDon where GPM_ChiTietHoaDon.IDHangHoa = GPM_HangHoa.ID and GPM_ChiTietHoaDon.IDHoaDon = '" + IDHoaDon + "' AND GPM_ChiTietHoaDon.IDHangHoa = '" + IDHangHoa + "'";
+                string cmdText = "select  GPM_ChiTietHoaDon.* from GPM_ChiTietHoaDon where IDHoaDon = '" + IDHoaDon + "' AND IDHangHoa = '" + IDHangHoa + "'";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
