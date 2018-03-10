@@ -22,8 +22,7 @@ namespace BanHang
             }
             else
             {
-                //if (dtSetting.LayChucNangCha(Session["IDNhom"].ToString(), 69) == false)
-                //    Response.Redirect("Default.aspx");
+
                 if (!IsPostBack)
                 {
                     IDPhieuXuatTra_Temp.Value = Session["IDNhanVien"].ToString();
@@ -231,12 +230,11 @@ namespace BanHang
         protected void cmbHangHoa_ItemsRequestedByFilterCondition(object source, DevExpress.Web.ListEditItemsRequestedByFilterConditionEventArgs e)
         {
             ASPxComboBox comboBox = (ASPxComboBox)source;
-            // <5 vì hàng combo không xuất được
             sqlHangHoa.SelectCommand = @"SELECT [ID], [MaHang], [TenHangHoa], [TenDonViTinh]
                                         FROM (
 	                                        select GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa,GPM_DonViTinh.TenDonViTinh, 
 	                                        row_number()over(order by GPM_HangHoa.MaHang) as [rn] 
-	                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh           
+	                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinhSi           
 	                                        WHERE (GPM_HangHoa.MaHang LIKE @MaHang OR GPM_HangHoa.TenHangHoa LIKE @TenHang) AND (GPM_HangHoa.DaXoa = 0) 
 	                                        ) as st 
                                         where st.[rn] between @startIndex and @endIndex ORDER BY TenHangHoa ASC ";
@@ -258,7 +256,7 @@ namespace BanHang
                 return;
             ASPxComboBox comboBox = (ASPxComboBox)source;
             sqlHangHoa.SelectCommand = @"SELECT GPM_HangHoa.ID, GPM_HangHoa.MaHang, GPM_HangHoa.TenHangHoa, GPM_DonViTinh.TenDonViTinh 
-                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinh
+                                        FROM GPM_DonViTinh INNER JOIN GPM_HangHoa ON GPM_DonViTinh.ID = GPM_HangHoa.IDDonViTinhSi
                                         WHERE (GPM_HangHoa.ID = @ID) ORDER BY TenHangHoa ASC ";
             sqlHangHoa.SelectParameters.Clear();
             sqlHangHoa.SelectParameters.Add("ID", TypeCode.Int64, e.Value.ToString());
