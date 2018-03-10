@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
     <div>
         <dx:ASPxGridView ID="gridDanhSachHangHoa" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%">
+                                    <SettingsPager Mode="ShowAllRecords">
+                                    </SettingsPager>
                                     <SettingsBehavior ProcessSelectionChangedOnServer="True" ConfirmDelete="True" />
                                     <SettingsCommandButton>
                                         <ShowAdaptiveDetailButton ButtonType="Image">
@@ -23,8 +25,6 @@
                                     </SettingsCommandButton>
                                     <SettingsText CommandDelete="Xóa" ConfirmDelete="Bạn chắc chắn muốn xóa?" />
                                     <Columns>
-                                        <dx:GridViewCommandColumn ShowInCustomizationForm="True" VisibleIndex="7">
-                                        </dx:GridViewCommandColumn>
                                         <dx:GridViewDataTextColumn ShowInCustomizationForm="True" VisibleIndex="0" Caption="Mã Hàng" FieldName="MaHang">
                                         </dx:GridViewDataTextColumn>
                                         <dx:GridViewDataTextColumn ShowInCustomizationForm="True" VisibleIndex="3" Caption="Giá bán" FieldName="GiaBan">
@@ -43,10 +43,8 @@
                                             <PropertiesComboBox DataSourceID="sqlHangHoa" TextField="TenHangHoa" ValueField="ID">
                                             </PropertiesComboBox>
                                         </dx:GridViewDataComboBoxColumn>
-                                        <dx:GridViewDataComboBoxColumn FieldName="IDDonViTinh" VisibleIndex="2" Caption="Đơn vị tính">
-                                            <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
-                                            </PropertiesComboBox>
-                                        </dx:GridViewDataComboBoxColumn>
+                                        <dx:GridViewDataTextColumn Caption="Đơn vị tính" FieldName="TenDonViTinh" VisibleIndex="2">
+                                        </dx:GridViewDataTextColumn>
                                     </Columns>
                                     <Styles>
                                         <Header Font-Bold="True" HorizontalAlign="Center">
@@ -58,11 +56,6 @@
                                     </Styles>
                                 </dx:ASPxGridView>
         <asp:SqlDataSource ID="sqlHangHoa" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenHangHoa] FROM [GPM_HangHoa] WHERE ([DaXoa] = @DaXoa)">
-            <SelectParameters>
-                <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
-            </SelectParameters>
-        </asp:SqlDataSource>
-        <asp:SqlDataSource ID="sqlDonViTinh" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenDonViTinh] FROM [GPM_DonViTinh] WHERE ([DaXoa] = @DaXoa)">
             <SelectParameters>
                 <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
             </SelectParameters>

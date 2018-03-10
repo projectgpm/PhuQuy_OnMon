@@ -52,7 +52,7 @@ namespace BanHang
                     {
                         string GiaBan = txtGiaBan.Text.ToString();
                         string lyDoTra = cmbLyDoTra.Text.ToString();
-                        data.ThemChiTietPhieuKhachHangTraHang_Temp(IDPhieuTraHang, IDHangHoa, GiaBan, SoLuong.ToString(), (double.Parse(GiaBan) * SoLuong).ToString(), lyDoTra);
+                        data.ThemChiTietPhieuKhachHangTraHang_Temp(txtDVT.Text.ToString(),IDPhieuTraHang, IDHangHoa, GiaBan, SoLuong.ToString(), (double.Parse(GiaBan) * SoLuong).ToString(), lyDoTra);
                         Clear();
                     }
                     else
@@ -195,7 +195,8 @@ namespace BanHang
                             string SoLuong = dr["SoLuong"].ToString();
                             string ThanhTien = dr["ThanhTien"].ToString();
                             string LyDoDoi = dr["LyDoDoi"].ToString();
-                            data.ThemChiTietPhieuKhachHangTraHang(IDThem, IDHangHoa, GiaBan, SoLuong, ThanhTien, LyDoDoi);
+                            string TenDonViTinh = dr["TenDonViTinh"].ToString();
+                            data.ThemChiTietPhieuKhachHangTraHang(IDThem, IDHangHoa, GiaBan, SoLuong, ThanhTien, LyDoDoi, TenDonViTinh);
                             dtCapNhatTonKho.CongTonKho(IDHangHoa, SoLuong, Session["IDKho"].ToString());// cộng tồn kho
                             // - Số lượng trong hóa đơn
 
@@ -238,7 +239,8 @@ namespace BanHang
                             string SoLuong = dr["SoLuong"].ToString();
                             string ThanhTien = dr["ThanhTien"].ToString();
                             string LyDoDoi = dr["LyDoDoi"].ToString();
-                            data.ThemChiTietPhieuKhachHangTraHang(IDThem, IDHangHoa, GiaBan, SoLuong, ThanhTien, LyDoDoi);
+                            string TenDonViTinh = dr["TenDonViTinh"].ToString();
+                            data.ThemChiTietPhieuKhachHangTraHang(IDThem, IDHangHoa, GiaBan, SoLuong, ThanhTien, LyDoDoi, TenDonViTinh);
                             dtCapNhatTonKho.CongTonKho(IDHangHoa, SoLuong, Session["IDKho"].ToString());// cộng tồn kho
                         }
                         //giảm công nợ khách hàng;
