@@ -454,24 +454,6 @@ namespace BanHang {
         protected global::DevExpress.Web.ASPxButton btnTimKiem;
         
         /// <summary>
-        /// LayoutItemNestedControlContainer13 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer13;
-        
-        /// <summary>
-        /// ASPxGridViewInBuil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView ASPxGridViewInBuil;
-        
-        /// <summary>
         /// popupThemKhachHang control.
         /// </summary>
         /// <remarks>

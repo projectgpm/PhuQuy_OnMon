@@ -93,6 +93,8 @@ namespace BanHang
             tabControlSoHoaDon.ActiveTabIndex = SoHoaDon - 1;
             BindGridChiTietHoaDon();
             txtTienThua.Value = 0;
+            ccbKhachHang.SelectedIndex = 0;
+            DanhSachHoaDon[tabControlSoHoaDon.ActiveTabIndex].IDKhachHang = 0;
         }
         /// <summary>
         /// hủy hóa đơn
@@ -352,6 +354,7 @@ namespace BanHang
         protected void tabControlSoHoaDon_ActiveTabChanged(object source, TabControlEventArgs e)
         {
             BindGridChiTietHoaDon();
+           
         }
 
 
@@ -533,7 +536,7 @@ namespace BanHang
 	                                            FROM GPM_KhachHang
 	                                            WHERE ((TenKhachHang LIKE @TenKhachHang OR DienThoai LIKE @DienThoai OR DiaChi LIKE @DiaChi) AND (DaXoa = 0))
 	                                        ) as st 
-                                        where st.[rn] between @startIndex and @endIndex ORDER BY TenKhachHang ASC";
+                                        where st.[rn] between @startIndex and @endIndex ";
             sqlKhachHang.SelectParameters.Clear();
             sqlKhachHang.SelectParameters.Add("TenKhachHang", TypeCode.String, string.Format("%{0}%", e.Filter));
             sqlKhachHang.SelectParameters.Add("DienThoai", TypeCode.String, string.Format("%{0}%", e.Filter));
@@ -553,7 +556,7 @@ namespace BanHang
             ASPxComboBox comboBox = (ASPxComboBox)source;
             sqlKhachHang.SelectCommand = @"SELECT ID,TenKhachHang,DienThoai,DiaChi
                                         FROM GPM_KhachHang
-                                        WHERE (GPM_KhachHang.ID = @ID)  ORDER BY TenKhachHang ASC";
+                                        WHERE (GPM_KhachHang.ID = @ID)";
             sqlKhachHang.SelectParameters.Clear();
             sqlKhachHang.SelectParameters.Add("ID", TypeCode.Int64, e.Value.ToString());
             comboBox.DataSource = sqlKhachHang;
@@ -587,6 +590,12 @@ namespace BanHang
                 txtTimKiem.Focus();
                 HienThiThongBao("Vui lòng nhập thông tin cần tìm?");
             }
+        }
+
+        protected void ccbKhachHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
+            DanhSachHoaDon[MaHoaDon].IDKhachHang = Int32.Parse(ccbKhachHang.SelectedIndex.ToString());
         }
     }
     [Serializable]
