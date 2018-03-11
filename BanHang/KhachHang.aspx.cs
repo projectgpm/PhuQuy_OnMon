@@ -45,11 +45,16 @@ namespace BanHang
             string Email = e.NewValues["Email"] == null ? "" : e.NewValues["Email"].ToString();
             string GhiChu = e.NewValues["GhiChu"] == null ? "" : e.NewValues["GhiChu"].ToString();
             string IDChietKhau = "2";
-            if (dtKhachHang.KT_SDT_KH_CapNhat(DienThoai.Trim(), ID) == -1)
+            if (dtKhachHang.KT_SDT_KH_CapNhat(DienThoai.Trim(), ID) == -1 && DienThoai != "")
             {
                 if (dtKhachHang.KT_SDT_KH(DienThoai.Trim()) == 1)
                 {
                     throw new Exception("Lỗi: Số điện thoại đã tồn tại?");
+                }
+                else
+                {
+                    data.SuaThongTinKhachHang(Int32.Parse(ID), IDNhomKhachHang, TenKhachHang, NgaySinh, CMND, DiaChi, DienThoai, Email, GhiChu, IDChietKhau);
+                    dtLichSuTruyCap.ThemLichSu(Session["IDNhanVien"].ToString(), Session["IDNhom"].ToString(), "Khách hàng:" + TenKhachHang, Session["IDKho"].ToString(), "Danh Mục", "Cập Nhật");   
                 }
             }
             else

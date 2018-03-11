@@ -305,8 +305,11 @@ namespace BanHang
             DanhSachHoaDon[MaHoaDon].TienThua = TienKhachThanhToan - DanhSachHoaDon[MaHoaDon].KhachCanTra;
             if (txtKhachThanhToan.Text != "0")
             {
-
                 txtTienThua.Text = DanhSachHoaDon[MaHoaDon].TienThua.ToString();
+            }
+            else
+            {
+                txtTienThua.Text = (-DanhSachHoaDon[MaHoaDon].TongTien).ToString();
             }
         }
 
@@ -381,6 +384,7 @@ namespace BanHang
                     {
                         txtKhachThanhToan.Text = "0";
                         txtKhachThanhToan.Focus();
+                        txtTienThua.Text = (-DanhSachHoaDon[MaHoaDon].TongTien).ToString();
                         HienThiThongBao("Thanh toán chưa đủ số tiền !!"); return;
                     }
 

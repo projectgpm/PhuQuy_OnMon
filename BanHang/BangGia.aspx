@@ -75,7 +75,7 @@
                                          <dx:GridViewDataButtonEditColumn Caption="Xem Chi Tiết" VisibleIndex="5">
                 
                                                 <DataItemTemplate>
-                                                    <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">Xem </a>
+                                                    <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">Xem và chỉnh giá</a>
                                                 </DataItemTemplate>
                                                 <HeaderStyle Wrap="True" />
                                             </dx:GridViewDataButtonEditColumn>

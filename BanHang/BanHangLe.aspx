@@ -270,7 +270,7 @@
                             <td width="85%">
                                 <dx:ASPxComboBox ID="ccbKhachHang" runat="server" ValueType="System.String" 
                                     NullText="Nhập sdt hoặc tên khách hàng trong danh sách." Width="100%" 
-                                    DropDownWidth="550px" TextFormatString="{0}" OnItemRequestedByValue="ccbKhachHang_ItemRequestedByValue" OnItemsRequestedByFilterCondition="ccbKhachHang_ItemsRequestedByFilterCondition"  >
+                                    DropDownWidth="550px" TextFormatString="{0}" OnItemRequestedByValue="ccbKhachHang_ItemRequestedByValue" OnItemsRequestedByFilterCondition="ccbKhachHang_ItemsRequestedByFilterCondition" AutoPostBack="True"  >
                                      <Columns>
                                         <dx:ListBoxColumn FieldName="TenKhachHang" Width="100%"  Caption="Tên khách hàng"/>
                                          <dx:ListBoxColumn FieldName="DienThoai" Width="100px" Caption="Số điện thoại" />    
@@ -358,7 +358,7 @@
                                                     <CaptionStyle Font-Bold="True">
                                                     </CaptionStyle>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="TIỀN THỒI" VerticalAlign="Middle">
+                                                <dx:LayoutItem Caption="TIỀN TRẢ LẠI" VerticalAlign="Middle">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer6" runat="server">
                                                             <dx:ASPxTextBox ID="txtTienThua" runat="server" NullText="0" ReadOnly="True" 
