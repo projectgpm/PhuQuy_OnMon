@@ -270,7 +270,7 @@
                             <td width="85%">
                                 <dx:ASPxComboBox ID="ccbKhachHang" runat="server" ValueType="System.String" 
                                     NullText="Nhập sdt hoặc tên khách hàng trong danh sách." Width="100%" 
-                                    DropDownWidth="550px" TextFormatString="{0}" OnItemRequestedByValue="ccbKhachHang_ItemRequestedByValue" OnItemsRequestedByFilterCondition="ccbKhachHang_ItemsRequestedByFilterCondition"  >
+                                    DropDownWidth="550px" TextFormatString="{0}" OnItemRequestedByValue="ccbKhachHang_ItemRequestedByValue" OnItemsRequestedByFilterCondition="ccbKhachHang_ItemsRequestedByFilterCondition" AutoPostBack="True" OnSelectedIndexChanged="ccbKhachHang_SelectedIndexChanged"  >
                                      <Columns>
                                         <dx:ListBoxColumn FieldName="TenKhachHang" Width="100%"  Caption="Tên khách hàng"/>
                                          <dx:ListBoxColumn FieldName="DienThoai" Width="100px" Caption="Số điện thoại" />    
@@ -358,7 +358,7 @@
                                                     <CaptionStyle Font-Bold="True">
                                                     </CaptionStyle>
                                                 </dx:LayoutItem>
-                                                <dx:LayoutItem Caption="TIỀN THỒI" VerticalAlign="Middle">
+                                                <dx:LayoutItem Caption="TIỀN TRẢ LẠI" VerticalAlign="Middle">
                                                     <LayoutItemNestedControlCollection>
                                                         <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer6" runat="server">
                                                             <dx:ASPxTextBox ID="txtTienThua" runat="server" NullText="0" ReadOnly="True" 
@@ -404,51 +404,6 @@
                                                                         <Image IconID="zoom_zoom_32x32">
                                                                         </Image>
                                                                     </dx:ASPxButton>
-                                                                </dx:LayoutItemNestedControlContainer>
-                                                            </LayoutItemNestedControlCollection>
-                                                        </dx:LayoutItem>
-                                                    </Items>
-                                                </dx:LayoutGroup>
-                                                <dx:LayoutGroup Caption="Thông tin ">
-                                                    <Items>
-                                                        <dx:LayoutItem Caption="">
-                                                            <LayoutItemNestedControlCollection>
-                                                                <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer13" runat="server">
-                                                                 <dx:ASPxGridView ID="ASPxGridViewInBuil" runat="server" AutoGenerateColumns="False" KeyFieldName="ID">
-                                                                     <SettingsPager PageSize="5" Mode="ShowAllRecords">
-                                                                     </SettingsPager>
-                                            <SettingsCommandButton>
-                                                <ShowAdaptiveDetailButton ButtonType="Image">
-                                                </ShowAdaptiveDetailButton>
-                                                <HideAdaptiveDetailButton ButtonType="Image">
-                                                </HideAdaptiveDetailButton>
-                                            </SettingsCommandButton>
-                                            <SettingsText EmptyDataRow="Danh sách hóa đơn trống." />
-                                            <Columns>
-                                                <dx:GridViewDataTextColumn Caption="Khách Hàng" FieldName="TenKhachHang" ShowInCustomizationForm="True" VisibleIndex="1">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataButtonEditColumn Caption="Chi tiết" ShowInCustomizationForm="True" VisibleIndex="7">
-                                                    <DataItemTemplate>
-                                                        <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">Chi tiết</a>
-                                                    </DataItemTemplate>
-                                                </dx:GridViewDataButtonEditColumn>
-                                                <dx:GridViewDataTextColumn Caption="Số Hóa Đơn" FieldName="MaHoaDon" ShowInCustomizationForm="True" VisibleIndex="0">
-                                                </dx:GridViewDataTextColumn>
-                                                <dx:GridViewDataDateColumn Caption="Ngày Bán" FieldName="NgayBan" ShowInCustomizationForm="True" VisibleIndex="6">
-                                                    <PropertiesDateEdit DisplayFormatString="dd/MM/yyyy">
-                                                    </PropertiesDateEdit>
-                                                </dx:GridViewDataDateColumn>
-                                            </Columns>
-                                                                      <Styles>
-                            <Header Font-Bold="True" HorizontalAlign="Center">
-                            </Header>
-                            <AlternatingRow Enabled="True">
-                            </AlternatingRow>
-                            
-                        </Styles>
-                                        </dx:ASPxGridView>
-
-
                                                                 </dx:LayoutItemNestedControlContainer>
                                                             </LayoutItemNestedControlCollection>
                                                         </dx:LayoutItem>

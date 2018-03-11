@@ -35,10 +35,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BangGia.aspx">
-      <publishTime>03/08/2018 11:23:43</publishTime>
+      <publishTime>03/11/2018 09:50:18</publishTime>
     </File>
     <File Include="BangKeBanHang.aspx">
-      <publishTime>03/10/2018 20:46:11</publishTime>
+      <publishTime>03/11/2018 10:02:11</publishTime>
     </File>
     <File Include="BangKeBanHang_In.aspx">
       <publishTime>02/21/2018 13:39:12</publishTime>
@@ -56,7 +56,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="BanHangLe.aspx">
-      <publishTime>03/09/2018 16:24:53</publishTime>
+      <publishTime>03/11/2018 20:15:58</publishTime>
     </File>
     <File Include="BaoCaoBanHang.aspx">
       <publishTime>03/10/2018 20:47:24</publishTime>
@@ -83,7 +83,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="bin/BanHang.dll">
-      <publishTime>03/10/2018 21:27:08</publishTime>
+      <publishTime>03/11/2018 20:21:16</publishTime>
     </File>
     <File Include="ChietKhau.aspx">
       <publishTime>02/21/2018 13:39:12</publishTime>
@@ -92,7 +92,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="ChiTietBangGia.aspx">
-      <publishTime>03/09/2018 10:03:28</publishTime>
+      <publishTime>03/11/2018 09:52:28</publishTime>
     </File>
     <File Include="ChiTietCongNo.aspx">
       <publishTime>02/21/2018 13:39:12</publishTime>
@@ -281,7 +281,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/21/2018 13:39:12</publishTime>
     </File>
     <File Include="KhachHang.aspx">
-      <publishTime>02/21/2018 13:39:12</publishTime>
+      <publishTime>03/11/2018 10:37:26</publishTime>
     </File>
     <File Include="Kho.aspx">
       <publishTime>02/21/2018 13:39:12</publishTime>
@@ -398,7 +398,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/07/2017 14:43:27</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>03/10/2018 21:27:09</publishTime>
+      <publishTime>03/11/2018 20:21:17</publishTime>
     </File>
   </ItemGroup>
 </Project>
