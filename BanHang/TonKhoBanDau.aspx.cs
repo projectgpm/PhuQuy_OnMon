@@ -20,10 +20,7 @@ namespace BanHang
             }
             else
             {
-                
-                
-                    LoadGrid();
-               
+                LoadGrid();
             }
         }
         private void LoadGrid()
@@ -37,7 +34,7 @@ namespace BanHang
         {
             Color color = (Color)ColorTranslator.FromHtml("#FF9797");
             int TonKhoTong = Convert.ToInt32(e.GetValue("SoLuongCon"));
-            if (TonKhoTong < 2)
+            if (TonKhoTong < 6)
                 e.Row.BackColor = color;
         }
 
