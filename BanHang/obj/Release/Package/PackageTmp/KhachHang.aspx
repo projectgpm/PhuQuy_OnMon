@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="KhachHang.aspx.cs" Inherits="BanHang.KhachHang" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-    <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="2" Width="100%">
+    <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="4" Width="100%">
         <Items>
             <dx:LayoutItem Caption="">
                 <LayoutItemNestedControlCollection>
@@ -19,6 +19,18 @@
                             <Image IconID="filterelements_listbox_32x32">
                             </Image>
                         </dx:ASPxButton>
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem Caption="">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem Caption="">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>
@@ -165,7 +177,7 @@
 
     <dx:ASPxPopupControl ID="popup" runat="server" AllowDragging="True" AllowResize="True" 
          PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"  Width="700px"
-         Height="500px" FooterText="Thông tin chi tiết nhập kho"
+         Height="400px" FooterText="Thông tin chi tiết nhập kho"
         HeaderText="Thông tin cập nhật công nợ" ClientInstanceName="popup" EnableHierarchyRecreation="True">
 
        <ContentCollection>
@@ -242,7 +254,7 @@
             </dx:LayoutItem>
         </Items>
     </dx:ASPxFormLayout>
-           <asp:SqlDataSource ID="SqlKhachHang" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenKhachHang] FROM [GPM_KhachHang] WHERE (([DaXoa] = @DaXoa) AND ([ID] &gt; @ID))">
+           <asp:SqlDataSource ID="SqlKhachHang" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenKhachHang] FROM [GPM_KhachHang] WHERE (([DaXoa] = @DaXoa) AND ([ID] &gt; @ID) AND IDNhomKhachHang != 1)">
                <SelectParameters>
                    <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
                    <asp:Parameter DefaultValue="1" Name="ID" Type="Int32" />
