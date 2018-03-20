@@ -174,7 +174,7 @@
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataTextColumn>
-                            <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" VisibleIndex="6" Width="80px">
+                            <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" VisibleIndex="7" Width="80px">
                             <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
                                     <dx:ASPxSpinEdit ID="txtSoLuongChange" runat="server" Width="100%" 
@@ -182,7 +182,7 @@
                                 </DataItemTemplate>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataButtonEditColumn Caption="Xóa" ShowInCustomizationForm="True" Width="50px" 
-                                VisibleIndex="10">
+                                VisibleIndex="11">
                                 <DataItemTemplate>
                                     <dx:ASPxButton ID="BtnXoaHang" runat="server" CommandName="XoaHang"
                                         CommandArgument='<%# Eval("STT") %>' 
@@ -194,27 +194,36 @@
                                 <CellStyle HorizontalAlign="Center">
                                 </CellStyle>
                             </dx:GridViewDataButtonEditColumn>
-                            <dx:GridViewDataSpinEditColumn Caption="Thành tiền" FieldName="ThanhTien" ShowInCustomizationForm="True" UnboundType="Decimal" VisibleIndex="9" Width="100px">
+                            <dx:GridViewDataSpinEditColumn Caption="Thành tiền" FieldName="ThanhTien" ShowInCustomizationForm="True" UnboundType="Decimal" VisibleIndex="10" Width="100px">
                                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataSpinEditColumn Caption="TK" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="5" Width="40px">
+                            <dx:GridViewDataSpinEditColumn Caption="TK" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="6" Width="40px">
                                 <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" Width="50px">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="7" FieldName="DonGia" Width="120px" Name="dongia1">
+                            <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="8" FieldName="DonGia" Width="120px" Name="dongia1">
 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
                                     <dx:ASPxSpinEdit ID="txtDonGia" runat="server" Width="100%"  DisplayFormatString="N0"
                                         NumberType="Integer" Value='<%# Eval("DonGia") %>' />
                                 </DataItemTemplate>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" FieldName="DonGia" Name="dongia2" ShowInCustomizationForm="True" VisibleIndex="8" Width="120px">
+                            <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" FieldName="DonGia" Name="dongia2" ShowInCustomizationForm="True" VisibleIndex="9" Width="120px">
                                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px">
+                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px" Name="doday1">
+                                <PropertiesTextEdit DisplayFormatString="g">
+                                </PropertiesTextEdit>
                             </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataSpinEditColumn Caption="Độ Dầy" FieldName="DoDay" Name="doday2" ShowInCustomizationForm="True" VisibleIndex="5" Width="80px">
+                                <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom"></PropertiesSpinEdit>
+                                <DataItemTemplate>
+                                    <dx:ASPxSpinEdit ID="txtDoDay" runat="server" Width="100%" 
+                                        NumberType="float" Value='<%# Eval("DoDay") %>' />
+                                </DataItemTemplate>
+                            </dx:GridViewDataSpinEditColumn>
                         </columns>                                                  
                         <settingspager pagesize="50" numericbuttoncount="6" Mode="ShowAllRecords" />
                         <TotalSummary>

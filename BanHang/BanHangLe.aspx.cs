@@ -43,11 +43,15 @@ namespace BanHang
                         {
                             gridChiTietHoaDon.Columns["dongia1"].Visible = false;
                             gridChiTietHoaDon.Columns["dongia2"].Visible = true;
+                            gridChiTietHoaDon.Columns["doday1"].Visible = false;
+                            gridChiTietHoaDon.Columns["doday2"].Visible = true;
                         }
                         else
                         {
                             gridChiTietHoaDon.Columns["dongia1"].Visible = true;
                             gridChiTietHoaDon.Columns["dongia2"].Visible = false;
+                            gridChiTietHoaDon.Columns["doday1"].Visible = true;
+                            gridChiTietHoaDon.Columns["doday2"].Visible = false;
                         }
                     }
                     DanhSachKhachHang();
