@@ -381,7 +381,7 @@ namespace BanHang
                 int IDKhachHang = 1;
                 if (ccbKhachHang.Value != null)
                     IDKhachHang = Int32.Parse(ccbKhachHang.Value.ToString());
-                if (IDKhachHang == 1)// khách lẻ
+                if (dtKhachHang.LayIDNhomKH(IDKhachHang) == 1)// khách lẻ
                 {
                     if (TienKhachThanhToan < DanhSachHoaDon[MaHoaDon].KhachCanTra)
                     {
@@ -394,6 +394,7 @@ namespace BanHang
                     object IDHoaDon = dt.InsertHoaDon(IDKho, IDNhanVien, IDKhachHang.ToString(), DanhSachHoaDon[MaHoaDon], "0", "0", "0", "0", "0", "0");
                     HuyHoaDon();
                     ccbKhachHang.Text = "";
+                    
                     chitietbuilInLai.ContentUrl = "~/InPhieuGiaoHang.aspx?IDHoaDon=" + IDHoaDon + "&KT=" + 1;
                     chitietbuilInLai.ShowOnPageLoad = true;
                     txtBarcode.Focus();
@@ -423,7 +424,19 @@ namespace BanHang
                 txtBarcode.Focus();
             }
         }
-      
+        //public void KiemTraInHoaDon(object IDHoaDon, int IDKhachHang)
+        //{
+        //    if (dtKhachHang.LayIDNhomKH(IDKhachHang) == 1)
+        //    {
+        //        // khách lẻ
+        //    }
+        //    else
+        //    {
+        //        //khách sỉ
+        //         chitietbuilInLai.ContentUrl = "~/InPhieuGiaoHang.aspx?IDHoaDon=" + IDHoaDon + "&KT=" + 0;
+        //            chitietbuilInLai.ShowOnPageLoad = true;
+        //    }
+        //}
         protected void btnHuyKhachHang_Click(object sender, EventArgs e)
         {
             popupThemKhachHang.ShowOnPageLoad = false;

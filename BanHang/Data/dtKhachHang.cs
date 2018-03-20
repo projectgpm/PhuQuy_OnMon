@@ -188,6 +188,26 @@ namespace BanHang.Data
                 }
             }
         }
+        public static int LayIDNhomKH(int IDKhachHang)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT IDNhomKhachHang FROM [GPM_KHACHHANG] WHERE [ID] = '" + IDKhachHang + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                    {
+                        DataRow dr = tb.Rows[0];
+                        return Int32.Parse(dr["IDNhomKhachHang"].ToString());
+                    }
+                    else return 1;
+                }
+            }
+        }
         public static int KT_SDT_KH(string SDT)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))

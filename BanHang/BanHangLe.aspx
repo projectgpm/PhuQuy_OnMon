@@ -451,7 +451,7 @@
             <dx:LayoutItem Caption="Nhóm Khách Hàng(*)" ColSpan="2">
                 <LayoutItemNestedControlCollection>
                     <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer7" runat="server">
-                        <dx:ASPxComboBox ID="cmbNhomKhachHang" runat="server" DataSourceID="sqkNhomKhachHang" TextField="TenNhomKhachHang" ValueField="ID" Width="100%">
+                        <dx:ASPxComboBox ID="cmbNhomKhachHang" runat="server" DataSourceID="sqkNhomKhachHang" TextField="TenNhomKhachHang" ValueField="ID" Width="100%" SelectedIndex="0">
                         </dx:ASPxComboBox>
                         <asp:SqlDataSource ID="sqkNhomKhachHang" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenNhomKhachHang] FROM [GPM_NhomKhachHang] WHERE ([DaXoa] = @DaXoa)">
                             <SelectParameters>
