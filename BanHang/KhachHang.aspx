@@ -177,7 +177,7 @@
 
     <dx:ASPxPopupControl ID="popup" runat="server" AllowDragging="True" AllowResize="True" 
          PopupHorizontalAlign="WindowCenter" PopupVerticalAlign="WindowCenter"  Width="700px"
-         Height="500px" FooterText="Thông tin chi tiết nhập kho"
+         Height="400px" FooterText="Thông tin chi tiết nhập kho"
         HeaderText="Thông tin cập nhật công nợ" ClientInstanceName="popup" EnableHierarchyRecreation="True">
 
        <ContentCollection>
