@@ -178,7 +178,6 @@ D:\GPM2018\GaoChoMoi_C.Ngan\BanHang\obj\Debug\BanHang.dll
 D:\GPM2018\GaoChoMoi_C.Ngan\BanHang\obj\Debug\BanHang.pdb
 D:\GPM2018\PhuQuy_OnMon\BanHang\bin\BanHang.dll
 D:\GPM2018\PhuQuy_OnMon\BanHang\bin\BanHang.pdb
-D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Debug\BanHang.csprojResolveAssemblyReference.cache
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Debug\BanHang.Report.rpBangKeBanHang.resources
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Debug\BanHang.Report.rpBangKeKhachHangTraHang.resources
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Debug\BanHang.Report.rpBangKePhieuXuatKhac.resources

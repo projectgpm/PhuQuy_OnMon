@@ -349,41 +349,46 @@ namespace BanHang.Data
                                     cmd.Parameters.AddWithValue("@HeSo", cthd.HeSo);
                                     cmd.ExecuteNonQuery();
                                 }
-                                if (cthd.TrangThaiGiaSiHayLe == 1)
+                                float DoDayCu = dtHangHoa.LayDoDayHienTai(cthd.IDHangHoa);
+                                if (DoDayCu == cthd.DoDay)
                                 {
-                                    //bán giá lẻ
-                                    float SLTru = cthd.SoLuong / (float)cthd.HeSo;
-                                    string UpdateLichSuBanHang = "DECLARE @SoLuongCu FLOAT = 0 " +
-                                                            "SELECT @SoLuongCu = SoLuongCon FROM [GPM_HangHoaTonKho] WHERE IDHangHoa = @IDHangHoa  AND IDKho = @IDKho " +
-                                                            "DECLARE @SoLuongMoi FLOAT = @SoLuongCu - @SoLuongBan " +
-                                                            "INSERT INTO [GPM_LichSuKho] ([IDHangHoa], [IDNhanVien], [SoLuong], [SoLuongMoi], [NoiDung],[NgayCapNhat]) VALUES (@IDHangHoa, @IDNhanVien, @SoLuongCu, @SoLuongMoi, @NoiDung, GetDate()) " +
-                                                            "UPDATE [GPM_HangHoaTonKho] SET SoLuongCon = @SoLuongMoi, NgayCapNhat = GetDate() WHERE IDHangHoa = @IDHangHoa AND IDKho = @IDKho";
-                                    using (SqlCommand cmd = new SqlCommand(UpdateLichSuBanHang, con, trans))
+
+                                    if (cthd.TrangThaiGiaSiHayLe == 1)
                                     {
-                                        cmd.Parameters.AddWithValue("@SoLuongBan", SLTru);
-                                        cmd.Parameters.AddWithValue("@IDHangHoa", cthd.IDHangHoa);
-                                        cmd.Parameters.AddWithValue("@IDKho", IDKho);
-                                        cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
-                                        cmd.Parameters.AddWithValue("@NoiDung", "Bán hàng lẻ");
-                                        cmd.ExecuteNonQuery();
+                                        //bán giá lẻ
+                                        float SLTru = cthd.SoLuong / (float)cthd.HeSo;
+                                        string UpdateLichSuBanHang = "DECLARE @SoLuongCu FLOAT = 0 " +
+                                                                "SELECT @SoLuongCu = SoLuongCon FROM [GPM_HangHoaTonKho] WHERE IDHangHoa = @IDHangHoa  AND IDKho = @IDKho " +
+                                                                "DECLARE @SoLuongMoi FLOAT = @SoLuongCu - @SoLuongBan " +
+                                                                "INSERT INTO [GPM_LichSuKho] ([IDHangHoa], [IDNhanVien], [SoLuong], [SoLuongMoi], [NoiDung],[NgayCapNhat]) VALUES (@IDHangHoa, @IDNhanVien, @SoLuongCu, @SoLuongMoi, @NoiDung, GetDate()) " +
+                                                                "UPDATE [GPM_HangHoaTonKho] SET SoLuongCon = @SoLuongMoi, NgayCapNhat = GetDate() WHERE IDHangHoa = @IDHangHoa AND IDKho = @IDKho";
+                                        using (SqlCommand cmd = new SqlCommand(UpdateLichSuBanHang, con, trans))
+                                        {
+                                            cmd.Parameters.AddWithValue("@SoLuongBan", SLTru);
+                                            cmd.Parameters.AddWithValue("@IDHangHoa", cthd.IDHangHoa);
+                                            cmd.Parameters.AddWithValue("@IDKho", IDKho);
+                                            cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
+                                            cmd.Parameters.AddWithValue("@NoiDung", "Bán hàng lẻ");
+                                            cmd.ExecuteNonQuery();
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    // bán giá sỉ
-                                    string UpdateLichSuBanHang = "DECLARE @SoLuongCu FLOAT = 0 " +
-                                                            "SELECT @SoLuongCu = SoLuongCon FROM [GPM_HangHoaTonKho] WHERE IDHangHoa = @IDHangHoa  AND IDKho = @IDKho " +
-                                                            "DECLARE @SoLuongMoi FLOAT = @SoLuongCu - @SoLuongBan " +
-                                                            "INSERT INTO [GPM_LichSuKho] ([IDHangHoa], [IDNhanVien], [SoLuong], [SoLuongMoi], [NoiDung],[NgayCapNhat]) VALUES (@IDHangHoa, @IDNhanVien, @SoLuongCu, @SoLuongMoi, @NoiDung, GetDate()) " +
-                                                            "UPDATE [GPM_HangHoaTonKho] SET SoLuongCon = @SoLuongMoi, NgayCapNhat = GetDate() WHERE IDHangHoa = @IDHangHoa AND IDKho = @IDKho";
-                                    using (SqlCommand cmd = new SqlCommand(UpdateLichSuBanHang, con, trans))
+                                    else
                                     {
-                                        cmd.Parameters.AddWithValue("@SoLuongBan", cthd.SoLuong);
-                                        cmd.Parameters.AddWithValue("@IDHangHoa", cthd.IDHangHoa);
-                                        cmd.Parameters.AddWithValue("@IDKho", IDKho);
-                                        cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
-                                        cmd.Parameters.AddWithValue("@NoiDung", "Bán hàng lẻ");
-                                        cmd.ExecuteNonQuery();
+                                        // bán giá sỉ
+                                        string UpdateLichSuBanHang = "DECLARE @SoLuongCu FLOAT = 0 " +
+                                                                "SELECT @SoLuongCu = SoLuongCon FROM [GPM_HangHoaTonKho] WHERE IDHangHoa = @IDHangHoa  AND IDKho = @IDKho " +
+                                                                "DECLARE @SoLuongMoi FLOAT = @SoLuongCu - @SoLuongBan " +
+                                                                "INSERT INTO [GPM_LichSuKho] ([IDHangHoa], [IDNhanVien], [SoLuong], [SoLuongMoi], [NoiDung],[NgayCapNhat]) VALUES (@IDHangHoa, @IDNhanVien, @SoLuongCu, @SoLuongMoi, @NoiDung, GetDate()) " +
+                                                                "UPDATE [GPM_HangHoaTonKho] SET SoLuongCon = @SoLuongMoi, NgayCapNhat = GetDate() WHERE IDHangHoa = @IDHangHoa AND IDKho = @IDKho";
+                                        using (SqlCommand cmd = new SqlCommand(UpdateLichSuBanHang, con, trans))
+                                        {
+                                            cmd.Parameters.AddWithValue("@SoLuongBan", cthd.SoLuong);
+                                            cmd.Parameters.AddWithValue("@IDHangHoa", cthd.IDHangHoa);
+                                            cmd.Parameters.AddWithValue("@IDKho", IDKho);
+                                            cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
+                                            cmd.Parameters.AddWithValue("@NoiDung", "Bán hàng lẻ");
+                                            cmd.ExecuteNonQuery();
+                                        }
                                     }
                                 }
                                

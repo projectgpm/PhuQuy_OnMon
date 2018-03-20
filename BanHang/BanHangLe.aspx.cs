@@ -43,15 +43,15 @@ namespace BanHang
                         {
                             gridChiTietHoaDon.Columns["dongia1"].Visible = false;
                             gridChiTietHoaDon.Columns["dongia2"].Visible = true;
-                            gridChiTietHoaDon.Columns["doday1"].Visible = false;
-                            gridChiTietHoaDon.Columns["doday2"].Visible = true;
+                            gridChiTietHoaDon.Columns["doday2"].Visible = false;
+                            gridChiTietHoaDon.Columns["doday1"].Visible = true;
                         }
                         else
                         {
                             gridChiTietHoaDon.Columns["dongia1"].Visible = true;
                             gridChiTietHoaDon.Columns["dongia2"].Visible = false;
-                            gridChiTietHoaDon.Columns["doday1"].Visible = true;
-                            gridChiTietHoaDon.Columns["doday2"].Visible = false;
+                            gridChiTietHoaDon.Columns["doday2"].Visible = true;
+                            gridChiTietHoaDon.Columns["doday1"].Visible = false;
                         }
                     }
                     DanhSachKhachHang();
@@ -133,7 +133,8 @@ namespace BanHang
             string MaHang = tbThongTin.Rows[0]["MaHang"].ToString();
             int IDHangHoa = Int32.Parse(tbThongTin.Rows[0]["ID"].ToString());
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
-            var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.IDHangHoa == IDHangHoa && item.TrangThaiGiaSiHayLe == TrangThaiGiaSiHayLe );
+            float DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
+            var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.IDHangHoa == IDHangHoa && item.TrangThaiGiaSiHayLe == TrangThaiGiaSiHayLe && item.DoDay == DoDay);
             if (exitHang != null)
             {
                 // kiểm tra đơn giá 
@@ -153,7 +154,7 @@ namespace BanHang
                     exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanSi"].ToString());
                     exitHang.TrangThaiGiaSiHayLe = 0;
                 }
-                exitHang.DoDay = tbThongTin.Rows[0]["DoDay"].ToString();
+                exitHang.DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
                 exitHang.TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa.ToString(), Session["IDKho"].ToString());
                 exitHang.ThanhTien = SoLuong * exitHang.DonGia;
                 DanhSachHoaDon[MaHoaDon].TongTien += SoLuong * exitHang.DonGia - ThanhTienOld;
@@ -186,7 +187,7 @@ namespace BanHang
                 }
                
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
-                cthd.DoDay = tbThongTin.Rows[0]["DoDay"].ToString();
+                cthd.DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
                 cthd.HeSo = Int32.Parse(tbThongTin.Rows[0]["HeSo"].ToString());
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
@@ -264,33 +265,56 @@ namespace BanHang
             string IDKho = Session["IDKho"].ToString();
             for (int i = 0; i < gridChiTietHoaDon.VisibleRowCount; i++)
             {
+                int STT = Convert.ToInt32(gridChiTietHoaDon.GetRowValues(i, "STT"));
+                var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.STT == STT);
+                int IDHangHoa = exitHang.IDHangHoa;
                 object SoLuong = gridChiTietHoaDon.GetRowValues(i, "SoLuong");
                 object DonGiaCu = gridChiTietHoaDon.GetRowValues(i, "DonGia");
+                object DoDayCu = dtHangHoa.LayDoDayHienTai(IDHangHoa);//gridChiTietHoaDon.GetRowValues(i, "DoDay");
+
                 ASPxSpinEdit spineditSoLuong = gridChiTietHoaDon.FindRowCellTemplateControl(i, (GridViewDataColumn)gridChiTietHoaDon.Columns["SoLuong"], "txtSoLuongChange") as ASPxSpinEdit;
-                ASPxSpinEdit spineditDonGia;
-                object GiaMoi = 0;
+                ASPxSpinEdit spineditDonGia, spineditDoDay;
+                object GiaMoi = 0, DoDayMoi = 0;
                 object SoLuongMoi = spineditSoLuong.Value;
                 if (Session["IDNhom"].ToString() == "1")
                 {
                     spineditDonGia = gridChiTietHoaDon.FindRowCellTemplateControl(i, (GridViewDataColumn)gridChiTietHoaDon.Columns["DonGia"], "txtDonGia") as ASPxSpinEdit;
                     GiaMoi = spineditDonGia.Value;
+                    
+                    spineditDoDay = gridChiTietHoaDon.FindRowCellTemplateControl(i, (GridViewDataColumn)gridChiTietHoaDon.Columns["DoDay"], "txtDoDay") as ASPxSpinEdit;
+                    DoDayMoi = spineditDoDay.Value;
                 }
                 else
                 {
                     GiaMoi = DonGiaCu;
+                    DoDayMoi = DoDayCu;
                 }
-                if (SoLuong != SoLuongMoi || DonGiaCu != GiaMoi)
+                if (SoLuong != SoLuongMoi || DonGiaCu != GiaMoi || float.Parse(DoDayCu.ToString()) != float.Parse(DoDayMoi.ToString()))
                 {
-                    int STT = Convert.ToInt32(gridChiTietHoaDon.GetRowValues(i, "STT"));
-                    var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.STT == STT);
-                    //float SoLuongOld = exitHang.SoLuong;
-                    double ThanhTienOld = exitHang.ThanhTien;
-                    exitHang.SoLuong = float.Parse(SoLuongMoi.ToString());
-                    exitHang.DonGia = double.Parse(GiaMoi.ToString());
-                    exitHang.ThanhTien = float.Parse(SoLuongMoi.ToString()) * exitHang.DonGia;
-                    DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
-                    DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
-                    DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                    
+                    if (float.Parse(DoDayCu.ToString()) != float.Parse(DoDayMoi.ToString()))
+                    {
+                        // tính lại thành tiền  = doday * SL * DonGia
+                        double ThanhTienOld = exitHang.ThanhTien;
+                        exitHang.SoLuong = float.Parse(SoLuongMoi.ToString());
+                        exitHang.DonGia = double.Parse(GiaMoi.ToString());
+                        exitHang.DoDay = float.Parse(DoDayMoi.ToString());
+                        exitHang.ThanhTien = (exitHang.DoDay * exitHang.SoLuong) * exitHang.DonGia;
+                        DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
+                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                    }
+                    else
+                    {
+                        double ThanhTienOld = exitHang.ThanhTien;
+                        exitHang.SoLuong = float.Parse(SoLuongMoi.ToString());
+                        exitHang.DonGia = double.Parse(GiaMoi.ToString());
+                        exitHang.DoDay = float.Parse(DoDayMoi.ToString());
+                        exitHang.ThanhTien = float.Parse(SoLuongMoi.ToString()) * exitHang.DonGia;
+                        DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
+                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                    }
                 }
             }
         }
@@ -329,6 +353,7 @@ namespace BanHang
                 DanhSachHoaDon[MaHoaDon].SoLuongHang--;
                 DanhSachHoaDon[MaHoaDon].TongTien = DanhSachHoaDon[MaHoaDon].TongTien - itemToRemove.ThanhTien;
                 DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien -  DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Remove(itemToRemove);
                 BindGridChiTietHoaDon();
                 txtBarcode.Focus();
@@ -646,7 +671,7 @@ namespace BanHang
         public string MaHang { get; set; }
         public int IDHangHoa { get; set; }
         public string TenHang { get; set; }
-        public string DoDay { get; set; }
+        public float DoDay { get; set; }
         public int MaDonViTinh { get; set; }
         public float TonKho { get; set; }
         public string DonViTinh { get; set; }
@@ -657,6 +682,7 @@ namespace BanHang
         public int HeSo { get; set; }
         public ChiTietHoaDon()
         {
+            DoDay = 0;
             HeSo = 0;
             TrangThaiGiaSiHayLe = 0; // 0 là giá sỉ, 1 là giá lẻ
             TonKho = 0;

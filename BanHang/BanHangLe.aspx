@@ -213,16 +213,16 @@
                                 <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
-                            <dx:GridViewDataTextColumn Caption="Độ Dầy" FieldName="DoDay" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px" Name="doday1">
-                                <PropertiesTextEdit DisplayFormatString="g">
-                                </PropertiesTextEdit>
-                            </dx:GridViewDataTextColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Độ Dầy" FieldName="DoDay" Name="doday2" ShowInCustomizationForm="True" VisibleIndex="5" Width="80px">
-                                <PropertiesSpinEdit DisplayFormatString="g" NumberFormat="Custom"></PropertiesSpinEdit>
+                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
                                 <DataItemTemplate>
                                     <dx:ASPxSpinEdit ID="txtDoDay" runat="server" Width="100%" 
                                         NumberType="float" Value='<%# Eval("DoDay") %>' />
                                 </DataItemTemplate>
+                            </dx:GridViewDataSpinEditColumn>
+                            <dx:GridViewDataSpinEditColumn Caption="Độ Dầy" FieldName="DoDay" Name="doday1" ShowInCustomizationForm="True" VisibleIndex="4" Width="60px">
+                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                                </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                         </columns>                                                  
                         <settingspager pagesize="50" numericbuttoncount="6" Mode="ShowAllRecords" />

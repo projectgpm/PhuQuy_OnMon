@@ -9,6 +9,23 @@ namespace BanHang.Data
 {
     public class dtHangHoa
     {
+        public static float LayDoDayHienTai(int IDHangHoa)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = " SELECT DoDay FROM [GPM_HangHoa] WHERE ID = '" + IDHangHoa + "'";
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                        return float.Parse(tb.Rows[0]["DoDay"].ToString());
+                    return 0;
+                }
+            }
+        }
         public float LaySoTienCu_ChiTietGia_GiaBanLe(string ID)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
