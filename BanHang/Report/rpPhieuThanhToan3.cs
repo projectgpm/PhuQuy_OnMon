@@ -13,5 +13,10 @@ namespace BanHang.Report
             InitializeComponent();
         }
 
+        private void xrLabel10_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+
+        }
+
     }
 }

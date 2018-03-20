@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Root.master" AutoEventWireup="true" CodeBehind="KhachHang.aspx.cs" Inherits="BanHang.KhachHang" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
-    <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="2" Width="100%">
+    <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="4" Width="100%">
         <Items>
             <dx:LayoutItem Caption="">
                 <LayoutItemNestedControlCollection>
@@ -19,6 +19,18 @@
                             <Image IconID="filterelements_listbox_32x32">
                             </Image>
                         </dx:ASPxButton>
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem Caption="">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
+                    </dx:LayoutItemNestedControlContainer>
+                </LayoutItemNestedControlCollection>
+            </dx:LayoutItem>
+            <dx:LayoutItem Caption="">
+                <LayoutItemNestedControlCollection>
+                    <dx:LayoutItemNestedControlContainer runat="server">
                     </dx:LayoutItemNestedControlContainer>
                 </LayoutItemNestedControlCollection>
             </dx:LayoutItem>
