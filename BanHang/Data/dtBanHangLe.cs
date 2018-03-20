@@ -343,7 +343,7 @@ namespace BanHang.Data
                                     cmd.Parameters.AddWithValue("@ThanhTien", cthd.ThanhTien);
                                     cmd.Parameters.AddWithValue("@IDKho", IDKho);
                                     cmd.Parameters.AddWithValue("@TrangThaiGia", cthd.TrangThaiGiaSiHayLe);
-                                    cmd.Parameters.AddWithValue("@DoDay", cthd.DoDay);
+                                    cmd.Parameters.AddWithValue("@DoDay", cthd.DoDay.ToString());
                                     cmd.Parameters.AddWithValue("@TenDonViTinh", cthd.DonViTinh);
                                     cmd.Parameters.AddWithValue("@TenHangHoa", cthd.TenHang);
                                     cmd.Parameters.AddWithValue("@HeSo", cthd.HeSo);
