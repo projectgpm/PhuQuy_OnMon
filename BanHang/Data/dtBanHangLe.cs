@@ -318,13 +318,16 @@ namespace BanHang.Data
                         }
                         if (IDHoaDon != null)
                         {
-                            string CapNhatCongNoKhachHang = "UPDATE [GPM_KhachHang] SET [CongNo] = [CongNo] + @CongNo WHERE [ID] = @IDKhachHang";
-                            using (SqlCommand cmd = new SqlCommand(CapNhatCongNoKhachHang, con, trans))
+                            if (dtKhachHang.LayIDNhomKH(Int32.Parse(IDKhachHang)) != 1)
                             {
-                                // cập nhật công nợ khách hàng
-                                cmd.Parameters.AddWithValue("@CongNo", TienCongNoKhachHang);
-                                cmd.Parameters.AddWithValue("@IDKhachHang", IDKhachHang);
-                                cmd.ExecuteNonQuery();
+                                string CapNhatCongNoKhachHang = "UPDATE [GPM_KhachHang] SET [CongNo] = [CongNo] + @CongNo WHERE [ID] = @IDKhachHang";
+                                using (SqlCommand cmd = new SqlCommand(CapNhatCongNoKhachHang, con, trans))
+                                {
+                                    // cập nhật công nợ khách hàng
+                                    cmd.Parameters.AddWithValue("@CongNo", TienCongNoKhachHang);
+                                    cmd.Parameters.AddWithValue("@IDKhachHang", IDKhachHang);
+                                    cmd.ExecuteNonQuery();
+                                }
                             }
                             foreach (ChiTietHoaDon cthd in hoaDon.ListChiTietHoaDon)
                             {
