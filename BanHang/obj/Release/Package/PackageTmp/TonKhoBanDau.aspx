@@ -6,8 +6,6 @@
         <Paddings PaddingLeft="20px" />
     </dx:ASPxButton>
     <dx:ASPxGridView ID="gridTonKhoBanDau" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnHtmlRowPrepared="gridTonKhoBanDau_HtmlRowPrepared" >
-        <SettingsPager NumericButtonCount="50">
-        </SettingsPager>
         <SettingsEditing Mode="PopupEditForm">
         </SettingsEditing>
         <Settings ShowTitlePanel="True" />
