@@ -133,7 +133,7 @@ namespace BanHang
             string MaHang = tbThongTin.Rows[0]["MaHang"].ToString();
             int IDHangHoa = Int32.Parse(tbThongTin.Rows[0]["ID"].ToString());
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
-            float DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
+            double DoDay = double.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
             var exitHang = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.FirstOrDefault(item => item.IDHangHoa == IDHangHoa && item.TrangThaiGiaSiHayLe == TrangThaiGiaSiHayLe && item.DoDay == DoDay);
             if (exitHang != null)
             {
@@ -154,7 +154,7 @@ namespace BanHang
                     exitHang.DonGia = double.Parse(tbThongTin.Rows[0]["GiaBanSi"].ToString());
                     exitHang.TrangThaiGiaSiHayLe = 0;
                 }
-                exitHang.DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
+                exitHang.DoDay = double.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
                 exitHang.TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa.ToString(), Session["IDKho"].ToString());
                 exitHang.ThanhTien = SoLuong * exitHang.DonGia;
                 DanhSachHoaDon[MaHoaDon].TongTien += SoLuong * exitHang.DonGia - ThanhTienOld;
@@ -187,7 +187,7 @@ namespace BanHang
                 }
                
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
-                cthd.DoDay = float.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
+                cthd.DoDay = double.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
                 cthd.HeSo = Int32.Parse(tbThongTin.Rows[0]["HeSo"].ToString());
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
@@ -289,16 +289,16 @@ namespace BanHang
                     GiaMoi = DonGiaCu;
                     DoDayMoi = DoDayCu;
                 }
-                if (SoLuong != SoLuongMoi || DonGiaCu != GiaMoi || float.Parse(DoDayCu.ToString()) != float.Parse(DoDayMoi.ToString()))
+                if (SoLuong != SoLuongMoi || DonGiaCu != GiaMoi || double.Parse(DoDayCu.ToString()) != double.Parse(DoDayMoi.ToString()))
                 {
-                    
-                    if (float.Parse(DoDayCu.ToString()) != float.Parse(DoDayMoi.ToString()))
+
+                    if (double.Parse(DoDayCu.ToString()) != double.Parse(DoDayMoi.ToString()))
                     {
                         // tính lại thành tiền  = doday * SL * DonGia
                         double ThanhTienOld = exitHang.ThanhTien;
                         exitHang.SoLuong = float.Parse(SoLuongMoi.ToString());
                         exitHang.DonGia = double.Parse(GiaMoi.ToString());
-                        exitHang.DoDay = float.Parse(DoDayMoi.ToString());
+                        exitHang.DoDay = double.Parse(DoDayMoi.ToString());
                         exitHang.ThanhTien = (exitHang.DoDay * exitHang.SoLuong) * exitHang.DonGia;
                         DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
                         DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
@@ -671,7 +671,7 @@ namespace BanHang
         public string MaHang { get; set; }
         public int IDHangHoa { get; set; }
         public string TenHang { get; set; }
-        public float DoDay { get; set; }
+        public double DoDay { get; set; }
         public int MaDonViTinh { get; set; }
         public float TonKho { get; set; }
         public string DonViTinh { get; set; }
