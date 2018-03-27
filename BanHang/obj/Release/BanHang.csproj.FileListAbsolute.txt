@@ -80,3 +80,5 @@ D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.csproj.GenerateResource.Cach
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.dll.licenses
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.dll
 D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.pdb
+D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.Report.rpPhieuGiaoHang1_InTemp.resources
+D:\GPM2018\PhuQuy_OnMon\BanHang\obj\Release\BanHang.Report.rpPhieuGiaoHang_InTemp.resources

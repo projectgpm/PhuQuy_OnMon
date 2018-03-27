@@ -318,6 +318,11 @@ namespace BanHang.Data
                         }
                         if (IDHoaDon != null)
                         {
+                            string XoaTemp_InTruoc = "DELETE [GPM_HoaDon_Temp]  DELETE [GPM_ChiTietHoaDon_Temp]";
+                            using (SqlCommand cmd = new SqlCommand(XoaTemp_InTruoc, con, trans))
+                            {
+                                cmd.ExecuteNonQuery();
+                            }
                             if (dtKhachHang.LayIDNhomKH(Int32.Parse(IDKhachHang)) != 1)
                             {
                                 string CapNhatCongNoKhachHang = "UPDATE [GPM_KhachHang] SET [CongNo] = [CongNo] + @CongNo WHERE [ID] = @IDKhachHang";

@@ -639,6 +639,67 @@ namespace BanHang
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
             DanhSachHoaDon[MaHoaDon].IDKhachHang = Int32.Parse(ccbKhachHang.SelectedIndex.ToString());
         }
+
+        /// <summary>
+        /// in xem trước
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void btnXemTruoc_Click(object sender, EventArgs e)
+        {
+            int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
+            if (DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Count > 0)
+            {
+                double TienKhachThanhToan;
+                bool isNumeric = double.TryParse(txtKhachThanhToan.Text, out TienKhachThanhToan);
+                if (!isNumeric)
+                {
+                    HienThiThongBao("Nhập không đúng số tiền !!"); return;
+                }
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = TienKhachThanhToan;
+                dtInTempHoaDon dt_temp = new dtInTempHoaDon();
+                string IDKho = Session["IDKho"].ToString();
+                string IDNhanVien = Session["IDThuNgan"].ToString();
+                int IDKhachHang = 1;
+                if (ccbKhachHang.Value != null)
+                    IDKhachHang = Int32.Parse(ccbKhachHang.Value.ToString());
+                if (dtKhachHang.LayIDNhomKH(IDKhachHang) == 1)// khách lẻ
+                {
+                    if (TienKhachThanhToan < DanhSachHoaDon[MaHoaDon].KhachCanTra)
+                    {
+                        txtKhachThanhToan.Text = "0";
+                        txtKhachThanhToan.Focus();
+                        txtTienThua.Text = (-DanhSachHoaDon[MaHoaDon].TongTien).ToString();
+                        HienThiThongBao("Thanh toán chưa đủ số tiền !!"); return;
+                    }
+
+                    // insert bảng tạm
+                    object IDHoaDon = dt_temp.InsertHoaDon_Temp(IDKho, IDNhanVien, IDKhachHang.ToString(), DanhSachHoaDon[MaHoaDon], "0", "0", "0", "0", "0", "0");
+                    chitietbuilInLai.ContentUrl = "~/InPhieuGiaoHang_Temp.aspx?IDHoaDon=" + IDHoaDon + "&KT=" + 1;
+                    chitietbuilInLai.ShowOnPageLoad = true;
+
+                }
+                else// khách sỉ
+                {
+                    double CongNoCu = dtKhachHang.LayCongNoCuKhachHang(IDKhachHang.ToString());
+                    double TongTienKhachHang = double.Parse(txtKhachCanTra.Text.ToString()) - double.Parse(txtKhachThanhToan.Text.ToString());//
+                    double CongNoMoi = CongNoCu;
+                    if (double.Parse(txtKhachThanhToan.Text.ToString()) < double.Parse(txtKhachCanTra.Text.ToString()))
+                    {
+                        //có nợ mới
+                        CongNoMoi = CongNoCu + TongTienKhachHang;
+                    }
+                    object IDHoaDon = dt_temp.InsertHoaDon_Temp(IDKho, IDNhanVien, IDKhachHang.ToString(), DanhSachHoaDon[MaHoaDon], "0", TongTienKhachHang < 0 ? "0" : TongTienKhachHang.ToString(), "0", "0", CongNoCu.ToString(), CongNoMoi.ToString());
+                    chitietbuilInLai.ContentUrl = "~/InPhieuGiaoHang_Temp.aspx?IDHoaDon=" + IDHoaDon + "&KT=" + 0;
+                    chitietbuilInLai.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                HienThiThongBao("Danh sách hàng hóa trống !!!");
+                txtBarcode.Focus();
+            }
+        }
     }
     [Serializable]
     public class HoaDon

@@ -382,12 +382,37 @@
                                                 </dx:LayoutItem>
                                             </Items>
                                             <Paddings Padding="0px" />
-                                        </dx:ASPxFormLayout>  
-                                        <dx:ASPxButton ID="btnThanhToan" runat="server" Text="THANH TOÁN" 
-                                            EnableTheming="False" Font-Bold="True" Font-Names="Courier New" 
-                                            Font-Size="25pt" Height="50px" BackColor="#33CCFF" Native="True" 
-                                            OnClick="btnThanhToan_Click">                                    
-                                        </dx:ASPxButton>                                      
+                                        </dx:ASPxFormLayout>
+                                        <dx:ASPxFormLayout ID="ASPxFormLayout3" runat="server" ColCount="2" Width="100%">
+                                            <Items>
+                                                <dx:LayoutItem Caption="">
+                                                    <LayoutItemNestedControlCollection>
+                                                        <dx:LayoutItemNestedControlContainer runat="server">
+                                                             <dx:ASPxButton ID="btnXemTruoc" runat="server" Text="XEM TRƯỚC" 
+                                                                EnableTheming="False" Font-Bold="True" Font-Names="Courier New" 
+                                                                Font-Size="20pt" Height="40px" BackColor="#00FFCC" Native="True" 
+                                                                OnClick="btnXemTruoc_Click" HorizontalAlign="Center">                                    
+                                                            </dx:ASPxButton>    
+                                                        </dx:LayoutItemNestedControlContainer>
+                                                    </LayoutItemNestedControlCollection>
+                                                </dx:LayoutItem>
+                                                <dx:LayoutItem Caption="">
+                                                    <LayoutItemNestedControlCollection>
+                                                        <dx:LayoutItemNestedControlContainer runat="server">
+                                                            <dx:ASPxButton ID="btnThanhToan" runat="server" Text="THANH TOÁN" 
+                                                                EnableTheming="False" Font-Bold="True" Font-Names="Courier New" 
+                                                                Font-Size="20pt" Height="40px" BackColor="#33CCFF" Native="True" 
+                                                                OnClick="btnThanhToan_Click">                                    
+                                                            </dx:ASPxButton>       
+                                                        </dx:LayoutItemNestedControlContainer>
+                                                    </LayoutItemNestedControlCollection>
+                                                </dx:LayoutItem>
+                                            </Items>
+                                        </dx:ASPxFormLayout>
+
+
+                                        
+                                                                      
                                     </dx:ContentControl>
                                 </ContentCollection>
                             </dx:TabPage>

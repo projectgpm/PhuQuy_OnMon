@@ -391,6 +391,24 @@ namespace BanHang {
         protected global::DevExpress.Web.ASPxTextBox txtTienThua;
         
         /// <summary>
+        /// ASPxFormLayout3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout3;
+        
+        /// <summary>
+        /// btnXemTruoc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btnXemTruoc;
+        
+        /// <summary>
         /// btnThanhToan control.
         /// </summary>
         /// <remarks>
