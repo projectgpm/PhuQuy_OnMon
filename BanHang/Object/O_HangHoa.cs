@@ -24,7 +24,7 @@ namespace BanHang.Object
         public string GhiChu;
 
         public string GiaBanSauThue;
-        public string GiaBan1;
+        public string GiaBaN2;
         public string GiaBan2;
         public string GiaBan3;
         public string GiaBan4;

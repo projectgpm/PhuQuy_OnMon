@@ -188,7 +188,7 @@ namespace BanHang
                
                 cthd.ThanhTien = int.Parse(txtSoLuong.Text) * double.Parse(cthd.DonGia.ToString());
                 cthd.DoDay = double.Parse(tbThongTin.Rows[0]["DoDay"].ToString());
-                cthd.HeSo = Int32.Parse(tbThongTin.Rows[0]["HeSo"].ToString());
+                cthd.HeSo = double.Parse(tbThongTin.Rows[0]["HeSo"].ToString());
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
                 DanhSachHoaDon[MaHoaDon].TongTien += cthd.ThanhTien;
@@ -740,7 +740,7 @@ namespace BanHang
         public double DonGia { get; set; }
         public double ThanhTien { get; set; }
         public int TrangThaiGiaSiHayLe{get; set;}
-        public int HeSo { get; set; }
+        public double HeSo { get; set; }
         public ChiTietHoaDon()
         {
             DoDay = 0;

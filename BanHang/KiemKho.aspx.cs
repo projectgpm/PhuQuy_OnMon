@@ -57,11 +57,11 @@ namespace BanHang
         {
             string IDPhieuKiemKho = IDPhieuKiemKho_Temp.Value.ToString();
             string ID = e.Keys[0].ToString();
-            float ThucTe = Int32.Parse(e.NewValues["ThucTe"].ToString());
+            double ThucTe = Double.Parse(e.NewValues["ThucTe"].ToString());
             if (ThucTe >= 0)
             {
                 string IDHangHoa = e.NewValues["IDHangHoa"].ToString();
-                float TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
+                double TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
                 data = new dtKiemKho();
                 data.CapNhatPhieuKiemKho_Temp(ID, ThucTe, ThucTe - TonKho);
                 e.Cancel = true;
@@ -97,7 +97,7 @@ namespace BanHang
                     {
                         string IDHangHoa = dr["IDHangHoa"].ToString();
                         string TonKho = dr["TonKho"].ToString();
-                        float ChenhLech = float.Parse(dr["ChenhLech"].ToString());
+                        double ChenhLech = double.Parse(dr["ChenhLech"].ToString());
                         string ThucTe = dr["ThucTe"].ToString();
                         string MaHang = dr["MaHang"].ToString();
                         string IDDonViTinh = dr["IDDonViTinh"].ToString();
@@ -150,8 +150,8 @@ namespace BanHang
                     string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
                     string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
                     string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
-                    float TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
-                    float ChechLech = -TonKho;
+                    double TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString());
+                    double ChechLech = -TonKho;
                     DataTable dt1 = data.KTChiTietPhieuKiemKho_Temp(IDHangHoa, IDPhieuKiemKho);
                     if (dt1.Rows.Count == 0)
                     {

@@ -4,39 +4,22 @@
         <Items>
             <dx:LayoutGroup Caption="Thông tin phiếu trả hàng" ColCount="4" ColSpan="3" RowSpan="3">
                 <Items>
-                    <dx:LayoutItem Caption="Khách hàng">
-                        <LayoutItemNestedControlCollection>
-                            <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer4" runat="server">
-                                <dx:ASPxComboBox ID="cmbKhachHang" runat="server" DataSourceID="sqlKhachHang" TextField="TenKhachHang" ValueField="ID"  Width="100%" AutoPostBack="True" OnSelectedIndexChanged="cmbKhachHang_SelectedIndexChanged">
-                                </dx:ASPxComboBox>
-                                <asp:SqlDataSource ID="sqlKhachHang" runat="server" ConnectionString="<%$ ConnectionStrings:BanHangConnectionString %>" SelectCommand="SELECT [ID], [TenKhachHang] FROM [GPM_KhachHang] WHERE (([DaXoa] = @DaXoa))">
-                                    <SelectParameters>
-                                        <asp:Parameter DefaultValue="0" Name="DaXoa" Type="Int32" />
-                                       
-                                    </SelectParameters>
-                                </asp:SqlDataSource>
-                            </dx:LayoutItemNestedControlContainer>
-                        </LayoutItemNestedControlCollection>
-                    </dx:LayoutItem>
-                    <dx:LayoutItem Caption="Hóa đơn bán hàng" ColSpan="2">
+                    <dx:LayoutItem Caption="Hóa đơn bán hàng">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer5" runat="server">
                                 
-                                <dx:ASPxComboBox ID="cmbHoaDon" runat="server" ValueType="System.String" 
-                                    DropDownWidth="600" DropDownStyle="DropDownList"   AutoPostBack="True"
-                                    NullText="Nhập mã hóa đơn..." Width="100%"  TextFormatString="{0}"
-                                    EnableCallbackMode="true" CallbackPageSize="10" OnSelectedIndexChanged="cmbHoaDon_SelectedIndexChanged" Enabled="False"               
-                                    >                                    
-                                    <Columns>
-                                        <dx:ListBoxColumn FieldName="MaHoaDon" Width="80px" Caption="Hóa đơn" />
-                                        <dx:ListBoxColumn FieldName="TongTien" Width="100px" Caption="Tổng tiền"/>
-                                         <dx:ListBoxColumn FieldName="NgayBan" Width="150px" Caption="Ngày Lập"/>
-                                    </Columns>
-                                 <%--   <DropDownButton Visible="False">
-                                    </DropDownButton>--%>
-
-                                </dx:ASPxComboBox>
-                                <dx:ASPxCheckBox ID="ckHoaDon" runat="server" OnCheckedChanged="ckHoaDon_CheckedChanged" Width="10%" AutoPostBack="True"></dx:ASPxCheckBox>
+                                <dx:ASPxTextBox ID="txtSoHoaDon" runat="server" Width="100%">
+                                </dx:ASPxTextBox>
+                                <dx:ASPxButton ID="btnLoc" runat="server" Text="Lọc" Width="15%" OnClick="btnLoc_Click"></dx:ASPxButton>
+                                
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Khách hàng">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer4" runat="server">
+                                <dx:ASPxTextBox ID="txtTenKhachHang" runat="server" Enabled="False" Width="100%">
+                                </dx:ASPxTextBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -55,6 +38,14 @@
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer2" runat="server">
                                 <dx:ASPxDateEdit ID="cmbNgayLapPhieu" runat="server" DateOnError="Today" DisplayFormatString="dd/MM/yyyy" OnInit="cmbNgayLapPhieu_Init" Width="100%" Enabled="False">
                                 </dx:ASPxDateEdit>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
+                    <dx:LayoutItem Caption="">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer runat="server">
+                                <dx:ASPxCheckBox ID="ckGiamCongNo" runat="server" CheckState="Unchecked" Text="Giảm công nợ KH" Width="100%">
+                                </dx:ASPxCheckBox>
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
@@ -136,7 +127,7 @@
                     <dx:LayoutItem Caption="" HorizontalAlign="Left">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer17" runat="server">
-                                <dx:ASPxButton ID="btnThem" runat="server" Text="Thêm" OnClick="btnThem_Click">
+                                <dx:ASPxButton ID="btnThem" runat="server" Text="Đưa vào danh sách" OnClick="btnThem_Click">
                                     <Image IconID="actions_add_32x32">
                                     </Image>
                                 </dx:ASPxButton>

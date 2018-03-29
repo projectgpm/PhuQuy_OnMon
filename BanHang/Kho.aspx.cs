@@ -69,14 +69,14 @@ namespace BanHang
                     foreach (DataRow dr in dt.Rows)
                     {
                         string IDHangHoa = dr["IDHangHoa"].ToString();
-                        float GiaBan = float.Parse(dr["GiaBan"].ToString());
-                        float GiaBan1 = float.Parse(dr["GiaBan1"].ToString());
-                        float GiaBan2 = float.Parse(dr["GiaBan2"].ToString());
-                        float GiaBan3 = float.Parse(dr["GiaBan3"].ToString());
-                        float GiaBan4 = float.Parse(dr["GiaBan4"].ToString());
-                        float GiaBan5 = float.Parse(dr["GiaBan5"].ToString());
+                        double GiaBan = double.Parse(dr["GiaBan"].ToString());
+                        double GiaBaN2 = double.Parse(dr["GiaBaN2"].ToString());
+                        double GiaBan2 = double.Parse(dr["GiaBan2"].ToString());
+                        double GiaBan3 = double.Parse(dr["GiaBan3"].ToString());
+                        double GiaBan4 = double.Parse(dr["GiaBan4"].ToString());
+                        double GiaBan5 = double.Parse(dr["GiaBan5"].ToString());
                         data = new dtKho();
-                        data.ThemHangHoaTonKho(IDHangHoa, GiaBan, GiaBan1, GiaBan2, GiaBan3, GiaBan4, GiaBan5, ID.ToString());
+                        data.ThemHangHoaTonKho(IDHangHoa, GiaBan, GiaBaN2, GiaBan2, GiaBan3, GiaBan4, GiaBan5, ID.ToString());
                     }
                 }
                 e.Cancel = true;

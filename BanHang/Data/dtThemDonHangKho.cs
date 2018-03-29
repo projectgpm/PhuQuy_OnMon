@@ -166,7 +166,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void CapNhatChiTietDonHang_temp(string IDDonHang, string IDHangHoa, float SoLuong, double DonGia)
+        public void CapNhatChiTietDonHang_temp(string IDDonHang, string IDHangHoa, double SoLuong, double DonGia)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -192,7 +192,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void CapNhatChiTietDonHang_temp2(string IDDonHang, string ID, float SoLuong, double DonGia)
+        public void CapNhatChiTietDonHang_temp2(string IDDonHang, string ID, double SoLuong, double DonGia)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

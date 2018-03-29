@@ -9,19 +9,19 @@ namespace BanHang.Data
 {
     public class dtKho
     {
-        public void ThemHangHoaTonKho(string IDHangHoa, float GiaBan, float GiaBan1, float GiaBan2, float GiaBan3, float GiaBan4, float GiaBan5, string IDKho)
+        public void ThemHangHoaTonKho(string IDHangHoa, double GiaBan, double GiaBaN2, double GiaBan2, double GiaBan3, double GiaBan4, double GiaBan5, string IDKho)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [GPM_HangHoaTonKho] ([IDHangHoa],[GiaBan],[GiaBan1],[GiaBan2],[GiaBan3],[GiaBan4],[GiaBan5],[IDKho],[SoLuongCon],[NgayCapNhat]) VALUES (@IDHangHoa,@GiaBan,@GiaBan1,@GiaBan2,@GiaBan3,@GiaBan4,@GiaBan5,@IDKho,0,getdate())";
+                    string cmdText = "INSERT INTO [GPM_HangHoaTonKho] ([IDHangHoa],[GiaBan],[GiaBaN2],[GiaBan2],[GiaBan3],[GiaBan4],[GiaBan5],[IDKho],[SoLuongCon],[NgayCapNhat]) VALUES (@IDHangHoa,@GiaBan,@GiaBaN2,@GiaBan2,@GiaBan3,@GiaBan4,@GiaBan5,@IDKho,0,getdate())";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@IDHangHoa", IDHangHoa);
                         myCommand.Parameters.AddWithValue("@GiaBan", GiaBan);
-                        myCommand.Parameters.AddWithValue("@GiaBan1", GiaBan1);
+                        myCommand.Parameters.AddWithValue("@GiaBaN2", GiaBaN2);
                         myCommand.Parameters.AddWithValue("@GiaBan2", GiaBan2);
                         myCommand.Parameters.AddWithValue("@GiaBan3", GiaBan3);
                         myCommand.Parameters.AddWithValue("@GiaBan4", GiaBan4);

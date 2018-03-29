@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <script type="text/javascript">
         function OnMoreInfoClick(element, key) {
-            popup.SetContentUrl("InPhieuThanhToan1.aspx?ID=" + key);
+            popup.SetContentUrl("InPhieuThanhToaN2.aspx?ID=" + key);
             popup.ShowAtElement();
             // alert(key);
         }
@@ -61,7 +61,7 @@
                  <PropertiesComboBox DataSourceID="SqlKhachHang" TextField="TenKhachHang" ValueField="ID">
                  </PropertiesComboBox>
              </dx:GridViewDataComboBoxColumn>
-             <dx:GridViewDataButtonEditColumn Caption="Chức Năng" VisibleIndex="6">
+             <dx:GridViewDataButtonEditColumn Caption="Chức Năng" VisibleIndex="6" Visible="False">
                 <DataItemTemplate>
                     <a href="javascript:void(0);" onclick="OnMoreInfoClick(this, '<%# Container.KeyValue %>')">In phiếu </a>
                 </DataItemTemplate>

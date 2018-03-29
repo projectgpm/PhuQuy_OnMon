@@ -99,7 +99,7 @@
                 <dx:LayoutItem Caption="">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer runat="server">
-                            <dx:ASPxButton ID="btnThemTam" runat="server" OnClick="btnThemTam_Click" Text="Thêm">
+                            <dx:ASPxButton ID="btnThemTam" runat="server" OnClick="btnThemTam_Click" Text="Đưa vào danh sách">
                                 <Image IconID="actions_add_32x32">
                                 </Image>
                             </dx:ASPxButton>

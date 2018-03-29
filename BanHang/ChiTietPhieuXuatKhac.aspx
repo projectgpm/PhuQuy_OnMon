@@ -67,10 +67,10 @@
     <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" VisibleIndex="6">
     </dx:GridViewDataTextColumn>
     <dx:GridViewDataSpinEditColumn Caption="Số Lượng Xuất" FieldName="SoLuongXuat" VisibleIndex="5">
-        <propertiesspinedit DisplayFormatString="N1"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" VisibleIndex="4">
-        <propertiesspinedit DisplayFormatString="N1"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     
 </Columns>

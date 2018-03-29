@@ -6,6 +6,8 @@
         <Paddings PaddingLeft="20px" />
     </dx:ASPxButton>
     <dx:ASPxGridView ID="gridTonKhoBanDau" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnHtmlRowPrepared="gridTonKhoBanDau_HtmlRowPrepared" >
+        <SettingsPager PageSize="20">
+        </SettingsPager>
         <SettingsEditing Mode="PopupEditForm">
         </SettingsEditing>
         <Settings ShowTitlePanel="True" />
@@ -45,11 +47,11 @@
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataSpinEditColumn Caption="Số Lượng Tồn" FieldName="SoLuongCon" VisibleIndex="3">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
             <dx:GridViewDataSpinEditColumn Caption="Tồn Kho Nhỏ Nhất" FieldName="TonKhoNhoNhat" VisibleIndex="4">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
         </Columns>

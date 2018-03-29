@@ -79,15 +79,15 @@ namespace BanHang.Data
             }
         }
 
-        public void insertHangHoa_temp(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, string HeSo, string IDHangSanXuat, string IDThue, string HangQuyDoi, string IDNhomDatHang, string GiaMuaTruocThue, string GiaBanTruocThue, string GiaMuaSauThue, string GiaBanSauThue, string GiaBan1, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5, string TrongLuong, string HanSuDung, string IDTrangThaiHang, string GhiChu, string IDTrangThaiBarcode, string Barcode)
+        public void insertHangHoa_temp(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, string HeSo, string IDHangSanXuat, string IDThue, string HangQuyDoi, string IDNhomDatHang, string GiaMuaTruocThue, string GiaBanTruocThue, string GiaMuaSauThue, string GiaBanSauThue, string GiaBaN2, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5, string TrongLuong, string HanSuDung, string IDTrangThaiHang, string GhiChu, string IDTrangThaiBarcode, string Barcode)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [GPM_HangHoa_Import] ([IDNhomHang], [MaHang], [TenHangHoa], [IDDonViTinh], [HeSo], [IDHangSanXuat], [IDThue],[HangQuyDoi],[IDNhomDatHang],[GiaMuaTruocThue],[GiaBanTruocThue],[GiaMuaSauThue],[GiaBanSauThue], [GiaBan1], [GiaBan2], [GiaBan3], [GiaBan4], [GiaBan5], [TrongLuong], [HanSuDung], [IDTrangThaiHang], [GhiChu],[IDTrangThaiBarcode],[Barcode])" +
-                                     " VALUES (@IDNhomHang,@MaHang,@TenHangHoa,@IDDonViTinh, @HeSo,@IDHangSanXuat,@IDThue,@HangQuyDoi,@IDNhomDatHang,@GiaMuaTruocThue,@GiaBanTruocThue,@GiaMuaSauThue,@GiaBanSauThue, @GiaBan1,@GiaBan2, @GiaBan3,@GiaBan4,@GiaBan5,@TrongLuong,@HanSuDung,@IDTrangThaiHang,@GhiChu,@IDTrangThaiBarcode,@Barcode)";
+                    string cmdText = "INSERT INTO [GPM_HangHoa_Import] ([IDNhomHang], [MaHang], [TenHangHoa], [IDDonViTinh], [HeSo], [IDHangSanXuat], [IDThue],[HangQuyDoi],[IDNhomDatHang],[GiaMuaTruocThue],[GiaBanTruocThue],[GiaMuaSauThue],[GiaBanSauThue], [GiaBaN2], [GiaBan2], [GiaBan3], [GiaBan4], [GiaBan5], [TrongLuong], [HanSuDung], [IDTrangThaiHang], [GhiChu],[IDTrangThaiBarcode],[Barcode])" +
+                                     " VALUES (@IDNhomHang,@MaHang,@TenHangHoa,@IDDonViTinh, @HeSo,@IDHangSanXuat,@IDThue,@HangQuyDoi,@IDNhomDatHang,@GiaMuaTruocThue,@GiaBanTruocThue,@GiaMuaSauThue,@GiaBanSauThue, @GiaBaN2,@GiaBan2, @GiaBan3,@GiaBan4,@GiaBan5,@TrongLuong,@HanSuDung,@IDTrangThaiHang,@GhiChu,@IDTrangThaiBarcode,@Barcode)";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@IDNhomHang", IDNhomHang);
@@ -103,7 +103,7 @@ namespace BanHang.Data
                         myCommand.Parameters.AddWithValue("@GiaBanTruocThue", GiaBanTruocThue);
                         myCommand.Parameters.AddWithValue("@GiaMuaSauThue", GiaMuaSauThue);
                         myCommand.Parameters.AddWithValue("@GiaBanSauThue", GiaBanSauThue);
-                        myCommand.Parameters.AddWithValue("@GiaBan1", GiaBan1);
+                        myCommand.Parameters.AddWithValue("@GiaBaN2", GiaBaN2);
                         myCommand.Parameters.AddWithValue("@GiaBan2", GiaBan2);
                         myCommand.Parameters.AddWithValue("@GiaBan3", GiaBan3);
                         myCommand.Parameters.AddWithValue("@GiaBan4", GiaBan4);

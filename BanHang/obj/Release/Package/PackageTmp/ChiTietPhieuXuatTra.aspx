@@ -64,10 +64,10 @@
     <PropertiesComboBox DataSourceID="sqlHangHoa" TextField="TenHangHoa" ValueField="ID"></PropertiesComboBox>
     </dx:GridViewDataComboBoxColumn>
     <dx:GridViewDataSpinEditColumn Caption="Số Lượng Trả" FieldName="SoLuong" VisibleIndex="4">
-        <propertiesspinedit DisplayFormatString="N1" NumberFormat="Custom"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2" NumberFormat="Custom"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" VisibleIndex="3" ReadOnly="True">
-        <propertiesspinedit DisplayFormatString="N1" NumberFormat="Custom"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2" NumberFormat="Custom"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     
     <dx:GridViewDataComboBoxColumn Caption="ĐVT" FieldName="IDDonViTinh" VisibleIndex="2">

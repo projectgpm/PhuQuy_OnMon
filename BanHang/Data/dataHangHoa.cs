@@ -15,7 +15,7 @@ namespace BanHang.Data
         /// </summary>
         /// <returns></returns>
         /// 
-        public float LaySoTienCu(string ID)
+        public double LaySoTienCu(string ID)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -27,7 +27,7 @@ namespace BanHang.Data
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     if (tb.Rows.Count != 0)
-                        return float.Parse(tb.Rows[0]["GiaBan"].ToString());
+                        return double.Parse(tb.Rows[0]["GiaBan"].ToString());
                     return 0;
                 }
             }
@@ -147,7 +147,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void SuaThongTinHangHoa(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, float GiaMua, float GiaSi, string GhiChu, string HinhAnh, float GiaLe)
+        public void SuaThongTinHangHoa(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinh, double GiaMua, double GiaSi, string GhiChu, string HinhAnh, double GiaLe)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -176,7 +176,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void SuaThongTinHangHoaNew(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinhLe, string IDDonViTinhSi, float GiaMua, float GiaBan, string GhiChu, string DoDay, string ChieuDai)
+        public void SuaThongTinHangHoaNew(string ID, string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinhLe, string IDDonViTinhSi, double GiaMua, double GiaBan, string GhiChu, string DoDay, string ChieuDai)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -232,7 +232,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public object ThemHangHoa(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinhLe, string IDDonViTinhSi, float GiaMua, float GiaBan, string GhiChu, string DoDay, string ChieuDai)
+        public object ThemHangHoa(string IDNhomHang, string MaHang, string TenHangHoa, string IDDonViTinhLe, string IDDonViTinhSi, double GiaMua, double GiaBan, string GhiChu, string DoDay, string ChieuDai)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

@@ -64,7 +64,7 @@ namespace BanHang
                 string IDNhaCungCap = cmbNhaCungCap.Value.ToString();
                 string SoHoaDon = txtNhapSoHoaDon.Text == null ? "" : txtNhapSoHoaDon.Text;
 
-                float SoTienThanhToan = float.Parse(txtTienThanhToan.Text);
+                double SoTienThanhToan = double.Parse(txtTienThanhToan.Text);
                 string NoiDung = txtNoiDung.Text == null ? "" : txtNoiDung.Text;
                 DateTime NgayThanhToan = DateTime.Parse(dateNgayThanhToan.Text);
                 object ID = dt.ThemChiTietCongNo(SoHoaDon, IDNhaCungCap, "", SoTienThanhToan, NoiDung, NgayThanhToan);
@@ -77,7 +77,7 @@ namespace BanHang
                     {
                         foreach (DataRow dr in db.Rows)
                         {
-                            float TienMaPhieu = float.Parse(dr["TongTien"].ToString());
+                            double TienMaPhieu = double.Parse(dr["TongTien"].ToString());
                             string IDDonHang = dr["ID"].ToString();
                             if (SoTienThanhToan > TienMaPhieu)
                             {
@@ -94,6 +94,7 @@ namespace BanHang
                             }
                         }
                     }
+                    Response.Redirect("ChiTietCongNo.aspx");
                 }
             }
             else

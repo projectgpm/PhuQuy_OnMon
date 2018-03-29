@@ -33,7 +33,7 @@
 }
 .templateTitle 
 {
-    float:left;
+    double:left;
     margin: 12px 12px 18px;
 }
 .dxpnl-edge.t.headerPane.bar .templateTitle 
@@ -48,7 +48,7 @@
 }
 .loginControl 
 {
-    float: right;
+    double: right;
     margin: 24px 25px 12px;
     font-size: 12px;
 }
@@ -73,12 +73,12 @@
 }
 .footerMenu 
 {
-    float: right;
+    double: right;
     padding-top: 4px;
 }
 .copyright 
 {
-    float: left;
+    double: left;
     
     margin: 30px 15px 11px;
 }

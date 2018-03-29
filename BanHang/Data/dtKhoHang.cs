@@ -49,7 +49,7 @@ namespace BanHang.Data
         //    }
         //}
 
-        //public void ThemHang_Full(int IDHangHoa, int SoLuongCon, float GiaBan,int DaXoa, int IDKho)
+        //public void ThemHang_Full(int IDHangHoa, int SoLuongCon, double GiaBan,int DaXoa, int IDKho)
         //{
         //    using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
         //    {
@@ -95,7 +95,7 @@ namespace BanHang.Data
         //    }
         //}
 
-        //public void Update_HangHoaTonKho(int ID, int DaXoa, float GiaBan)
+        //public void Update_HangHoaTonKho(int ID, int DaXoa, double GiaBan)
         //{
         //    using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
         //    {

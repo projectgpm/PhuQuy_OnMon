@@ -237,7 +237,7 @@
                                     <PropertiesComboBox DataSourceID="sqlDonViTinh" TextField="TenDonViTinh" ValueField="ID">
                                     </PropertiesComboBox>
                                 </dx:GridViewDataComboBoxColumn>
-                                <dx:GridViewDataSpinEditColumn Caption="Giá Bán" FieldName="GiaBan1" ShowInCustomizationForm="True" VisibleIndex="6">
+                                <dx:GridViewDataSpinEditColumn Caption="Giá Bán" FieldName="GiaBaN2" ShowInCustomizationForm="True" VisibleIndex="6">
                                     <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
                                     </PropertiesSpinEdit>
                                 </dx:GridViewDataSpinEditColumn>

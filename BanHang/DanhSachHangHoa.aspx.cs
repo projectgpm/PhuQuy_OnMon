@@ -56,10 +56,10 @@ namespace BanHang
                 string TenHangHoa = e.NewValues["TenHangHoa"].ToString();
                 string IDDonViTinhLe = e.NewValues["IDDonViTinhLe"].ToString();
                 string IDDonViTinhSi = e.NewValues["IDDonViTinhSi"].ToString();
-                float GiaMua = float.Parse(e.NewValues["GiaMua"].ToString());
-                float GiaBan = float.Parse(e.NewValues["GiaBan"].ToString());
-                float DoDay = float.Parse(e.NewValues["DoDay"].ToString());
-                float ChieuDai = float.Parse(e.NewValues["ChieuDai"].ToString());
+                double GiaMua = Double.Parse(e.NewValues["GiaMua"].ToString());
+                double GiaBan = Double.Parse(e.NewValues["GiaBan"].ToString());
+                double DoDay = Double.Parse(e.NewValues["DoDay"].ToString());
+                double ChieuDai = Double.Parse(e.NewValues["ChieuDai"].ToString());
                 string GhiChu = e.NewValues["GhiChu"] != null ? e.NewValues["GhiChu"].ToString() : "";
                 object IDHangHoa = data.ThemHangHoa(IDNhomHang, MaHang, TenHangHoa, IDDonViTinhLe, IDDonViTinhSi, GiaMua, GiaBan, GhiChu, DoDay.ToString(), ChieuDai.ToString());
                 if (IDHangHoa != null)
@@ -101,13 +101,13 @@ namespace BanHang
             string TenHangHoa = e.NewValues["TenHangHoa"].ToString();
             string IDDonViTinhLe = e.NewValues["IDDonViTinhLe"].ToString();
             string IDDonViTinhSi = e.NewValues["IDDonViTinhSi"].ToString();
-            float GiaMua = float.Parse(e.NewValues["GiaMua"].ToString());
-            float GiaBan = float.Parse(e.NewValues["GiaBan"].ToString());
-            float DoDay = float.Parse(e.NewValues["DoDay"].ToString());
-            float ChieuDai = float.Parse(e.NewValues["ChieuDai"].ToString());
+            double GiaMua = Double.Parse(e.NewValues["GiaMua"].ToString());
+            double GiaBan = Double.Parse(e.NewValues["GiaBan"].ToString());
+            double DoDay = Double.Parse(e.NewValues["DoDay"].ToString());
+            double ChieuDai = Double.Parse(e.NewValues["ChieuDai"].ToString());
             string GhiChu = e.NewValues["GhiChu"] != null ? e.NewValues["GhiChu"].ToString() : "";
             data = new dataHangHoa();
-            float GiaCu = data.LaySoTienCu(ID);
+            double GiaCu = data.LaySoTienCu(ID);
             if (GiaCu != GiaBan)
             {
                 dtThayDoiGia.ThemLichSu(MaHang, ID, IDDonViTinhLe, GiaCu.ToString(), GiaBan.ToString(), Session["IDNhanVien"].ToString(), "Thay đổi giá");

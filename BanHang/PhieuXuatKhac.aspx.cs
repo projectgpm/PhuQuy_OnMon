@@ -60,10 +60,10 @@ namespace BanHang
         {
             if (cmbHangHoa.Value != null && txtSoLuong.Text != "")
             {
-                float SoLuong = float.Parse(txtSoLuong.Value.ToString());
+                double SoLuong = double.Parse(txtSoLuong.Value.ToString());
                 if (SoLuong > 0)
                 {
-                    float SLTon = float.Parse(txtTonKho.Text);
+                    double SLTon = double.Parse(txtTonKho.Text);
                     string IDHangHoa = cmbHangHoa.Value.ToString();
                     string IDPhieuXuatKhac = IDPhieuXuatKhac_Temp.Value.ToString();
                     string MaHang = dtHangHoa.LayMaHang(IDHangHoa);

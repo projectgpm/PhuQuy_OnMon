@@ -76,16 +76,16 @@
     </dx:GridViewDataComboBoxColumn>
     
     <dx:GridViewDataSpinEditColumn Caption="Thực Tế" FieldName="ThucTe" VisibleIndex="4">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+        <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     
     <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ReadOnly="True" VisibleIndex="3">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+        <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     <dx:GridViewDataSpinEditColumn Caption="Chênh Lệch" FieldName="ChenhLech" VisibleIndex="5">
-        <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+        <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
     

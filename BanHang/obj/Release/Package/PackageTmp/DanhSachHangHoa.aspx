@@ -54,6 +54,8 @@
                 </div>
             </EditForm>
         </Templates>
+        <SettingsPager PageSize="20">
+        </SettingsPager>
         <SettingsEditing Mode="PopupEditForm">
         </SettingsEditing>
         <Settings ShowFilterRow="True" ShowTitlePanel="True" />

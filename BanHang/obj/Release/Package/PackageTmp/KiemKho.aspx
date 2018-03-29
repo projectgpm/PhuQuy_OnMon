@@ -68,7 +68,7 @@
                     <dx:LayoutItem Caption="">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer runat="server">
-                                <dx:ASPxButton ID="btnThemTemp" runat="server" OnClick="btnThemTemp_Click" Text="Thêm">
+                                <dx:ASPxButton ID="btnThemTemp" runat="server" OnClick="btnThemTemp_Click" Text="Đưa vào danh sách">
                                     <Image IconID="actions_add_32x32">
                                     </Image>
                                 </dx:ASPxButton>
@@ -108,13 +108,13 @@
                                         <dx:GridViewCommandColumn ShowDeleteButton="True" ShowInCustomizationForm="True" VisibleIndex="6">
                                         </dx:GridViewCommandColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="3" ReadOnly="True">
-<PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Chênh Lệch" FieldName="ChenhLech" ShowInCustomizationForm="True" VisibleIndex="5" ReadOnly="True">
-<PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataSpinEditColumn Caption="Thực Tế" FieldName="ThucTe" ShowInCustomizationForm="True" VisibleIndex="4">
-<PropertiesSpinEdit DisplayFormatString="N1" MinValue="0" NumberFormat="Custom"></PropertiesSpinEdit>
+<PropertiesSpinEdit DisplayFormatString="N2" MinValue="0" NumberFormat="Custom"></PropertiesSpinEdit>
                                         </dx:GridViewDataSpinEditColumn>
                                         <dx:GridViewDataTextColumn Caption="Mã Hàng" FieldName="MaHang" ReadOnly="True" ShowInCustomizationForm="True" VisibleIndex="0">
                                         </dx:GridViewDataTextColumn>

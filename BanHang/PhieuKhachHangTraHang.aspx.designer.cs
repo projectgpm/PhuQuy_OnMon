@@ -22,33 +22,6 @@ namespace BanHang {
         protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
         
         /// <summary>
-        /// LayoutItemNestedControlContainer4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer4;
-        
-        /// <summary>
-        /// cmbKhachHang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbKhachHang;
-        
-        /// <summary>
-        /// sqlKhachHang control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqlKhachHang;
-        
-        /// <summary>
         /// LayoutItemNestedControlContainer5 control.
         /// </summary>
         /// <remarks>
@@ -58,22 +31,40 @@ namespace BanHang {
         protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer5;
         
         /// <summary>
-        /// cmbHoaDon control.
+        /// txtSoHoaDon control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbHoaDon;
+        protected global::DevExpress.Web.ASPxTextBox txtSoHoaDon;
         
         /// <summary>
-        /// ckHoaDon control.
+        /// btnLoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCheckBox ckHoaDon;
+        protected global::DevExpress.Web.ASPxButton btnLoc;
+        
+        /// <summary>
+        /// LayoutItemNestedControlContainer4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer4;
+        
+        /// <summary>
+        /// txtTenKhachHang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxTextBox txtTenKhachHang;
         
         /// <summary>
         /// LayoutItemNestedControlContainer1 control.
@@ -119,6 +110,15 @@ namespace BanHang {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxDateEdit cmbNgayLapPhieu;
+        
+        /// <summary>
+        /// ckGiamCongNo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCheckBox ckGiamCongNo;
         
         /// <summary>
         /// LayoutItemNestedControlContainer3 control.

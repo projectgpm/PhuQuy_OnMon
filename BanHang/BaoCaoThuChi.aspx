@@ -83,15 +83,15 @@
                 </PropertiesComboBox>
             </dx:GridViewDataComboBoxColumn>
             <dx:GridViewDataSpinEditColumn Caption="Dư đầu" FieldName="DuDau" ShowInCustomizationForm="True" VisibleIndex="4">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
             <dx:GridViewDataSpinEditColumn Caption="Số tiền" FieldName="SoTien" ShowInCustomizationForm="True" VisibleIndex="5">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
             <dx:GridViewDataSpinEditColumn Caption="Dư cuối" FieldName="DuCuoi" ShowInCustomizationForm="True" VisibleIndex="6">
-                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
             <dx:GridViewDataComboBoxColumn Caption="Loại phiếu" FieldName="IDLoaiThuChi" ShowInCustomizationForm="True" VisibleIndex="7">

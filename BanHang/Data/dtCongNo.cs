@@ -79,7 +79,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public object ThemChiTietCongNo(string SoHoaDon, string IDNhaCungCap, string IDMaPhieu, float SoTienThanhToan, string NoiDung, DateTime NgayThanhToan)
+        public object ThemChiTietCongNo(string SoHoaDon, string IDNhaCungCap, string IDMaPhieu, double SoTienThanhToan, string NoiDung, DateTime NgayThanhToan)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

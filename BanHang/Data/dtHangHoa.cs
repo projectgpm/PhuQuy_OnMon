@@ -9,7 +9,7 @@ namespace BanHang.Data
 {
     public class dtHangHoa
     {
-        public static float LayDoDayHienTai(int IDHangHoa)
+        public static double LayDoDayHienTai(int IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -21,12 +21,12 @@ namespace BanHang.Data
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     if (tb.Rows.Count != 0)
-                        return float.Parse(tb.Rows[0]["DoDay"].ToString());
+                        return double.Parse(tb.Rows[0]["DoDay"].ToString());
                     return 0;
                 }
             }
         }
-        public float LaySoTienCu_ChiTietGia_GiaBanLe(string ID)
+        public double LaySoTienCu_ChiTietGia_GiaBanLe(string ID)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -38,12 +38,12 @@ namespace BanHang.Data
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     if (tb.Rows.Count != 0)
-                        return float.Parse(tb.Rows[0]["GiaBanLe"].ToString());
+                        return double.Parse(tb.Rows[0]["GiaBanLe"].ToString());
                     return 0;
                 }
             }
         }
-        public float LaySoTienCu_ChiTietGia_GiaBanSi(string ID)
+        public double LaySoTienCu_ChiTietGia_GiaBanSi(string ID)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -55,7 +55,7 @@ namespace BanHang.Data
                     DataTable tb = new DataTable();
                     tb.Load(reader);
                     if (tb.Rows.Count != 0)
-                        return float.Parse(tb.Rows[0]["GiaBanSi"].ToString());
+                        return double.Parse(tb.Rows[0]["GiaBanSi"].ToString());
                     return 0;
                 }
             }
@@ -170,7 +170,7 @@ namespace BanHang.Data
             }
         }
 
-        //public static void ThemLichSuThayDoiGia(string IDHangHoa, string IDDonViTinh, float GiaCu, float GiaMoi, string IDNguoiDung, string MaHang)
+        //public static void ThemLichSuThayDoiGia(string IDHangHoa, string IDDonViTinh, double GiaCu, double GiaMoi, string IDNguoiDung, string MaHang)
         //{
         //    using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
         //    {
@@ -310,7 +310,7 @@ namespace BanHang.Data
         /// </summary>
         /// <param name="IDHangHoa"></param>
         /// <returns></returns>
-        public static float LayTrongLuong(string IDHangHoa)
+        public static double LayTrongLuong(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -324,13 +324,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["TrongLuong"].ToString().Trim());
+                        return double.Parse(dr["TrongLuong"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float LayGiaBanSauThue(string IDHangHoa, string IDKho)
+        public static double LayGiaBanSauThue(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -344,13 +344,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan"].ToString().Trim());
+                        return double.Parse(dr["GiaBan"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float LayGiaBanTruocThue(string IDHangHoa)
+        public static double LayGiaBanTruocThue(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -364,13 +364,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBanTruocThue"].ToString().Trim());
+                        return double.Parse(dr["GiaBanTruocThue"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float LayGiaMuaSauThue(string IDHangHoa)
+        public static double LayGiaMuaSauThue(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -384,13 +384,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaMuaSauThue"].ToString().Trim());
+                        return double.Parse(dr["GiaMuaSauThue"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float LayGiaMuaTruocThue(string IDHangHoa)
+        public static double LayGiaMuaTruocThue(string IDHangHoa)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -404,13 +404,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaMuaTruocThue"].ToString().Trim());
+                        return double.Parse(dr["GiaMuaTruocThue"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan0(string IDHangHoa, string IDKho)
+        public static double GiaBan0(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -424,18 +424,18 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan"].ToString().Trim());
+                        return double.Parse(dr["GiaBan"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan1(string IDHangHoa, string IDKho)
+        public static double GiaBaN2(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT GiaBan1 FROM [GPM_HangHoaTonKho] WHERE [IDHangHoa] = '" + IDHangHoa + "' AND [IDKho] = '" + IDKho + "'  ";
+                string cmdText = "SELECT GiaBaN2 FROM [GPM_HangHoaTonKho] WHERE [IDHangHoa] = '" + IDHangHoa + "' AND [IDKho] = '" + IDKho + "'  ";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -444,13 +444,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan1"].ToString().Trim());
+                        return double.Parse(dr["GiaBaN2"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan2(string IDHangHoa, string IDKho)
+        public static double GiaBan2(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -464,13 +464,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan2"].ToString().Trim());
+                        return double.Parse(dr["GiaBan2"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan3(string IDHangHoa, string IDKho)
+        public static double GiaBan3(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -484,13 +484,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan3"].ToString().Trim());
+                        return double.Parse(dr["GiaBan3"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan4(string IDHangHoa, string IDKho)
+        public static double GiaBan4(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -504,13 +504,13 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan4"].ToString().Trim());
+                        return double.Parse(dr["GiaBan4"].ToString().Trim());
                     }
                     return 0;
                 }
             }
         }
-        public static float GiaBan5(string IDHangHoa, string IDKho)
+        public static double GiaBan5(string IDHangHoa, string IDKho)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -524,7 +524,7 @@ namespace BanHang.Data
                     if (tb.Rows.Count != 0)
                     {
                         DataRow dr = tb.Rows[0];
-                        return float.Parse(dr["GiaBan5"].ToString().Trim());
+                        return double.Parse(dr["GiaBan5"].ToString().Trim());
                     }
                     return 0;
                 }
@@ -719,8 +719,8 @@ namespace BanHang.Data
             }
             else
             {
-                float x = number1 / (float)number2;
-                int a = (int)(number1 / (float)number2);
+                double x = number1 / (double)number2;
+                int a = (int)(number1 / (double)number2);
                 if (a < x)
                     return (a + 1);
                 else return a;

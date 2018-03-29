@@ -90,7 +90,7 @@
                         <dx:LayoutItem Caption="Tồn Kho">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer7" runat="server">
-                                    <dx:ASPxSpinEdit ID="txtTonKho" runat="server" Enabled="False" Width="100%" DisplayFormatString="N1">
+                                    <dx:ASPxSpinEdit ID="txtTonKho" runat="server" Enabled="False" Width="100%" DisplayFormatString="N2">
                                     </dx:ASPxSpinEdit>
                                 </dx:LayoutItemNestedControlContainer>
                             </LayoutItemNestedControlCollection>
@@ -135,7 +135,7 @@
                         <dx:LayoutItem Caption="" HorizontalAlign="Right" ColSpan="3">
                             <LayoutItemNestedControlCollection>
                                 <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer12" runat="server">
-                                    <dx:ASPxButton ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Thêm">
+                                    <dx:ASPxButton ID="btnThem" runat="server" OnClick="btnThem_Click" Text="Đưa vào danh sách">
                                         <Image IconID="actions_add_32x32">
                                         </Image>
                                     </dx:ASPxButton>
@@ -174,7 +174,7 @@
                                             <dx:GridViewCommandColumn ShowDeleteButton="True" ShowInCustomizationForm="True" VisibleIndex="8">
                                             </dx:GridViewCommandColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Số Lượng" FieldName="SoLuong" ShowInCustomizationForm="True" VisibleIndex="4">
-                                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" >
+                                                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom" >
                                                 </PropertiesSpinEdit>
                                             </dx:GridViewDataSpinEditColumn>
                                             <dx:GridViewDataComboBoxColumn Caption="ĐVT" FieldName="IDDonViTinh" ShowInCustomizationForm="True" VisibleIndex="2">
@@ -186,7 +186,7 @@
                                             <dx:GridViewDataTextColumn Caption="Ghi Chú" FieldName="GhiChu" ShowInCustomizationForm="True" VisibleIndex="7">
                                             </dx:GridViewDataTextColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Tồn Kho" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="3">
-                                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom">
+                                                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
                                                 </PropertiesSpinEdit>
                                             </dx:GridViewDataSpinEditColumn>
                                             <dx:GridViewDataSpinEditColumn Caption="Thành Tiền" FieldName="ThanhTien" ShowInCustomizationForm="True" VisibleIndex="6">

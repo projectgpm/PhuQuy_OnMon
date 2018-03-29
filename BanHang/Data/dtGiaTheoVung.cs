@@ -15,7 +15,7 @@ namespace BanHang.Data
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {
                 con.Open();
-                string cmdText = "SELECT [GPM_HangHoa].MaHang,[GPM_HangHoa].IDDonViTinh,[GPM_HangHoa].ID,[GPM_HangHoa].TenHangHoa,[GPM_HangHoa].GiaBan1,[GPM_HangHoaTonKho].GiaBan FROM [GPM_HangHoa],[GPM_HangHoaTonKho]  WHERE [GPM_HangHoa].ID = [GPM_HangHoaTonKho].IDHangHoa AND [GPM_HangHoa].DaXoa = 0 AND IDKho = 1";
+                string cmdText = "SELECT [GPM_HangHoa].MaHang,[GPM_HangHoa].IDDonViTinh,[GPM_HangHoa].ID,[GPM_HangHoa].TenHangHoa,[GPM_HangHoa].GiaBaN2,[GPM_HangHoaTonKho].GiaBan FROM [GPM_HangHoa],[GPM_HangHoaTonKho]  WHERE [GPM_HangHoa].ID = [GPM_HangHoaTonKho].IDHangHoa AND [GPM_HangHoa].DaXoa = 0 AND IDKho = 1";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
@@ -25,7 +25,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public static void Update_GiaTheoVung(int IDKho, int IDHangHoa, float GiaBan)
+        public static void Update_GiaTheoVung(int IDKho, int IDHangHoa, double GiaBan)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -47,19 +47,19 @@ namespace BanHang.Data
                 }
             }
         }
-        public static void CapNhat_GiaTheoVung(string ID, string IDKho, string GiaBan, string GiaBan1, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5)
+        public static void CapNhat_GiaTheoVung(string ID, string IDKho, string GiaBan, string GiaBaN2, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string strSQL = "UPDATE [GPM_HangHoaTonKho] SET [GiaBan2] = @GiaBan2,[GiaBan3] = @GiaBan3,[GiaBan4]=@GiaBan4,[GiaBan5] = @GiaBan5,[GiaBan1] = @GiaBan1,[GiaBan] = @GiaBan WHERE [IDKho] = @IDKho AND [ID]= @ID";
+                    string strSQL = "UPDATE [GPM_HangHoaTonKho] SET [GiaBan2] = @GiaBan2,[GiaBan3] = @GiaBan3,[GiaBan4]=@GiaBan4,[GiaBan5] = @GiaBan5,[GiaBaN2] = @GiaBaN2,[GiaBan] = @GiaBan WHERE [IDKho] = @IDKho AND [ID]= @ID";
                     using (SqlCommand myCommand = new SqlCommand(strSQL, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@ID", ID);
                         myCommand.Parameters.AddWithValue("@GiaBan", GiaBan);
-                        myCommand.Parameters.AddWithValue("@GiaBan1", GiaBan1);
+                        myCommand.Parameters.AddWithValue("@GiaBaN2", GiaBaN2);
                         myCommand.Parameters.AddWithValue("@GiaBan2", GiaBan2);
                         myCommand.Parameters.AddWithValue("@GiaBan3", GiaBan3);
                         myCommand.Parameters.AddWithValue("@GiaBan4", GiaBan4);

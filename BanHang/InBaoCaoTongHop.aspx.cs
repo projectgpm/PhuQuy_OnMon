@@ -21,10 +21,10 @@ namespace BanHang
             rp.Parameters["strNgay"].Value = strNgay;
             rp.Parameters["strNgay"].Visible = false;
 
-            float strDoanhSoBanHang = dataBCTongHop.strDoanhSoBanHang(NgayBD, NgayKT);
-            float strHangBanBiTraLai = dataBCTongHop.strHanBanBiTraLai(NgayBD, NgayKT);
-            float strGiaVonBanHang = dataBCTongHop.strGiaVonBanHang(NgayBD, NgayKT);
-            float strCacKhoanChi = dataBCTongHop.strCacKhoanChi(NgayBD, NgayKT);
+            double strDoanhSoBanHang = dataBCTongHop.strDoanhSoBanHang(NgayBD, NgayKT);
+            double strHangBanBiTraLai = dataBCTongHop.strHanBanBiTraLai(NgayBD, NgayKT);
+            double strGiaVonBanHang = dataBCTongHop.strGiaVonBanHang(NgayBD, NgayKT);
+            double strCacKhoanChi = dataBCTongHop.strCacKhoanChi(NgayBD, NgayKT);
 
             rp.Parameters["strDoanhSoBanHang"].Value = strDoanhSoBanHang;
             rp.Parameters["strDoanhSoBanHang"].Visible = false;

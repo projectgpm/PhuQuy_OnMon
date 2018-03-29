@@ -38,11 +38,11 @@ namespace BanHang
             if (da.Rows.Count != 0)
             {
                 DataRow dr = da.Rows[0];
-                float GiaBanSiCu = dt.LaySoTienCu_ChiTietGia_GiaBanSi(ID);
-                float GiaBanLeCu = dt.LaySoTienCu_ChiTietGia_GiaBanLe(ID);
-                if (float.Parse(GiaBanLe) != GiaBanLeCu)
+                double GiaBanSiCu = dt.LaySoTienCu_ChiTietGia_GiaBanSi(ID);
+                double GiaBanLeCu = dt.LaySoTienCu_ChiTietGia_GiaBanLe(ID);
+                if (double.Parse(GiaBanLe) != GiaBanLeCu)
                     dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(),dr["TenHangHoa"].ToString(),dr["IDDonViTinhSi"].ToString(),GiaBanLeCu.ToString(),GiaBanLe,Session["IDNhanVien"].ToString(),"Thay đổi giá bán lẻ trong bảng giá");
-                if (float.Parse(GiaBanSi) != GiaBanSiCu)
+                if (double.Parse(GiaBanSi) != GiaBanSiCu)
                     dtThayDoiGia.ThemLichSu(dr["MaHang"].ToString(), dr["TenHangHoa"].ToString(), dr["IDDonViTinhSi"].ToString(), GiaBanSiCu.ToString(), GiaBanSi, Session["IDNhanVien"].ToString(), "Thay đổi giá bán sỉ trong bảng giá");
             }
 

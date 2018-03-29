@@ -87,21 +87,21 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemHangVaoTonKho(object IDKho, int IDHangHoa, string SoLuongCon, string GiaBan, string GiaBan1, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5)
+        public void ThemHangVaoTonKho(object IDKho, int IDHangHoa, string SoLuongCon, string GiaBan, string GiaBaN2, string GiaBan2, string GiaBan3, string GiaBan4, string GiaBan5)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
                 try
                 {
                     myConnection.Open();
-                    string cmdText = "INSERT INTO [GPM_HangHoaTonKho] ([IDKho],[IDHangHoa],[SoLuongCon],[NgayCapNhat],[GiaBan],[GiaBan1],[GiaBan2],[GiaBan3],[GiaBan4],[GiaBan5]) VALUES (@IDKho,@IDHangHoa,@SoLuongCon,getdate(),@GiaBan,@GiaBan1,@GiaBan2,@GiaBan3,@GiaBan4,@GiaBan5)";
+                    string cmdText = "INSERT INTO [GPM_HangHoaTonKho] ([IDKho],[IDHangHoa],[SoLuongCon],[NgayCapNhat],[GiaBan],[GiaBaN2],[GiaBan2],[GiaBan3],[GiaBan4],[GiaBan5]) VALUES (@IDKho,@IDHangHoa,@SoLuongCon,getdate(),@GiaBan,@GiaBaN2,@GiaBan2,@GiaBan3,@GiaBan4,@GiaBan5)";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@IDKho", IDKho);
                         myCommand.Parameters.AddWithValue("@IDHangHoa", IDHangHoa);
                         myCommand.Parameters.AddWithValue("@SoLuongCon", SoLuongCon);
                         myCommand.Parameters.AddWithValue("@GiaBan", GiaBan);
-                        myCommand.Parameters.AddWithValue("@GiaBan1", GiaBan1);
+                        myCommand.Parameters.AddWithValue("@GiaBaN2", GiaBaN2);
                         myCommand.Parameters.AddWithValue("@GiaBan2", GiaBan2);
                         myCommand.Parameters.AddWithValue("@GiaBan3", GiaBan3);
                         myCommand.Parameters.AddWithValue("@GiaBan4", GiaBan4);
@@ -183,7 +183,7 @@ namespace BanHang.Data
             }
         }
 
-        public void ThemHangHoa_Temp(int IDHangHoaCombo, string IDHangHoa, int SoLuong, float GiaBanTruocThue, float ThanhTien, string MaHang, string IDDonViTinh, string TrongLuong, float GiaBanSauThue, float GiaMuaTruocThue, float GiaMuaSauThue, string GhiChu)
+        public void ThemHangHoa_Temp(int IDHangHoaCombo, string IDHangHoa, int SoLuong, double GiaBanTruocThue, double ThanhTien, string MaHang, string IDDonViTinh, string TrongLuong, double GiaBanSauThue, double GiaMuaTruocThue, double GiaMuaSauThue, string GhiChu)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -309,7 +309,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void UpdateHangHoa_temp(int IDHangHoaCombo, string IDHangHoa, int SoLuong, float GiaBanTruocThue, float ThanhTien, string MaHang, string IDDonViTinh, string TrongLuong, float GiaBanSauThue, float GiaMuaTruocThue, float GiaMuaSauThue, string GhiChu)
+        public void UpdateHangHoa_temp(int IDHangHoaCombo, string IDHangHoa, int SoLuong, double GiaBanTruocThue, double ThanhTien, string MaHang, string IDDonViTinh, string TrongLuong, double GiaBanSauThue, double GiaMuaTruocThue, double GiaMuaSauThue, string GhiChu)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -455,7 +455,7 @@ namespace BanHang.Data
                         myCommand.Parameters.AddWithValue("@GhiChu", GhiChu);
                         myCommand.ExecuteNonQuery();
                     }
-                    cmdText = "UPDATE [GPM_HangHoaTonKho] SET [GiaBan] = @GiaBan,[GiaBan1] = @GiaBan,[GiaBan2] = @GiaBan,[GiaBan3] =@GiaBan,[GiaBan4] =@GiaBan,[GiaBan5] = @GiaBan WHERE [IDHangHoa] = @IDHangHoa AND [IDKho] = @IDKho";
+                    cmdText = "UPDATE [GPM_HangHoaTonKho] SET [GiaBan] = @GiaBan,[GiaBaN2] = @GiaBan,[GiaBan2] = @GiaBan,[GiaBan3] =@GiaBan,[GiaBan4] =@GiaBan,[GiaBan5] = @GiaBan WHERE [IDHangHoa] = @IDHangHoa AND [IDKho] = @IDKho";
                     using (SqlCommand myCommand = new SqlCommand(cmdText, myConnection))
                     {
                         myCommand.Parameters.AddWithValue("@GiaBan", GiaBanSauThue);

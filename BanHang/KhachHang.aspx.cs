@@ -187,7 +187,7 @@ namespace BanHang
                     {
                         foreach (DataRow dr in db.Rows)
                         {
-                            float TienMaPhieu = float.Parse(dr["TongTien"].ToString());
+                            double TienMaPhieu = double.Parse(dr["TongTien"].ToString());
                             string IDHoaDon = dr["ID"].ToString();
                             if (SoTienThanhToan > TienMaPhieu)
                             {

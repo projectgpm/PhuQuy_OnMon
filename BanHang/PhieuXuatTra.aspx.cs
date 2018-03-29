@@ -54,10 +54,10 @@ namespace BanHang
         {
             if (cmbHangHoa.Text != "" && txtSoLuong.Text != "" && txtDonGia.Text != "")
             {
-                int SoLuong = Int32.Parse(txtSoLuong.Value.ToString());
+                double SoLuong = double.Parse(txtSoLuong.Value.ToString());
                 if (SoLuong > 0)
                 {
-                    float SLTon = float.Parse(txtTonKho.Text);
+                    double SLTon = double.Parse(txtTonKho.Text);
                     string IDHangHoa = cmbHangHoa.Value.ToString();
                     string IDPhieuXuatTra = IDPhieuXuatTra_Temp.Value.ToString();
                     string GhiChu = txtGhiChuHH.Text == null ? "" : txtGhiChuHH.Text.ToString();
@@ -160,7 +160,7 @@ namespace BanHang
                     double TongTien = 0;
                     foreach (DataRow dr in db.Rows)
                     {
-                        double ThanhTien = float.Parse(dr["ThanhTien"].ToString());
+                        double ThanhTien = double.Parse(dr["ThanhTien"].ToString());
                         TongTien = TongTien + ThanhTien;
                     }
                     data = new dtPhieuXuatTra();
@@ -181,7 +181,7 @@ namespace BanHang
                             string IDDonViTinh = dr["IDDonViTinh"].ToString();
                             data = new dtPhieuXuatTra();
                             data.ThemChiTietPhieuXuatTra(ID, IDHangHoa, IDDonViTinh, SoLuong, MaHang, DonGia, GhiChu, TonKho, ThanhTien);
-                            if (Int32.Parse(SoLuong) > 0)
+                            if (double.Parse(SoLuong) > 0)
                             {
                                 //object TheKho = dtTheKho.ThemTheKho(SoDonXuat, "Phiếu xuất trả ", "0", "", (Int32.Parse(dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa, Session["IDKho"].ToString()).ToString()) - Int32.Parse(SoLuong)).ToString(), Session["IDNhanVien"].ToString(), Session["IDKho"].ToString(), IDHangHoa, "Xuất", "0", SoLuong, "0");
                                 //if (TheKho != null)

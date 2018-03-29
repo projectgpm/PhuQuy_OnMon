@@ -10,7 +10,7 @@
 namespace BanHang {
     
     
-    public partial class InPhieuThanhToan1 {
+    public partial class InPhieuThanhToaN2 {
         
         /// <summary>
         /// form1 control.

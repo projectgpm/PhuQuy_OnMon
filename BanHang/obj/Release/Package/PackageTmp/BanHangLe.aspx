@@ -199,7 +199,7 @@
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="TK" FieldName="TonKho" ShowInCustomizationForm="True" VisibleIndex="6" Width="40px">
-                                <PropertiesSpinEdit DisplayFormatString="N1" NumberFormat="Custom" Width="50px">
+                                <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom" Width="50px">
                                 </PropertiesSpinEdit>
                             </dx:GridViewDataSpinEditColumn>
                             <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" ShowInCustomizationForm="True" VisibleIndex="8" FieldName="DonGia" Width="120px" Name="dongia1">

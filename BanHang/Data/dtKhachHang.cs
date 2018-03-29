@@ -228,7 +228,7 @@ namespace BanHang.Data
             }
         }
 
-        public string LayTenKhachHang_ID(string ID)
+        public static string LayTenKhachHang_ID(string ID)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
             {

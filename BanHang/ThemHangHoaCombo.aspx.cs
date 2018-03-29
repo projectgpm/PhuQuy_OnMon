@@ -91,7 +91,7 @@ namespace BanHang
                                     string IDHangHoa1 = dr["IDHangHoa"].ToString();
                                     string SoLuong1 = dr["SoLuong"].ToString();
                                     string GiaBanTruocThue1 = dr["GiaBanTruocThue"].ToString();
-                                    string ThanhTien1 = dr["ThanhTien"].ToString();
+                                    string ThanhTieN2 = dr["ThanhTien"].ToString();
                                     string IDDonViTinh1 = dr["IDDonViTinh"].ToString();
                                     string MaHang1 = dr["MaHang"].ToString();
                                     string TrongLuong1 = dr["TrongLuong"].ToString();
@@ -100,7 +100,7 @@ namespace BanHang
                                     string GiaMuaSauThue1 = dr["GiaMuaSauThue"].ToString();
                                     string GhiChu1 = dr["GhiChu"].ToString();
                                     data = new dtHangCombo();
-                                    data.ThemHangHoa(ID, IDHangHoa1, SoLuong1, GiaBanTruocThue1, ThanhTien1, IDDonViTinh1, MaHang1, TrongLuong1, GiaBanSauThue1, GiaMuaTruocThue1, GiaMuaSauThue1, GhiChu1);
+                                    data.ThemHangHoa(ID, IDHangHoa1, SoLuong1, GiaBanTruocThue1, ThanhTieN2, IDDonViTinh1, MaHang1, TrongLuong1, GiaBanSauThue1, GiaMuaTruocThue1, GiaMuaSauThue1, GhiChu1);
                                 }
                                 data.XoaHangHoa_Temp_IDHangCombo(IDHangHoaComBo);
                                 dtLichSuTruyCap.ThemLichSu(Session["IDNhanVien"].ToString(), Session["IDNhom"].ToString(), "Hàng hóa combo", Session["IDKho"].ToString(), "Danh Mục", "Thêm");
@@ -137,8 +137,8 @@ namespace BanHang
                 double GiaBanTruocThue = 0, GiaBanSauThue = 0, GiaMuaTruocThue = 0, GiaMuaSauThue=0;
                 foreach (DataRow dr in db.Rows)
                 {
-                    double ThanhTien1 = double.Parse(dr["GiaMuaTruocThue"].ToString());
-                    GiaMuaTruocThue = GiaMuaTruocThue + ThanhTien1;
+                    double ThanhTieN2 = double.Parse(dr["GiaMuaTruocThue"].ToString());
+                    GiaMuaTruocThue = GiaMuaTruocThue + ThanhTieN2;
                     double ThanhTien2 = double.Parse(dr["GiaMuaSauThue"].ToString());
                     GiaMuaSauThue = GiaMuaSauThue + ThanhTien2;
                     double ThanhTien3 = double.Parse(dr["GiaBanTruocThue"].ToString());
@@ -192,21 +192,21 @@ namespace BanHang
                 {
 
                     int IDHangHoaComBo = Int32.Parse(IDHangHoaComBo_Temp.Value.ToString());
-                    float GiaBanSauThue = float.Parse(txtGiaBanST.Text.ToString());
-                    float GiaBanTruocThue = dtHangHoa.LayGiaBanTruocThue(cmbHangHoa.Value.ToString());
-                    float GiaMuaSauThue = dtHangHoa.LayGiaMuaSauThue(cmbHangHoa.Value.ToString());
-                    float GiaMuaTruocThue = dtHangHoa.LayGiaMuaTruocThue(cmbHangHoa.Value.ToString());
+                    double GiaBanSauThue = double.Parse(txtGiaBanST.Text.ToString());
+                    double GiaBanTruocThue = dtHangHoa.LayGiaBanTruocThue(cmbHangHoa.Value.ToString());
+                    double GiaMuaSauThue = dtHangHoa.LayGiaMuaSauThue(cmbHangHoa.Value.ToString());
+                    double GiaMuaTruocThue = dtHangHoa.LayGiaMuaTruocThue(cmbHangHoa.Value.ToString());
                     string MaHang = dtHangHoa.LayMaHang(cmbHangHoa.Value.ToString());
                     string IDDonViTinh = dtHangHoa.LayIDDonViTinh(cmbHangHoa.Value.ToString());
-                    float TrongLuong = dtHangHoa.LayTrongLuong(cmbHangHoa.Value.ToString());
+                    double TrongLuong = dtHangHoa.LayTrongLuong(cmbHangHoa.Value.ToString());
                     string GhiChu = txtGhiChuHangHoa.Text == null ? "" : txtGhiChuHangHoa.Text.ToString();
                     data = new dtHangCombo();
                     DataTable db = data.KTHangHoa_Temp(cmbHangHoa.Value.ToString(), IDHangHoaComBo);// kiểm tra hàng hóa
-                    float TongTrongLuong = SL * TrongLuong;
-                    float TongGiaMuaSauThue = SL * GiaMuaSauThue;
-                    float TongGiaMuaTruocThue = SL * GiaMuaTruocThue;
-                    float TongGiaBanTruocThue = SL * GiaBanTruocThue;
-                    float TongGiaBanSauThue = SL * GiaBanSauThue;
+                    double TongTrongLuong = SL * TrongLuong;
+                    double TongGiaMuaSauThue = SL * GiaMuaSauThue;
+                    double TongGiaMuaTruocThue = SL * GiaMuaTruocThue;
+                    double TongGiaBanTruocThue = SL * GiaBanTruocThue;
+                    double TongGiaBanSauThue = SL * GiaBanSauThue;
                     if (db.Rows.Count == 0)
                     {
                         data = new dtHangCombo();

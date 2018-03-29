@@ -157,7 +157,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemChiTietPhieuXuatTra_Temp(string IDPhieuXuatTra, string IDHangHoa, string IDDonViTinh, int SoLuong, string GhiChu, string MaHang, string TonKho, double DonGia)
+        public void ThemChiTietPhieuXuatTra_Temp(string IDPhieuXuatTra, string IDHangHoa, string IDDonViTinh, double SoLuong, string GhiChu, string MaHang, string TonKho, double DonGia)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -187,7 +187,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void UpdatePhieuXuatTra_temp(string IDPhieuXuatTra, string IDHangHoa, int SoLuong, string GhiChu, double DonGia)
+        public void UpdatePhieuXuatTra_temp(string IDPhieuXuatTra, string IDHangHoa, double SoLuong, string GhiChu, double DonGia)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

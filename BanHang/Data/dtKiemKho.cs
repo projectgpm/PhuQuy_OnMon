@@ -172,7 +172,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemPhieuKiemKho_Temp(string IDPhieuKiemKho, string IDHangHoa, float TonKho, float ChenhLech,string MaHang, string IDDonViTinh)
+        public void ThemPhieuKiemKho_Temp(string IDPhieuKiemKho, string IDHangHoa, double TonKho, double ChenhLech,string MaHang, string IDDonViTinh)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
@@ -199,7 +199,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void CapNhatPhieuKiemKho_Temp(string ID, float ThucTe, float ChenhLech)
+        public void CapNhatPhieuKiemKho_Temp(string ID, double ThucTe, double ChenhLech)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {

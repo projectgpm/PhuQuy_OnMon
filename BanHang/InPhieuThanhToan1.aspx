@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InPhieuThanhToan1.aspx.cs" Inherits="BanHang.InPhieuThanhToan1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InPhieuThanhToaN2.aspx.cs" Inherits="BanHang.InPhieuThanhToaN2" %>
 <%@ Register assembly="DevExpress.XtraReports.v16.1.Web, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.XtraReports.Web" tagprefix="dx" %>
 
 <!DOCTYPE html>
