@@ -131,7 +131,9 @@
   inner join "dbo"."GPM_KhachHang" "GPM_KhachHang"
        on ("GPM_KhachHang"."ID" = "GPM_HoaDon"."IDKhachHang"))
  where (("GPM_HoaDon"."NgayBan" &gt;= @NgayBD)
-       and ("GPM_HoaDon"."NgayBan" &lt;= @NgayKT))</value>
+       and ("GPM_HoaDon"."NgayBan" &lt;= @NgayKT) 
+	 and ((@IDKhachHang = -1) OR ("GPM_HoaDon"."IDKhachHang" = @IDKhachHang))
+	)</value>
   </data>
   <data name="customSqlQuery2.Sql" xml:space="preserve">
     <value>select "GPM_ChiTietHoaDon"."IDHoaDon",

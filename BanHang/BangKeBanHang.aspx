@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Content" runat="server">
     <dx:ASPxFormLayout ID="ASPxFormLayout1" runat="server" Width="100%">
         <Items>
-            <dx:LayoutGroup Caption="Thông tin bảng kê" ColCount="3" HorizontalAlign="Center">
+            <dx:LayoutGroup Caption="Thông tin bảng kê" ColCount="4" HorizontalAlign="Center">
                 <Items>
                     <dx:LayoutItem Caption="Theo năm">
                         <LayoutItemNestedControlCollection>
@@ -28,6 +28,12 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
+                    <dx:LayoutItem Caption="">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer runat="server">
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
                     <dx:LayoutItem Caption="Ngày BĐ">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer5" runat="server">
@@ -44,10 +50,18 @@
                             </dx:LayoutItemNestedControlContainer>
                         </LayoutItemNestedControlCollection>
                     </dx:LayoutItem>
+                    <dx:LayoutItem Caption="Khách hàng">
+                        <LayoutItemNestedControlCollection>
+                            <dx:LayoutItemNestedControlContainer runat="server">
+                                <dx:ASPxComboBox ID="ccbKhachHang" runat="server" Width="100%">
+                                </dx:ASPxComboBox>
+                            </dx:LayoutItemNestedControlContainer>
+                        </LayoutItemNestedControlCollection>
+                    </dx:LayoutItem>
                     <dx:LayoutItem Caption="">
                         <LayoutItemNestedControlCollection>
                             <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer9" runat="server">
-                                <dx:ASPxButton ID="btnXemBaoCao" runat="server" Text="Xem bảng kê" Width="100%" OnClick="btnXemBaoCao_Click">
+                                <dx:ASPxButton ID="btnXemBaoCao" runat="server" Text="Xem bảng kê" Width="100%" OnClick="btnXemBaoCao_Click" AutoPostBack="False">
                                     <Image IconID="layout_list_32x32devav">
                                     </Image>
                                 </dx:ASPxButton>

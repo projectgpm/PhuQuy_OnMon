@@ -13,7 +13,18 @@ namespace BanHang
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                dtKhachHang dt1 = new dtKhachHang();
+                DataTable da1 = dt1.LayDanhSachKhachHang_InBaoCao();
+                da1.Rows.Add(-1, "Tất cả khách hàng");
+
+                ccbKhachHang.DataSource = da1;
+                ccbKhachHang.TextField = "TenKhachHang";
+                ccbKhachHang.ValueField = "ID";
+                ccbKhachHang.DataBind();
+                ccbKhachHang.SelectedIndex = da1.Rows.Count;
+            }
         }
 
         protected void rbTheoNam_CheckedChanged(object sender, EventArgs e)
@@ -77,7 +88,7 @@ namespace BanHang
             ngayBD = ngayBD + "00:00:0.000";
             ngayKT = ngayKT + "23:59:59.999";
 
-            popup.ContentUrl = "~/BangKeBanHang_In.aspx?ngayBD=" + ngayBD + "&ngayKT=" + ngayKT;
+            popup.ContentUrl = "~/BangKeBanHang_In.aspx?ngayBD=" + ngayBD + "&ngayKT=" + ngayKT + "&IDKhachHang=" + ccbKhachHang.Value.ToString() + "&TenKhachHang=" + ccbKhachHang.Text.ToString();
             popup.ShowOnPageLoad = true;
         }
     }
