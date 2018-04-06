@@ -105,9 +105,18 @@ namespace BanHang
                 if (dta.Rows.Count != 0)
                 {
                     DataRow dr = dta.Rows[0];
+                    double DoDay = double.Parse(dr["DoDay"].ToString());
+                    double DoDayCu = dtHangHoa.LayDoDayHienTai(Convert.ToInt32(IDHangHoa));
                     txtDVT.Text = dr["TenDonViTinh"].ToString();
-                    txtGiaBan.Text = dr["GiaBan"].ToString();
                     txtSoLuong.Text = dr["SoLuong"].ToString();
+                    if (DoDay != DoDayCu)
+                    {
+                        txtGiaBan.Text = (double.Parse(dr["GiaBan"].ToString()) * DoDay).ToString();
+                    }
+                    else
+                    {
+                        txtGiaBan.Text = dr["GiaBan"].ToString();
+                    }
                 }
                 txtSoLuong.Text = "0";
                 txtGiaBan.Enabled = false;
