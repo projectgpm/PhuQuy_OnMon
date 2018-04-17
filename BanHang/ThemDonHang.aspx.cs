@@ -155,7 +155,7 @@ namespace BanHang
             if (e.NewValues["SoLuong"] != null && e.NewValues["DonGia"] != null)
             {
                 string ID = e.Keys[0].ToString();
-                int SoLuong = Int32.Parse(e.NewValues["SoLuong"].ToString());
+                double SoLuong = double.Parse(e.NewValues["SoLuong"].ToString());
                 double DonGia = double.Parse(e.NewValues["DonGia"].ToString());
                 data.CapNhatChiTietDonHang_temp2(IDThuMuaDatHang_Temp.Value.ToString(), ID, SoLuong, DonGia);
                 e.Cancel = true;
@@ -183,8 +183,8 @@ namespace BanHang
                 string IDHangHoa = tbThongTin.Rows[0]["ID"].ToString();
                 string MaHangHoa = tbThongTin.Rows[0]["MaHang"].ToString();
                 string IDDonViTinh = dtHangHoa.LayIDDonViTinh(IDHangHoa);
-              
-                int SoLuong = Int32.Parse(txtSoLuong.Text.ToString());
+
+                double SoLuong = double.Parse(txtSoLuong.Text.ToString());
                 double DonGia = double.Parse(tbThongTin.Rows[0]["GiaMua"].ToString());
                 DataTable db = dtThemDonHangKho.KTChiTietDonHang_Temp(IDHangHoa, IDDonHang);// kiểm tra hàng hóa
                 if (db.Rows.Count == 0)

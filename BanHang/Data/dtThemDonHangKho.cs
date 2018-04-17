@@ -218,7 +218,7 @@ namespace BanHang.Data
                 }
             }
         }
-        public void ThemChiTietDonHang_Temp(string IDDonHang, string IDHangHoa, string MaHangHoa, string IDDonViTinh, int SoLuong, double DonGia)
+        public void ThemChiTietDonHang_Temp(string IDDonHang, string IDHangHoa, string MaHangHoa, string IDDonViTinh, double SoLuong, double DonGia)
         {
             using (SqlConnection myConnection = new SqlConnection(StaticContext.ConnectionString))
             {
