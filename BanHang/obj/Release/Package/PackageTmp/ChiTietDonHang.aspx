@@ -50,10 +50,10 @@
 <Columns>
     
     <dx:GridViewDataSpinEditColumn Caption="Số Lượng Đặt" FieldName="SoLuong" VisibleIndex="3">
-        <propertiesspinedit DisplayFormatString="N0"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     <dx:GridViewDataSpinEditColumn Caption="Đơn Giá" FieldName="DonGia" VisibleIndex="4" ReadOnly="True">
-        <propertiesspinedit DisplayFormatString="N0"></propertiesspinedit>
+        <propertiesspinedit DisplayFormatString="N2"></propertiesspinedit>
     </dx:GridViewDataSpinEditColumn>
     <dx:GridViewDataTextColumn Caption="Mã Hàng Hóa" FieldName="MaHangHoa" VisibleIndex="0" ReadOnly="True">
     </dx:GridViewDataTextColumn>
@@ -66,7 +66,7 @@
         </PropertiesComboBox>
     </dx:GridViewDataComboBoxColumn>
     <dx:GridViewDataSpinEditColumn Caption="Thành Tiền" FieldName="ThanhTien" VisibleIndex="5">
-        <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom">
+        <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom">
         </PropertiesSpinEdit>
     </dx:GridViewDataSpinEditColumn>
 </Columns>

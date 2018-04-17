@@ -91,7 +91,7 @@
                 <dx:LayoutItem Caption="Số Lượng">
                     <LayoutItemNestedControlCollection>
                         <dx:LayoutItemNestedControlContainer ID="LayoutItemNestedControlContainer12" runat="server">
-                            <dx:ASPxSpinEdit ID="txtSoLuong" runat="server" Width="100%" DisplayFormatString="N0" Number="1">
+                            <dx:ASPxSpinEdit ID="txtSoLuong" runat="server" Width="100%" DisplayFormatString="N2" Number="1">
                             </dx:ASPxSpinEdit>
                         </dx:LayoutItemNestedControlContainer>
                     </LayoutItemNestedControlCollection>
@@ -161,7 +161,7 @@
                                     <PropertiesSpinEdit DisplayFormatString="N0" NumberFormat="Custom"></PropertiesSpinEdit>
                                     </dx:GridViewDataSpinEditColumn>
                                     <dx:GridViewDataSpinEditColumn Caption="Số Lượng Đặt" FieldName="SoLuong" ShowInCustomizationForm="True" VisibleIndex="4">
-                                    <PropertiesSpinEdit DisplayFormatString="g"></PropertiesSpinEdit>
+                                    <PropertiesSpinEdit DisplayFormatString="N2" NumberFormat="Custom"></PropertiesSpinEdit>
                                     </dx:GridViewDataSpinEditColumn>
                                     <dx:GridViewDataComboBoxColumn Caption="Tên Hàng Hóa" FieldName="IDHangHoa" ShowInCustomizationForm="True" VisibleIndex="1" ReadOnly="True">
                                         <PropertiesComboBox DataSourceID="SqlNguyenLieu" TextField="TenHangHoa" ValueField="ID">
