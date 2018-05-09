@@ -130,7 +130,8 @@
   from  GPM_ChiTietHoaDon
 	inner join GPM_HoaDon
        on ("GPM_HoaDon"."ID" = "GPM_ChiTietHoaDon"."IDHoaDon")
-  where GPM_ChiTietHoaDon.NgayBan &gt;= @NgayBD
+  where GPM_HoaDon.HuyHoaDon = 0
+	and GPM_ChiTietHoaDon.NgayBan &gt;= @NgayBD
        and GPM_ChiTietHoaDon.NgayBan &lt;= @NgayKT
 	 and ((@IDKhachHang = -1) OR ("GPM_HoaDon"."IDKhachHang" = @IDKhachHang))
 	group by "GPM_ChiTietHoaDon"."GiaBan",

@@ -107,6 +107,8 @@
                                                             </dx:RibbonDropDownButtonItem>
                                                             <dx:RibbonDropDownButtonItem Name="danh-sach-kiem-kho" NavigateUrl="DanhSachKiemKho.aspx" Text="Kiểm Kho">
                                                             </dx:RibbonDropDownButtonItem>
+                                                            <dx:RibbonDropDownButtonItem Name="Hủy hóa đơn" NavigateUrl="HuyHoaDon.aspx" Text="Hủy hóa đơn">
+                                                            </dx:RibbonDropDownButtonItem>
                                                         </Items>
                                                         <LargeImage Url="~/image/nhapxuat.png">
                                                         </LargeImage>

@@ -133,6 +133,7 @@
  where (("GPM_HoaDon"."NgayBan" &gt;= @NgayBD)
        and ("GPM_HoaDon"."NgayBan" &lt;= @NgayKT) 
 	 and ((@IDKhachHang = -1) OR ("GPM_HoaDon"."IDKhachHang" = @IDKhachHang))
+	 and GPM_HoaDon.HuyHoaDon = 0
 	)</value>
   </data>
   <data name="customSqlQuery2.Sql" xml:space="preserve">

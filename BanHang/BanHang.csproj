@@ -140,6 +140,7 @@
     <Content Include="DangXuat.aspx" />
     <Content Include="DanhSachChiPhi.aspx" />
     <Content Include="DanhSachHangHoa.aspx" />
+    <Content Include="DanhSachHoaDonDaHuy.aspx" />
     <Content Include="DanhSachKe.aspx" />
     <Content Include="DanhSachKhachHangTraHang.aspx" />
     <Content Include="DanhSachKiemKho.aspx" />
@@ -157,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HinhThucThanhToan.aspx" />
+    <Content Include="HuyHoaDon.aspx" />
     <Content Include="image\1000167.jpg" />
     <Content Include="image\Avosoft-Warm-Toolbar-Print.ico" />
     <Content Include="image\banhang.png" />
@@ -513,6 +515,13 @@
     <Compile Include="DanhSachHangHoa.aspx.designer.cs">
       <DependentUpon>DanhSachHangHoa.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DanhSachHoaDonDaHuy.aspx.cs">
+      <DependentUpon>DanhSachHoaDonDaHuy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DanhSachHoaDonDaHuy.aspx.designer.cs">
+      <DependentUpon>DanhSachHoaDonDaHuy.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DanhSachKe.aspx.cs">
       <DependentUpon>DanhSachKe.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -579,6 +588,7 @@
     <Compile Include="Data\dtHangCombo.cs" />
     <Compile Include="Data\dtHangHoa.cs" />
     <Compile Include="Data\dtHinhThucThanhToan.cs" />
+    <Compile Include="Data\dtHuyHoaDon.cs" />
     <Compile Include="Data\dtImportHangHoa.cs" />
     <Compile Include="Data\dtInTempHoaDon.cs" />
     <Compile Include="Data\dtKe.cs" />
@@ -645,6 +655,13 @@
     </Compile>
     <Compile Include="HinhThucThanhToan.aspx.designer.cs">
       <DependentUpon>HinhThucThanhToan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HuyHoaDon.aspx.cs">
+      <DependentUpon>HuyHoaDon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HuyHoaDon.aspx.designer.cs">
+      <DependentUpon>HuyHoaDon.aspx</DependentUpon>
     </Compile>
     <Compile Include="InBaoCaoTongHop.aspx.cs">
       <DependentUpon>InBaoCaoTongHop.aspx</DependentUpon>
