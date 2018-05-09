@@ -32,10 +32,10 @@ namespace BanHang
 
         protected void gridTonKhoBanDau_HtmlRowPrepared(object sender, DevExpress.Web.ASPxGridViewTableRowEventArgs e)
         {
-            Color color = (Color)ColorTranslator.FromHtml("#FF9797");
-            int TonKhoTong = Convert.ToInt32(e.GetValue("SoLuongCon"));
-            if (TonKhoTong < 6)
-                e.Row.BackColor = color;
+            //Color color = (Color)ColorTranslator.FromHtml("#FF9797");
+            //int TonKhoTong = Convert.ToInt32(e.GetValue("SoLuongCon"));
+            //if (TonKhoTong < 6)
+            //    e.Row.BackColor = color;
         }
 
         protected void btnXuatFile_Click(object sender, EventArgs e)

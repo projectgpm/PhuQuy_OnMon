@@ -74,6 +74,7 @@ namespace BanHang
             gridChiTietHoaDon.DataSource = DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon;
             gridChiTietHoaDon.DataBind();
             formLayoutThanhToan.DataSource = DanhSachHoaDon[MaHoaDon];
+            txtKhachCanTra.ToolTip = string.Format("Tổng cộng: {0:n0}", DanhSachHoaDon[MaHoaDon].TongTien + DanhSachHoaDon[MaHoaDon].CongNo);
             ccbKhachHang.SelectedIndex = DanhSachHoaDon[MaHoaDon].IDKhachHang;
             formLayoutThanhToan.DataBind();
             cmbChonGia.SelectedIndex = 0;
@@ -158,8 +159,8 @@ namespace BanHang
                 exitHang.TonKho = dtCapNhatTonKho.SoLuong_TonKho(IDHangHoa.ToString(), Session["IDKho"].ToString());
                 exitHang.ThanhTien = SoLuong * exitHang.DonGia;
                 DanhSachHoaDon[MaHoaDon].TongTien += SoLuong * exitHang.DonGia - ThanhTienOld;
-                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
-                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
 
             }
             else
@@ -192,8 +193,8 @@ namespace BanHang
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Add(cthd);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang++;
                 DanhSachHoaDon[MaHoaDon].TongTien += cthd.ThanhTien;
-                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
-                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
             }
         }
 
@@ -301,8 +302,8 @@ namespace BanHang
                         exitHang.DoDay = double.Parse(DoDayMoi.ToString());
                         exitHang.ThanhTien = (exitHang.DoDay * exitHang.SoLuong) * exitHang.DonGia;
                         DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
-                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
-                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
                     }
                     else
                     {
@@ -312,8 +313,8 @@ namespace BanHang
                         exitHang.DoDay = double.Parse(DoDayMoi.ToString());
                         exitHang.ThanhTien = double.Parse(SoLuongMoi.ToString()) * exitHang.DonGia;
                         DanhSachHoaDon[MaHoaDon].TongTien += exitHang.ThanhTien - ThanhTienOld;
-                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
-                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
+                        DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
                     }
                 }
             }
@@ -352,8 +353,8 @@ namespace BanHang
                 var itemToRemove =  DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Single(r => r.STT == STT);
                 DanhSachHoaDon[MaHoaDon].SoLuongHang--;
                 DanhSachHoaDon[MaHoaDon].TongTien = DanhSachHoaDon[MaHoaDon].TongTien - itemToRemove.ThanhTien;
-                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien -  DanhSachHoaDon[MaHoaDon].GiamGia;
-                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien - DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachCanTra = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
+                DanhSachHoaDon[MaHoaDon].KhachThanhToan = DanhSachHoaDon[MaHoaDon].TongTien;// -DanhSachHoaDon[MaHoaDon].GiamGia;
                 DanhSachHoaDon[MaHoaDon].ListChiTietHoaDon.Remove(itemToRemove);
                 BindGridChiTietHoaDon();
                 txtBarcode.Focus();
@@ -638,6 +639,8 @@ namespace BanHang
         {
             int MaHoaDon = tabControlSoHoaDon.ActiveTabIndex;
             DanhSachHoaDon[MaHoaDon].IDKhachHang = Int32.Parse(ccbKhachHang.SelectedIndex.ToString());
+            DanhSachHoaDon[MaHoaDon].CongNo = dtBanHangLe.LayCongNo_KhachHang(ccbKhachHang.Value.ToString());
+            BindGridChiTietHoaDon();
         }
 
         /// <summary>
@@ -708,7 +711,7 @@ namespace BanHang
         public int IDKhachHang { get; set; }
         public int SoLuongHang { get; set; }
         public double TongTien { get; set; }
-        public double GiamGia { get; set; }
+        public double CongNo { get; set; }
         public double KhachCanTra { get; set; }
         public double KhachThanhToan { get; set; }
         public double TienThua { get; set; }
@@ -717,7 +720,7 @@ namespace BanHang
         {
             SoLuongHang = 0;
             TongTien = 0;
-            GiamGia = 0;
+            CongNo = 0;
             KhachCanTra = 0;
             KhachThanhToan = 0;
             TienThua = 0;

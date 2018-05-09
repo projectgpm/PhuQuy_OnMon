@@ -6,11 +6,11 @@
         <Paddings PaddingLeft="20px" />
     </dx:ASPxButton>
     <dx:ASPxGridView ID="gridTonKhoBanDau" runat="server" AutoGenerateColumns="False" KeyFieldName="ID" Width="100%" OnHtmlRowPrepared="gridTonKhoBanDau_HtmlRowPrepared" >
-        <SettingsPager PageSize="20">
+        <SettingsPager PageSize="50" Mode="EndlessPaging">
         </SettingsPager>
         <SettingsEditing Mode="PopupEditForm">
         </SettingsEditing>
-        <Settings ShowTitlePanel="True" />
+        <Settings ShowTitlePanel="True" VerticalScrollableHeight="600" />
         <SettingsBehavior ConfirmDelete="True" />
 
         <SettingsCommandButton>
@@ -55,6 +55,11 @@
                 </PropertiesSpinEdit>
             </dx:GridViewDataSpinEditColumn>
         </Columns>
+        <FormatConditions>
+           <dx:GridViewFormatConditionHighlight FieldName="SoLuongCon" Expression="[SoLuongCon] < 6" Format="LightRedFillWithDarkRedText" />
+            <dx:GridViewFormatConditionHighlight FieldName="SoLuongCon" Expression="[SoLuongCon] > 6" Format="GreenFillWithDarkGreenText" />
+            
+        </FormatConditions>
         <Styles>
             <Header Font-Bold="True" HorizontalAlign="Center">
             </Header>

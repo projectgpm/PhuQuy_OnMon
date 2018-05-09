@@ -29,7 +29,7 @@ namespace BanHang.Data
                         cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
                         cmd.Parameters.AddWithValue("@SoLuongHang", hoaDon.SoLuongHang);
                         cmd.Parameters.AddWithValue("@TongTien", hoaDon.TongTien);
-                        cmd.Parameters.AddWithValue("@GiamGia", hoaDon.GiamGia);
+                        cmd.Parameters.AddWithValue("@GiamGia", 0);
                         cmd.Parameters.AddWithValue("@KhachCanTra", hoaDon.KhachCanTra);
                         cmd.Parameters.AddWithValue("@KhachThanhToan", hoaDon.KhachThanhToan);
                         cmd.Parameters.AddWithValue("@MaHoaDon", "");

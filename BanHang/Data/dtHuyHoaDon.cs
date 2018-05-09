@@ -38,7 +38,7 @@ namespace BanHang.Data
                 string cmdText = "SELECT *,([CongNoMoiKhachHang] - [CongNoCuKhachHang]) as CongNoKhachHang FROM [GPM_HoaDon] WHERE [HuyHoaDon] = 0 and [NgayBan] > @NgayHomNay";
                 using (SqlCommand command = new SqlCommand(cmdText, con))
                 {
-                    command.Parameters.AddWithValue("@NgayHomNay", NgayHomNay.AddDays(-10));
+                    command.Parameters.AddWithValue("@NgayHomNay", NgayHomNay.AddDays(-1));
                     SqlDataReader reader = command.ExecuteReader();
                     DataTable tb = new DataTable();
                     tb.Load(reader);

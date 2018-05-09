@@ -13,75 +13,39 @@ namespace BanHang {
     public partial class BaoCaoTonKho {
         
         /// <summary>
-        /// ASPxFormLayout1 control.
+        /// btnXuatFile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxFormLayout ASPxFormLayout1;
+        protected global::DevExpress.Web.ASPxButton btnXuatFile;
         
         /// <summary>
-        /// LayoutItemNestedControlContainer1 control.
+        /// gridTonKhoBanDau control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer1;
+        protected global::DevExpress.Web.ASPxGridView gridTonKhoBanDau;
         
         /// <summary>
-        /// cmbNhomHang control.
+        /// printf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbNhomHang;
+        protected global::DevExpress.Web.ASPxGridViewExporter printf;
         
         /// <summary>
-        /// LayoutItemNestedControlContainer3 control.
+        /// sqlHangHoa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer3;
-        
-        /// <summary>
-        /// cmbHangHoa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxComboBox cmbHangHoa;
-        
-        /// <summary>
-        /// LayoutItemNestedControlContainer9 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.LayoutItemNestedControlContainer LayoutItemNestedControlContainer9;
-        
-        /// <summary>
-        /// btnXemBaoCao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxButton btnXemBaoCao;
-        
-        /// <summary>
-        /// popup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxPopupControl popup;
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlHangHoa;
     }
 }

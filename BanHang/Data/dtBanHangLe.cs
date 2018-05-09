@@ -9,6 +9,26 @@ namespace BanHang.Data
 {
     public class dtBanHangLe
     {
+        public static double LayCongNo_KhachHang(string IDKhachHang)
+        {
+            using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
+            {
+                con.Open();
+                string cmdText = "SELECT CongNo FROM [GPM_KhachHang] WHERE [ID] = " + IDKhachHang;
+                using (SqlCommand command = new SqlCommand(cmdText, con))
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    DataTable tb = new DataTable();
+                    tb.Load(reader);
+                    if (tb.Rows.Count != 0)
+                    {
+                        DataRow dr = tb.Rows[0];
+                        return Double.Parse(dr["CongNo"].ToString());
+                    }
+                    else return 0;
+                }
+            }
+        }
         public double LayGiaBanTheoSoLuong(int IDHangHoa, int SLMua)
         {
             using (SqlConnection con = new SqlConnection(StaticContext.ConnectionString))
@@ -305,7 +325,7 @@ namespace BanHang.Data
                             cmd.Parameters.AddWithValue("@IDNhanVien", IDNhanVien);
                             cmd.Parameters.AddWithValue("@SoLuongHang", hoaDon.SoLuongHang);
                             cmd.Parameters.AddWithValue("@TongTien", hoaDon.TongTien);
-                            cmd.Parameters.AddWithValue("@GiamGia", hoaDon.GiamGia);
+                            cmd.Parameters.AddWithValue("@GiamGia", 0);
                             cmd.Parameters.AddWithValue("@KhachCanTra", hoaDon.KhachCanTra);
                             cmd.Parameters.AddWithValue("@KhachThanhToan", hoaDon.KhachThanhToan);
                             cmd.Parameters.AddWithValue("@MaHoaDon", MaHoaDon);
